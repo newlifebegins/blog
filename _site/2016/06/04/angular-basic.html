@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Angularjs基础</title>
+  <meta name="description" content="1.安装引用">
+
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2016/06/04/angular-basic.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Angularjs基础</h1>
+    <p class="post-meta"><time datetime="2016-06-04T00:00:00+08:00" itemprop="datePublished">Jun 4, 2016</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <h2 id="1安装引用">1.安装引用</h2>
+
+<p>在 http://www.bootcdn.cn/ 中搜索 <code class="highlighter-rouge">angular</code> 下载</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"pathto/angular.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="2简单使用">2.简单使用</h2>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="c">&lt;!-- 这里使用 ng-app 指令  --&gt;</span>
+<span class="nt">&lt;html</span>  <span class="na">ng-app=</span><span class="s">"reminder"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angualr.js"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="c">&lt;!-- 这里使用 ng-controller --&gt;</span>
+  <span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">"mainControler"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- ng-model指令 会在作用域中的 $scope 上 放置一个 info 的属性  值为input的值 --&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">""</span> <span class="na">ng-model=</span><span class="s">"info"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- 双花括号中可以写 angular 表达式  下面写法为取出 $scope上的 info 属性的值--&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+  <span class="c">&lt;!-- controller的作用域范围在这里结束--&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="3以模块化的方式来开发自己的应用-和-依赖注入">3.以模块化的方式来开发自己的应用 和 依赖注入</h2>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span>  <span class="na">ng-app=</span><span class="s">"reminder"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">"mainControler"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;table&gt;</span>
+      <span class="nt">&lt;thead&gt;</span>
+          <span class="nt">&lt;th&gt;</span>
+              <span class="nt">&lt;td&gt;</span>姓名<span class="nt">&lt;/td&gt;</span>
+              <span class="nt">&lt;td&gt;</span>学号<span class="nt">&lt;/td&gt;</span>
+              <span class="nt">&lt;td&gt;</span>性别<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/thead&gt;</span>
+      <span class="nt">&lt;tbody&gt;</span>
+          <span class="c">&lt;!-- ng-repeat 指令能从作用的$scopes身上取到数据，帮我们完成渲染--&gt;</span>
+          <span class="c">&lt;!-- 他会在每次数据变动的时候帮我们重新渲染 --&gt;</span>
+          <span class="nt">&lt;tr</span> <span class="na">ng-repeat=</span><span class="s">"v in students"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;td&gt;</span> <span class="nt">&lt;/td&gt;</span>
+              <span class="nt">&lt;td&gt;</span> <span class="nt">&lt;/td&gt;</span>
+              <span class="nt">&lt;td&gt;</span> <span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;/tr&gt;</span>
+          <span class="nt">&lt;tr&gt;</span>
+              <span class="nt">&lt;td</span> <span class="na">ng-click=</span><span class="s">"addStudent()"</span><span class="nt">&gt;</span>+<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/tbody&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="c1">// 把我们的应用作用单独的一个模块 和系统中的其他模块解耦</span>
+  <span class="kd">var</span> <span class="nx">reminder</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'reminder'</span><span class="p">,[]);</span>
+
+  <span class="c1">// 在我们的模块上创建一个控制器  来控制本模块中某个局部的可见数据</span>
+  <span class="nx">reminder</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'mainControler'</span><span class="p">,[</span><span class="s1">'$scope'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+    <span class="nx">$socpe</span><span class="p">.</span><span class="nx">students</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="p">{</span><span class="na">id</span><span class="p">:</span><span class="mi">1001</span><span class="p">,</span><span class="na">name</span><span class="p">:</span><span class="s1">'A'</span><span class="p">,</span><span class="na">sex</span><span class="p">:</span><span class="s1">'nan'</span><span class="p">},</span>
+      <span class="p">{</span><span class="na">id</span><span class="p">:</span><span class="mi">1002</span><span class="p">,</span><span class="na">name</span><span class="p">:</span><span class="s1">'B'</span><span class="p">,</span><span class="na">sex</span><span class="p">:</span><span class="s1">'nv'</span><span class="p">},</span>
+      <span class="p">{</span><span class="na">id</span><span class="p">:</span><span class="mi">1003</span><span class="p">,</span><span class="na">name</span><span class="p">:</span><span class="s1">'C'</span><span class="p">,</span><span class="na">sex</span><span class="p">:</span><span class="s1">'nan'</span><span class="p">},</span>
+    <span class="p">]</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">addStudent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">stuents</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">id</span><span class="p">:</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">(),</span><span class="na">name</span><span class="p">:</span><span class="s1">'new man'</span><span class="p">,</span> <span class="na">sex</span><span class="p">:</span><span class="s1">'nan'</span><span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}]);</span>
+</code></pre>
+</div>
+
+<h2 id="4常用的装饰型指令">4.常用的装饰型指令</h2>
+
+<p>装饰性指令用来在 view 和 controler 之间协调运作</p>
+
+<p><a href="http://docs.ngnice.com/guide">angularjs 概念介绍</a></p>
+
+<p><a href="http://docs.ngnice.com/api">angularjs API</a></p>
+
+<ul>
+  <li>ng-app</li>
+  <li>
+    <p>ng-controller</p>
+  </li>
+  <li>ng-repeat  // track by $index  可以避免同id属性报错</li>
+  <li>ng-model</li>
+  <li>
+    <p>ng-init</p>
+  </li>
+  <li>ng-class</li>
+  <li>ng-show</li>
+  <li>ng-hide</li>
+  <li>ng-if</li>
+  <li>
+    <p>ng-switch</p>
+  </li>
+  <li>ng-[event]</li>
+  <li>ng-href</li>
+  <li>ng-src</li>
+</ul>
+
+<h2 id="5组件型指令">5.组件型指令</h2>
+
+<p><code class="highlighter-rouge">组件型指令</code> 用来拆分复杂的html页面</p>
+
+<p>实现<code class="highlighter-rouge">组件化开发</code> 和一定程度的 <code class="highlighter-rouge">复用</code></p>
+
+<p>login.html</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"login"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usernam"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"password"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Login<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<p>index.html</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">"reminder"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular.js"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"index.js"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body</span> <span class="na">ng-controller =</span><span class="err"> </span><span class="s">"mainControler"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;login&gt;&lt;/login&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+<p>index.js</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">reminder</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'reminder'</span><span class="p">,[]);</span>
+<span class="c1">// 在整个模块的各个控制器作用域内  login指令都可用</span>
+<span class="nx">reminder</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">'login'</span><span class="p">,[</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="c1">// Runs during compile</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">restrict</span><span class="p">:</span> <span class="s1">'AE'</span><span class="p">,</span> <span class="c1">// E = Element, A = Attribute, C = Class, M = Comment</span>
+    <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'login.html'</span><span class="p">,</span>
+    <span class="c1">// name: '',</span>
+    <span class="c1">// priority: 1,</span>
+    <span class="c1">// terminal: true,</span>
+    <span class="c1">// scope: {}, // {} = isolate, true = child, false/undefined = no change</span>
+    <span class="c1">// controller: function($scope, $element, $attrs, $transclude) {},</span>
+    <span class="c1">// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements</span>
+    <span class="c1">// template: '&lt;h3&gt;Hello Angular&lt;/h3&gt;',</span>
+    <span class="c1">// replace: true,</span>
+    <span class="c1">// transclude: true,</span>
+    <span class="c1">// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),</span>
+    <span class="c1">// link: function($scope, iElm, iAttrs, controller) {</span>
+    <span class="c1">// }</span>
+  <span class="p">};</span>
+<span class="p">}]);</span>
+</code></pre>
+</div>
+
+<h2 id="6在组件型指令中的link函数中使用jquery或jqlite">6.在组件型指令中的link函数中使用jQuery或jqLite</h2>
+
+<p>一般推荐在自定义指令的link函数中使用jquery去操作dom元素.</p>
+
+<p>在link函数中操作$scope身上的数据时一定要注意</p>
+
+<p>调用<code class="highlighter-rouge">$scope.$apply()</code>方法让angular启动脏检查机制来自动刷新页面</p>
+
+<p>调用<code class="highlighter-rouge">$scope.$apply()</code>方法让angular启动脏检查机制来自动刷新页面</p>
+
+<p>调用<code class="highlighter-rouge">$scope.$apply()</code>方法让angular启动脏检查机制来自动刷新页面</p>
+
+<p>另外操作文档或者使用定时函数时，需要注入 <code class="highlighter-rouge">$document</code>, <code class="highlighter-rouge">$timeout</code> 等服务</p>
+
+<p>angular 内部提供 <code class="highlighter-rouge">angular.elements</code> 方法,类似于jQuery方法,得到jqLite对象</p>
+
+<p>jqLite对象中的方法:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+ </span><span class="s2">"ready()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"toString()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"eq()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"length()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"push()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"sort()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"splice()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"data()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"inheritedData()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"scope()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"isolateScope()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"controller()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"injector()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"removeAttr()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"hasClass()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"css()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"attr()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"prop()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"text()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"val()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"html()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"empty()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"removeData()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"bind()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"unbind()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"on()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"off()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"one()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"replaceWith()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"children()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"contents()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"append()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"prepend()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"wrap()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"remove()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"detach()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"after()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"addClass()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"removeClass()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"toggleClass()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"parent()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"next()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"find()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"clone()"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"triggerHandler()"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+<p>如果项目中不使用jQuery插件，jqLite是很好的操作DOM，绑定事件的选择。</p>
+
+<p>在普通的controller中 也可以这样使用：</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">name=</span><span class="s">"button"</span> <span class="na">ng-click=</span><span class="s">"submit($event)"</span><span class="nt">&gt;&lt;/button&gt;</span>
+</code></pre>
+</div>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$scope</span><span class="p">.</span><span class="nx">toggletododetail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$event</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$event</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">elements</span><span class="p">()</span> <span class="c1">// 得到一个JqLite对象</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>  <span class="c1">//查看其中的方法，比jquery少很多</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>如果想使用jquery,先引入jquery 后引入angular.js,jQuery 会自动覆盖jqLite,随后不用任何配置就可以在代码中使用 $.</p>
+
+<h2 id="7-ng-view-指令">7. ng-view 指令</h2>
+
+<p>angular 多页面切换的方式</p>
+
+<p>使用ng-view指令搭配 $routeProvider配置整个应用的 <code class="highlighter-rouge">状态</code></p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular-route.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">""</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;title-bar&gt;&lt;/title-bar&gt;</span>  
+
+   <span class="c">&lt;!-- 当应用处于'#/view'这种状态时，ng-view会被替换成对应的配置好的html页面--&gt;</span>
+   <span class="c">&lt;!-- 通过ajax请求的方式 或者 从缓存中 或者从页面中获取--&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">ng-view</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+   <span class="nt">&lt;tab-bar&gt;</span>
+     <span class="nt">&lt;ul&gt;</span>
+       <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#/view"</span><span class="nt">&gt;&lt;/a&gt;&lt;/li&gt;</span>
+       <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#/"</span><span class="nt">&gt;&lt;/a&gt;&lt;/li&gt;</span>
+     <span class="nt">&lt;/ul&gt;</span>
+   <span class="nt">&lt;/tab-bar&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,[]);</span>
+
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'mainctrl'</span><span class="p">,[</span><span class="s1">'$scope'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+  <span class="c1">//main.html 的控制器</span>
+<span class="p">}]);</span>
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'infoctrl'</span><span class="p">,[</span><span class="s1">'$scope'</span><span class="p">,</span><span class="s1">'$routeParams'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="nx">$routeParams</span><span class="p">){</span>
+  <span class="c1">//info.html 的控制器</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$routeParams</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="p">}]);</span>
+
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s1">'$routeProvider'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$routeProvider</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$routeProvider</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,{</span>
+    <span class="na">controller</span><span class="p">:</span><span class="s1">'main'</span><span class="p">,</span>
+    <span class="na">templateUrl</span><span class="p">:</span><span class="s1">'main.html'</span>
+  <span class="p">}).</span><span class="nx">when</span><span class="p">(</span><span class="s1">'/view/:id'</span><span class="p">,{</span>
+    <span class="na">controller</span><span class="p">:</span><span class="s1">'infoctrl'</span><span class="p">,</span>
+    <span class="na">templateUrl</span><span class="p">:</span><span class="s1">'info.html'</span><span class="p">,</span>
+    <span class="na">publicAccess</span><span class="p">:</span><span class="kc">true</span>
+  <span class="p">}).</span><span class="nx">otherwise</span><span class="p">({</span>
+    <span class="na">redirectTo</span><span class="p">:</span><span class="s1">'/'</span>
+  <span class="p">});</span>
+<span class="p">}])</span>
+</code></pre>
+</div>
+
+<p>通过内置的router了解了其工作原理之后，请在工程中使用 <code class="highlighter-rouge">angular-ui-router</code>;</p>
+
+<p>切换状态可以使用a链接，也可以在js中切换</p>
+
+<p>使用内置的$location 服务</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'listCtrl'</span><span class="p">,[</span>
+  <span class="s1">'$scope'</span><span class="p">,</span>
+  <span class="s1">'$location'</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="nx">$location</span><span class="p">){</span>
+    <span class="nx">$socpe</span><span class="p">.</span><span class="nx">whenClick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">){</span>
+      <span class="nx">$location</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span> <span class="c1">//可读可写，参考文档</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">])</span>
+</code></pre>
+</div>
+
+<h2 id="8-服务">8. 服务</h2>
+
+<p>为什么需要服务?</p>
+
+<blockquote>
+  <p>多页面切换的过程中  有些数据被锁死在对应的controller内。
+ 需要把这些公共的数据以服务的形式组织起来，随需随取</p>
+</blockquote>
+
+<p>服务在整个页面的生命周期中可用,我们一般把和后台做数据交互这样的任务，交给service去做，
+而不是在controller内。</p>
+
+<p>常用一个service代表后台中一张表，及对表的操作</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,[]);</span>
+
+<span class="c1">// 可以在中括号中定义其他需要的服务</span>
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">'$student'</span><span class="p">,[</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">return</span> <span class="p">{</span>
+      <span class="na">students</span><span class="p">:[</span>
+        <span class="p">{...},</span>
+        <span class="p">{...},</span>
+        <span class="p">{...},</span>
+      <span class="p">]</span>
+      <span class="na">getStudentsById</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="p">...</span>
+      <span class="p">},</span>
+      <span class="na">removeStudentsById</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+
+      <span class="p">},</span>
+      <span class="na">updateStudentsById</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+
+      <span class="p">},</span>
+      <span class="na">addStudent</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">){</span>
+
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}]);</span>
+
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">'$copyRight'</span><span class="p">,</span>  <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">'unique'</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">date</span>  <span class="o">=</span> <span class="s1">'2015'</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">generatorCode</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'&lt;span&gt;'</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">+</span><span class="s1">'&lt;/span&gt;&lt;img src="erweima"&gt;'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">constant</span><span class="p">(</span><span class="s1">'$isLogin'</span><span class="p">,</span> <span class="p">{</span><span class="na">islogin</span><span class="p">:</span><span class="kc">false</span><span class="p">});</span>
+
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="s1">'$PI'</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
+
+</code></pre>
+</div>
+
+<h2 id="9在服务中或其他地方使用http服务">9.在服务中或其他地方使用$http服务</h2>
+
+<p>来看一个典型的服务及其使用</p>
+
+<p>所有在服务中同数据库的交互都采用这种方式</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,[</span>
+  <span class="s1">'$http'</span><span class="p">,</span>
+  <span class="s1">'$location'</span><span class="p">,</span>
+  <span class="s1">'$q'</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">,</span><span class="nx">$location</span><span class="p">,</span><span class="nx">$q</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">getAllUser</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">//这里涉及到异步  所以使用$q延后执行</span>
+        <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">();</span>
+        <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/allUser'</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">){</span>
+          <span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">){</span>
+          <span class="nx">deferred</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">User</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">])</span>
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'userCtrl'</span><span class="p">,[</span>
+  <span class="s1">'$scope'</span><span class="p">,</span>
+  <span class="s1">'User'</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="nx">User</span><span class="p">){</span>
+    <span class="c1">//因为期间涉及到异步，所以需要使用promise的编程思路来解决拿不到数据的问题</span>
+    <span class="nx">User</span><span class="p">.</span><span class="nx">getAllUser</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">users</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">},</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">users</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">//处理错误</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">])</span>
+</code></pre>
+</div>
+
+<h2 id="10过滤器">10.过滤器</h2>
+
+<p>有的时候一些展现在页面上的数据需要格式化,有的时候一些展现在页面上列表需要排序，过滤。</p>
+
+<p>我们使用过滤器,内置过滤器参考api文档,自定义过滤器的方式</p>
+
+<p>过滤器的本质是一个函数</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!--prefix 是一个函数  第一个参数为 name 变量  第二个参数为:后面提供的值--&gt;</span>
+<span class="nt">&lt;span&gt;&lt;/span&gt;</span>
+</code></pre>
+</div>
+
+<p>所以自定义过滤器就相当于写一个公用的在整个模块中可用的函数</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="s1">'young'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">type</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span>  <span class="p">[];</span>
+    <span class="kd">var</span> <span class="nx">_sex</span> <span class="o">=</span> <span class="nx">type</span><span class="p">?</span><span class="s1">'nan'</span><span class="p">:</span><span class="s1">'nv'</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">age</span><span class="o">&gt;=</span><span class="mi">12</span> <span class="o">&amp;&amp;</span> <span class="nx">e</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">age</span><span class="o">&lt;=</span><span class="mi">17</span> <span class="o">&amp;&amp;</span> <span class="nx">e</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">sex</span> <span class="o">==</span> <span class="nx">_sex</span><span class="p">){</span>
+        <span class="nx">r</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">r</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>  <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">"stu in students| young:1"</span> <span class="nt">&gt;&lt;/li&gt;</span>
+</code></pre>
+</div>
+
+<p>过滤器可以以类似服务的方式注入到各个 控制器，服务，指令，过滤器。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'indexCtrl'</span><span class="p">,[</span>
+  <span class="s1">'$scope'</span><span class="p">,</span>
+  <span class="s1">'$routeParams'</span><span class="p">,</span>
+  <span class="s1">'User'</span><span class="p">,</span>   <span class="c1">// User为自定义的一个服务</span>
+  <span class="s1">'$filter'</span><span class="p">,</span><span class="c1">// 注入$filter prefix为自定义的一个过滤器</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="nx">$routeParams</span><span class="p">,</span><span class="nx">User</span><span class="p">,</span><span class="nx">$filter</span><span class="p">){</span>
+    <span class="nx">$filter</span><span class="p">(</span><span class="s1">'prefix'</span><span class="p">)();</span><span class="c1">//这样像使用正常函数一样使用它</span>
+  <span class="p">}</span>
+<span class="p">])</span>
+</code></pre>
+</div>
+
+<h2 id="11使用动画">11.使用动画</h2>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular-animate.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+</div>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,[</span><span class="s1">'ngRoute'</span><span class="p">,</span><span class="s1">'ngAnimate'</span><span class="p">]);</span>
+</code></pre>
+</div>
+
+<p>查阅文档 观察class的变化 写css样式来操控动画</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span><span class="err">
+span.ng-enter{
+  /**/
+}
+span.ng-enter-active{
+  /**/
+}
+
+#view.ng-enter{
+
+}
+#view.ng-enter-active{
+
+}
+
+&lt;style&gt;
+&lt;span ng-if="show"&gt; &lt;/span&gt;   
+&lt;ng-view id="view"&gt;&lt;/ng-view&gt;
+</span></code></pre>
+</div>
+
+<h2 id="12自定义指令中的配置项">12.自定义指令中的配置项</h2>
+
+<ul>
+  <li>
+    <p>指令之name属性</p>
+
+    <p>指令的名字，默认和directive第一个参数相同</p>
+  </li>
+  <li>
+    <p>指令之priority属性</p>
+
+    <p>指令的执行优先级，当一个元素身上有两个指令的时候，优先级高的先执行，
+内置指令中，ng-repeat拥有最高优先级</p>
+  </li>
+  <li>
+    <p>指令之terminal属性</p>
+
+    <p>编译器是否在该指令之后继续编译其他指令</p>
+  </li>
+  <li>
+    <p>指令之template属性</p>
+
+    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!--注意这里 type 为  text/ng-template 的script标签--&gt;</span>
+<span class="nt">&lt;script  </span><span class="na">type=</span><span class="s">"text/ng-template"</span> <span class="na">id=</span><span class="s">"tab-bar"</span><span class="nt">&gt;</span>
+<span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span><span class="nt">&lt;/script&gt;</span>
+var myapp = angular.module('myapp',[]);
+myapp.directive('tab-bar',[
+  function(){
+    return {
+      restrict:"AE",
+      template:tab-bar,  //上面那个script标签的id
+    }
+  }
+])
+</code></pre>
+    </div>
+    <p>指定一个字符串或者一个<script type="template/javascript" id="tem"></script>的id
+或者templateCache中的某个名字来作为指令的模板</p>
+  </li>
+  <li>
+    <p>指令之templateUrl属性</p>
+
+    <p>指定一个url地址作为指令的模板</p>
+  </li>
+  <li>
+    <p>指令之scope属性</p>
+
+    <p>声明独立的作用域</p>
+
+    <p>例子.一个轮播图指令,拥有自己独立的作用域,但是需要从父作用域中获取需要轮播的图片地址</p>
+
+    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">"mainCtrl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;lunbo</span> <span class="na">pics=</span><span class="s">"pics"</span> <span class="na">a=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>this is a lunbo<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/lunbo&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre>
+    </div>
+
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">di</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'di'</span><span class="p">,[]);</span>
+<span class="nx">di</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'mainCtrl'</span><span class="p">,[</span>
+<span class="s1">'$scope'</span><span class="p">,</span>
+<span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">pics</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="na">title</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">title</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">title</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+  <span class="p">]</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">addPic</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">pics</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">title</span><span class="p">:</span><span class="mi">4</span><span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">])</span>
+
+<span class="nx">di</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">'lunbo'</span><span class="p">,</span> <span class="p">[</span>
+<span class="kd">function</span><span class="p">(){</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">restrict</span><span class="p">:</span><span class="s1">'AE'</span><span class="p">,</span>
+    <span class="na">replace</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="na">transclude</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="na">template</span><span class="p">:</span><span class="s1">'&lt;div&gt;  &lt;div ng-transclude&gt;&lt;/div&gt; &lt;ul&gt; &lt;li ng-repeat="v in pics  track by $index"&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;/div&gt;'</span><span class="p">,</span>
+    <span class="na">scope</span><span class="p">:{</span>
+      <span class="na">a</span><span class="p">:</span><span class="s1">'@'</span><span class="p">,</span>
+      <span class="na">pics</span><span class="p">:</span><span class="s1">'='</span><span class="p">,</span>
+      <span class="na">addPic</span><span class="p">:</span><span class="s1">'&amp;'</span>
+      <span class="p">},</span>
+      <span class="na">controller</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$scope</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]);</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>指令之controller属性</p>
+
+    <p>生命独立的controller</p>
+  </li>
+  <li>
+    <p>指令之require属性</p>
+
+    <p>设置要注入当前指令链接函数中的其他指令的控制器</p>
+  </li>
+  <li>
+    <p>指令之restrict 属性</p>
+
+    <p>指令在页面中的使用方式</p>
+  </li>
+  <li>
+    <p>指令之replace属性</p>
+
+    <p>指令以元素的方式书写的时候是否替换标签</p>
+  </li>
+  <li>
+    <p>指令之transclude属性</p>
+
+    <p>指令中能不能嵌套包含其他Html元素</p>
+  </li>
+  <li>
+    <p>指令之compile属性</p>
+
+    <p>定义编译函数，编译函数会操作原始DOM，而且会在没有提供link设置的情况下创建链接函数</p>
+  </li>
+  <li>
+    <p>指令之link属性</p>
+
+    <p>在指令编译的最后阶段会调用一次，通常在这里注册事件，操作dom</p>
+
+    <p>如果指令了compile，则link不生效</p>
+  </li>
+</ul>
+
+<h2 id="13利用templatecache来缓存页面">13.利用templateCache来缓存页面</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//会在app启动的时候运行一次</span>
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$templateCache</span><span class="p">){</span>
+  <span class="nx">$templateCache</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">'cache'</span><span class="p">,</span><span class="s1">'&lt;h3&gt;内容来源于缓存!&lt;/h3&gt;'</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">'tsTplcache'</span><span class="p">,</span> <span class="p">[</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="c1">// Runs during compile</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">restrict</span><span class="p">:</span><span class="s1">'EAC'</span><span class="p">,</span>
+    <span class="na">templateUrl</span><span class="p">:</span><span class="s1">'cache'</span><span class="p">,</span>
+    <span class="na">replace</span><span class="p">:</span><span class="kc">true</span>
+  <span class="p">};</span>
+<span class="p">}]);</span>
+</code></pre>
+</div>
+
+<h2 id="14其他">14.其他</h2>
+
+<ul>
+  <li>
+    <p>ng-bind 解决网络不好的情下刷新页面会看到``的问题</p>
+  </li>
+  <li>
+    <p>一次绑定问题 ``</p>
+  </li>
+  <li>
+    <p>$apply  $watch 解决一些监测问题</p>
+
+    <p>$socpe.$wacth()尽量少用</p>
+
+    <p>$scope.$apply()用在link函数中去启动angular脏检查机制，保障数据的同步</p>
+
+    <p>$scope.$apply()用在link函数中去启动angular脏检查机制，保障数据的同步</p>
+
+    <p>$scope.$apply()用在link函数中去启动angular脏检查机制，保障数据的同步</p>
+  </li>
+  <li>
+    <p>其他问题</p>
+
+    <p>使用了过滤器之后  ng-repeat 中的 $index 形同虚设</p>
+
+    <p>需要在数据中使用id来标识一条唯一的数据</p>
+  </li>
+</ul>
+
+<h2 id="15背后的原理">15.背后的原理</h2>
+
+<ul>
+  <li>
+    <p>angular中的mvvm模式</p>
+
+    <p>M(model) V(view) C(controller)</p>
+
+    <p><code class="highlighter-rouge">Model</code>代表数据最原始的样子和逻辑以及对数据的操作</p>
+
+    <blockquote>
+      <p>在web页面中,大部分model都是来自Ajax服务器返回的数据或者全局配置对象. angular中的Service正是封装和处理这些与Model相关的业务逻辑的最佳方式。</p>
+    </blockquote>
+
+    <p><code class="highlighter-rouge">View</code> 是数据最终会呈现的样子</p>
+
+    <blockquote>
+      <p>在angular中 普通的html结构 和 组件型指令就是 view</p>
+    </blockquote>
+
+    <p><code class="highlighter-rouge">Controller</code>负责model对象的初始化.</p>
+
+    <blockquote>
+      <p>在angular中 controller 将调用一个或多个Service来获取模型数据。 并把他放在$scope上,controller也负责提供那些写在view上的装饰性指令所你调用的函数等。</p>
+    </blockquote>
+
+    <p>在angular中因为<code class="highlighter-rouge">Controller</code>和 <code class="highlighter-rouge">View</code> 之间通过 $scope 的数据双向绑定关系。一般angular团队不把自己称为一个<code class="highlighter-rouge">MVC</code>框架，而是 MVVM (model-view-view-model)</p>
+  </li>
+  <li>
+    <p>作用域就像javascript的函数作用域，是层层嵌套的</p>
+  </li>
+  <li>
+    <p>$scope.$apply 可以启动脏检查机制，会在内部调用$digest去查看哪些变量发生了变化，以决定是更新$scope能还是更新页面显示。大部分情况下我们不需要手动调用它是因为在angular的各个服务，控制器中都自动对他进行了调用。如果用原生的方式写个setTimeOut去改变$scope身上的某个变量，就会看到view并不会更新，这时候就需要手动调用$apply.在link函数中也是如此。</p>
+  </li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>node.js开发cmd小程序</title>
+  <meta name="description" content="node.js">
+
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/git/2016/07/04/nodeJs3.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">node.js开发cmd小程序</h1>
+    <p class="post-meta"><time datetime="2016-07-04T00:00:00+08:00" itemprop="datePublished">Jul 4, 2016</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <h1 id="nodejs">node.js</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>node.js 是一个 javascript 运行环境,基于google chrome v8 引擎,现在可以写js代码操作DOM以外的一些东西,比如操作文件,监听tcp端口,发送网络请求(不再是以ajax的方式),发送邮件,解析MP3元数据.........
+</code></pre>
+</div>
+
+<h2 id="一个简单的使用">一个简单的使用</h2>
+
+<p><code class="highlighter-rouge">windows</code> <code class="highlighter-rouge">cmd</code> 常用命令</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>dir
+cd (table补全)
+ctrl+c 两次退出程序
+D: 切换盘符
+</code></pre>
+</div>
+
+<ol>
+  <li><code class="highlighter-rouge">node.js</code>安装</li>
+  <li>打开 <code class="highlighter-rouge">cmd</code> 多出两个命令  <code class="highlighter-rouge">node</code>  <code class="highlighter-rouge">npm</code> (Node Package Manager)</li>
+  <li>新建 <code class="highlighter-rouge">index.js</code></li>
+  <li><code class="highlighter-rouge">var fs =  require('fs');</code></li>
+  <li><code class="highlighter-rouge">fs</code> 这个库中的所有的方法 <code class="highlighter-rouge">fs.appendFile()</code>;</li>
+  <li><code class="highlighter-rouge">fs</code> 等库是Node内置的 可以直接 <code class="highlighter-rouge">require()</code></li>
+  <li>
+    <p><code class="highlighter-rouge">copy-dir</code> <code class="highlighter-rouge">express</code> <code class="highlighter-rouge">mysql</code>..
+这些库是开发者开发的,需要下载出来再 <code class="highlighter-rouge">require()</code></p>
+  </li>
+  <li>下载库的步骤</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>   npm  install express
+   npm  install -g cnpm
+   cnpm install mysql
+</code></pre>
+</div>
+
+<h2 id="利用nodejs自己给cmd中加一个小程序的步骤">利用<code class="highlighter-rouge">nodeJs</code>自己给<code class="highlighter-rouge">cmd</code>中加一个小程序的步骤</h2>
+
+<ol>
+  <li>创建文件夹 <code class="highlighter-rouge">cd</code> 到创建的文件夹 <code class="highlighter-rouge">npm init</code></li>
+  <li>会生成一个 <code class="highlighter-rouge">package.json</code> 文件</li>
+  <li>在 <code class="highlighter-rouge">json</code> 文件中添加</li>
+</ol>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"bin"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"myCopy"</span><span class="p">:</span><span class="s2">"./index.js"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<ol>
+  <li>用 <code class="highlighter-rouge">npm</code> 安装依赖,写 <code class="highlighter-rouge">index.js</code></li>
+  <li>首行要写上<code class="highlighter-rouge">#!c:/nodejs/node.exe --harmony</code></li>
+  <li><code class="highlighter-rouge">node index.js</code> 调试程序</li>
+  <li><code class="highlighter-rouge">npm install -g copy-dir</code></li>
+  <li><code class="highlighter-rouge">npm link</code></li>
+  <li>重启<code class="highlighter-rouge">cmd</code></li>
+  <li>在任何文件夹中使用 <code class="highlighter-rouge">myCopy</code></li>
+</ol>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

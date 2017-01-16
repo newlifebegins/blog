@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Phpcms 的使用</title>
+  <meta name="description" content="什么是web服务器？它是做什么的？">
+
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2016/07/14/phpcms.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Phpcms 的使用</h1>
+    <p class="post-meta"><time datetime="2016-07-14T00:00:00+08:00" itemprop="datePublished">Jul 14, 2016</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <h2 id="什么是web服务器它是做什么的">什么是web服务器？它是做什么的？</h2>
+
+<ol>
+  <li>通过工具打开 WAMP 的 www directory</li>
+  <li>将原有的东西拷贝出去 清空此目录
+把要分享的项目拷贝进来
+保障有index.html(直接就在目录下)</li>
+  <li>通过工具 start all server</li>
+  <li>www directory 会被分享出去</li>
+  <li>别人如何访问？</li>
+  <li>通过ipconfig找到自己的ip地址</li>
+  <li>别人在浏览器中输入192.168.x.y</li>
+  <li>自己如何访问？</li>
+  <li>127.0.0.0 或者 localhost
+都代表了自己的ip地址 通过他们都可以访问</li>
+</ol>
+
+<h2 id="什么是动态网站什么是静态网站">什么是动态网站？什么是静态网站?</h2>
+
+<ul>
+  <li>
+    <p>192.168.3.40/</p>
+  </li>
+  <li>
+    <p>192.168.3.40/index.html</p>
+  </li>
+  <li>
+    <p>192.168.3.40/index.php</p>
+  </li>
+</ul>
+
+<p>请求同一个资源得到的永远是相同的东西称为静态</p>
+
+<p>请求同一个资源会根据情况的不同得到不同的东西称为动态</p>
+
+<h2 id="phpcms-安装流程">phpcms 安装流程</h2>
+
+<ol>
+  <li>解压得到两个文件夹</li>
+  <li>redeme可以删掉（不用）</li>
+  <li>拷贝install_package 下 所有的内容</li>
+  <li>拷贝 到 www directory 打开服务器 分享出去</li>
+  <li>自己访问localhost (/index.html) «««««««</li>
+  <li>按照引导一直点击下一步</li>
+  <li>（全新安装） （ root  空密码留空  1@2.com)</li>
+  <li>phpcms phpcms   // localhost/amdin.php</li>
+</ol>
+
+<h2 id="三个重要的地址">三个重要的地址</h2>
+
+<ul>
+  <li>localhost/admin.php</li>
+  <li>localhost/index.php</li>
+  <li>localhost/phpmyadmin</li>
+</ul>
+
+<h2 id="两个重要的目录">两个重要的目录</h2>
+
+<ol>
+  <li>www/phpcms/tmplates/default/content/</li>
+  <li>www/statics/
+-css/
+-images/
+-js/</li>
+</ol>
+
+<h2 id="几个重要的变量">几个重要的变量</h2>
+
+<ul>
+  <li>{CSS_PATH}</li>
+  <li>{JS_PATH}</li>
+  <li>{IMG_PATH}</li>
+</ul>
+
+<h2 id="管理页面中的链接">管理页面中的链接</h2>
+
+<ol>
+  <li>创建模型</li>
+  <li>创建category_xxx.html  list_xxx.html show_xxx.html</li>
+  <li>模型的名字 模型的数据表名 创建模型的时候选择模版</li>
+  <li>新建栏目  模型选择刚创建的  (记得更新栏目缓存)</li>
+  <li>管理内容  点击栏目名字左侧的＋号  给这个栏目下添加列表内容</li>
+  <li>转入代码</li>
+  <li>在header.html中把所有的一级栏目读取出来 带上链接</li>
+  <li>在list_xxx.html中把这个栏目下的列表简略内容读取出来</li>
+  <li>在show_xxx.html中把列表中的具体内容读取出来</li>
+</ol>
+
+<p>第7步代码</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>{pc:content action="category" catid="0"}
+{php print_r($data)} <span class="err">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> 这行是调试代码
+<span class="nt">&lt;ul&gt;</span>
+{loop $data $r}
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"$r['url']"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span&gt;</span>{$r['catname']}<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+{/loop}
+<span class="nt">&lt;/ul&gt;</span>
+{/pc}
+</code></pre>
+</div>
+<p>第八步代码</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>{pc:content action="lists" catid=$catid}
+<span class="nt">&lt;ul&gt;</span>
+{loop $data $r}
+<span class="nt">&lt;li&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"$r['url']"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span&gt;</span>{$r['title']}<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+{/loop}
+<span class="nt">&lt;/ul&gt;</span>
+{/pc}
+</code></pre>
+</div>
+
+<p>第九步代码</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;span&gt;</span>{$content}<span class="nt">&lt;/span&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="常用代码">常用代码</h2>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+  {loop subcat(12) $k $v}{/loop}  快速遍历子栏目
+
+  {php }  添加一段php代码
+
+  {str_cut($r[title],56,'...')}  截取字符串
+
+  {str_cut(strip_tags($v[description]), 150)}  截取字符串
+
+  {thumb($v[thumb],90,60)}  控制图片大小
+
+  {date('Y-m-d H:i:s',$r[inputtime])}  设置时间输出格式
+
+  {siteurl($siteid)}  返回到首页的链接
+
+  {catpos($catid)}  生成面包屑html
+
+  {template "content","header"} 引入另一个文件
+
+  <span class="c">&lt;!--if语法 和全局的SEO变量--&gt;</span>
+  {if $n==1}class="on" style="margin:0"{/if}  用if输出类名
+  {if isset($SEO['title']) <span class="err">&amp;&amp;</span> !empty($SEO['title'])}
+    {$SEO['title']}
+  {/if}
+  {$SEO['site_title']}
+  {$SEO['keyword']}
+  {$SEO['description']}
+
+
+  <span class="c">&lt;!--文件路径--&gt;</span>
+  {CSS_PATH}
+  {JS_PATH}
+  {IMG_PATH}
+
+
+  <span class="c">&lt;!--show.html页面中可以直接使用的变量(部分)实质上可以使用数据表中的任何一个字段--&gt;</span>
+  {$title}
+  {$content}
+  {$inputtime}
+  {$copyfrom}
+
+
+
+  <span class="c">&lt;!-- 利用CATEGORYS的一些方式--&gt;</span>
+  {$CAT[]}  取本栏目相关信息
+  {$CATEGORYES[][]}  从本栏目开始取其他栏目相关信息
+  {$CATEGORYS[$CAT[parentid]][catname]}  父栏目名称
+  {$CATEGORYS[$CAT[parentid]][url]} 父栏目链接
+  {$CATEGORYS[$CATEGORYS[$CAT[parentid]][parentid]][catname]}  上上级栏目名称
+  {$CATEGORYS[$CATEGORYS[$CAT[parentid]][parentid]][url]}  上上级栏目链接
+
+  <span class="c">&lt;!--获取推荐位下的内容列表--&gt;</span>
+  {pc:content  action="position" posid="9" order="id DESC ASC" num="10" cache="3600" return="test" page="$page"}
+    {loop $test $r}
+       {if $num%2==0}{/if}
+    {/loop}
+  {/pc}
+  {$pages} 分页html字符串
+
+  <span class="c">&lt;!--获取某个栏目下的所有子栏目--&gt;</span>
+  {pc:content action="category" catid="$parentid" num="12" siteid="$siteid" order="listorder ASC"}
+  {loop $data $r}
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{$r[url]}"</span><span class="nt">&gt;</span>{$r[catname]}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  {/loop}
+  {/pc}
+
+  <span class="c">&lt;!-- 获取某个栏目下的所有内容并分页--&gt;</span>
+  {pc:content action="lists" catid="$catid" num="25" order="id DESC" page="$page"}
+  {loop $data $r}
+  	<span class="nt">&lt;li&gt;&lt;span</span> <span class="na">class=</span><span class="s">"rt"</span><span class="nt">&gt;</span>{date('Y-m-d H:i:s',$r[inputtime])}<span class="nt">&lt;/span&gt;</span>·<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{$r[url]}"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="err">{</span><span class="na">title_style</span><span class="err">($</span><span class="na">r</span><span class="err">[</span><span class="na">style</span><span class="err">])}</span><span class="nt">&gt;</span>{$r[title]}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  	{if $n%5==0}<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bk20 hr"</span><span class="nt">&gt;&lt;/li&gt;</span>{/if}
+  {/loop}
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"pages"</span> <span class="na">class=</span><span class="s">"text-c"</span><span class="nt">&gt;</span>{$pages}<span class="nt">&lt;/div&gt;</span>
+
+   <span class="c">&lt;!--遍历数据中的某个数组--&gt;</span>
+  {loop $photos $r}
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{$r[url]}"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"{thumb($r[url], 75, 45, 0)}"</span> <span class="na">alt=</span><span class="s">"{$r[alt]}"</span> <span class="nt">/&gt;&lt;/a&gt;&lt;/li&gt;</span>
+  {/loop}
+
+
+  <span class="c">&lt;!--快速遍历输出该栏目下的子栏目--&gt;</span>
+  {loop $arrchild_arr $cid}
+    <span class="nt">&lt;li</span><span class="err">{</span><span class="na">if</span> <span class="err">$</span><span class="na">catid=</span><span class="s">=$cid}</span> <span class="na">class=</span><span class="s">"cur"</span><span class="err">{/</span><span class="na">if</span><span class="err">}</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{$CATEGORYS[$cid][url]}"</span><span class="nt">&gt;</span>{$CATEGORYS[$cid][catname]}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  {/loop}
+
+
+  <span class="c">&lt;!--show页面的上一篇和下一篇--&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"f14"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;strong&gt;</span>上一篇：<span class="nt">&lt;/strong&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{$previous_page[url]}"</span><span class="nt">&gt;</span>{$previous_page[title]}<span class="nt">&lt;/a&gt;&lt;br</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;strong&gt;</span>下一篇：<span class="nt">&lt;/strong&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{$next_page[url]}"</span><span class="nt">&gt;</span>{$next_page[title]}<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+
+  <span class="c">&lt;!--获取点击次数--&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"hits"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"{APP_PATH}api.php?op=count&amp;id={$id}&amp;modelid={$modelid}"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+  <span class="c">&lt;!--使用sql语句--&gt;</span>
+  {pc:get sql="SELECT * FROM phpcms_member" cache="3600" page="$page"  return="data"}
+  <span class="nt">&lt;ul&gt;</span>
+    {loop $data $key $val}
+    {$val[username]}
+    {/loop}
+  <span class="nt">&lt;/ul&gt;</span>
+  {$pages}
+  {/pc}
+
+
+
+</code></pre>
+</div>
+
+<h2 id="一些常见的问题处理">一些常见的问题处理</h2>
+
+<p>在任何页面都可以使用 {pc}{/pc}</p>
+
+<ul>
+  <li>index.html     $catid = 0;</li>
+  <li>header.html    $catid = ?;  {template “content”,x}</li>
+  <li>footer.html    $catid = ?;  {template “content”,x}</li>
+  <li>cebianlan.html $catid = ?;  {template “content”,x}</li>
+</ul>
+
+<p>在这些页面取栏目</p>
+
+<ul>
+  <li>{pc:content action=”category” catid=0}{/pc}</li>
+  <li>{pc:content action=”category” catid=12}{/pc}
+(12这个栏目可以后台操作不显示在导航)</li>
+</ul>
+
+<p>在这些页面取栏目下的内容</p>
+
+<ul>
+  <li>
+    <p>{pc:content action=”lists” catid = 5}{/pc}</p>
+  </li>
+  <li>category_*.html  $catid = 使用了这个模型的栏目的id</li>
+  <li>(如果一个栏目有子栏目，点击栏目链接会来到category)</li>
+  <li>list_*.html      $catid = 使用了这个模型的栏目的id</li>
+  <li>(如果一个栏目下面再没有子栏目，点击链接会来到list)</li>
+  <li>show_*.html      $catid = 使用了这个模型的栏目的id</li>
+  <li>(每个栏目下用action=”lists”读出来的内容的链接,都是指向对应栏目的show_*.html)</li>
+  <li>page_*.html      $catid = 使用了这个单页的栏目的id</li>
+  <li>(所有单网页的链接都是指向各自的page_*.html)</li>
+</ul>
+
+<p>查找v9_category那张表中parendid 为 x 的栏目</p>
+
+<ul>
+  <li>{pc:content action=”category” catid=x}{/pc}</li>
+</ul>
+
+<p>查找v9_模型那里那张数据表 中 catid 为 x 的条目</p>
+
+<ul>
+  <li>
+    <p>{pc:content action=”lists” catid=x}{/pc}</p>
+  </li>
+  <li>
+    <p>栏目划分的一般方法</p>
+
+    <p>首页  一般不作为栏目添加(直接写在html页面中)</p>
+
+    <p>新闻动态 (尽量使用新闻模型,让下面的子栏目使用同一模型)</p>
+
+    <ul>
+      <li>
+        <p>校内新闻 (新闻模型)</p>
+      </li>
+      <li>
+        <p>国际新闻 (新闻模型)</p>
+      </li>
+      <li>
+        <p>国内新闻 (新闻模型)</p>
+      </li>
+      <li>
+        <p>新闻发布规则 (单网页)</p>
+      </li>
+      <li>
+        <p>bbc       (外链)</p>
+      </li>
+    </ul>
+
+    <p>招聘信息(在首页中是动态的，但是没出现在导航中)</p>
+
+    <p>使用招聘模型把招聘信息作为一个栏目</p>
+
+    <p>(!!!!设置该栏目不在导航显示)</p>
+
+    <p>catid = 89;</p>
+
+    <p>{pc:content action=’lists’ catid=89}{/pc}
+去获取这个隐藏栏目下的内容</p>
+
+    <p>关于我们（其下都是单页）</p>
+
+    <p>新建关于我们 (单页) -&gt; page_a.html</p>
+
+    <ul>
+      <li>
+        <p>公司简介 -&gt; page_a.html</p>
+      </li>
+      <li>
+        <p>董事长简介 -&gt; page_b.html</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

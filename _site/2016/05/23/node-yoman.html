@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>搭建前端自动化开发环境</title>
+  <meta name="description" content="  随着node.js的迅猛发展,前端开发已经脱离了刀耕火种,进入蒸汽机时代。">
+
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2016/05/23/node-yoman.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">搭建前端自动化开发环境</h1>
+    <p class="post-meta"><time datetime="2016-05-23T00:00:00+08:00" itemprop="datePublished">May 23, 2016</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <blockquote>
+  <p>随着<code class="highlighter-rouge">node.js</code>的迅猛发展,前端开发已经脱离了刀耕火种,进入蒸汽机时代。</p>
+</blockquote>
+
+<blockquote>
+  <p>这里介绍一些基于<code class="highlighter-rouge">node.js</code>的前端自动化开发工具:</p>
+</blockquote>
+
+<h2 id="nodejs----npm">node.js  &amp;&amp;  npm</h2>
+
+<blockquote>
+  <p>Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world.</p>
+</blockquote>
+
+<p>最简单的理解：</p>
+
+<p><code class="highlighter-rouge">node.js</code>又提供了一个javascript的运行环境,以前,javascript代码可以在浏览器中运行,现在,它可以在node.js所搭建的运行环境中运行了.</p>
+
+<p>浏览器并不是一个理想的代码运行环境,浏览器在给javascript扩展API的时候,基于安全的考虑,很多功能都不能做.比如操作文件,随意的处理网络请求.所以,在以前,javascript相对于python,ruby 是一门<code class="highlighter-rouge">不完善的语言</code>.</p>
+
+<p>在node.js这个运行环境中,并没有这样那样的限制,在这里,javascript成功变成了python,ruby,变成了一门<code class="highlighter-rouge">真正的语言</code>.</p>
+
+<p>windows下 node.js 的安装很简单,访问<a href="https://nodejs.org"><code class="highlighter-rouge">node.js官网</code></a>,下载安装包,默认安装就好.</p>
+
+<p>打开控制台测试是否安装成功</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>node -v
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">npm</code> 是node.js的包管理工具, node.js以模块的方式组织代码,允许任何人提交一个模块,来扩展javascript, npm用来管理这些模块</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>npm -v
+npm install -g bower
+</code></pre>
+</div>
+
+<p>如果有的包安装不上 复制以下代码替换 <code class="highlighter-rouge">x</code> 为安装不上的包 (会带来一定的问题,建议翻墙)</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code> npm install x --registry<span class="o">=</span>http://registry.npm.taobao.org
+</code></pre>
+</div>
+
+<h2 id="bower">bower</h2>
+
+<p><code class="highlighter-rouge">npm install -g bower</code></p>
+
+<p>包管理工具,把项目中所依赖的文件保存在bower.json中，只需分享给别人bower.json即可</p>
+
+<p><code class="highlighter-rouge">bower install</code></p>
+
+<p>寻找bower.json文件 把依赖项全部安装</p>
+
+<p><code class="highlighter-rouge">bower install  在bower官网注册的库  --save</code></p>
+
+<p>安装一个库，把库作为依赖项写入bower.json</p>
+
+<p><code class="highlighter-rouge">bower install  网址 --save</code></p>
+
+<p><code class="highlighter-rouge">bower install  github短语  --save</code></p>
+
+<blockquote>
+  <p>bower 依赖git
+把git命令添加到环境变量的方法:
+在c盘中搜索 git.exe  找到它所处的位置,添加到环境变量</p>
+</blockquote>
+
+<h2 id="grunt--gulp">grunt &amp;&amp; gulp</h2>
+
+<p><code class="highlighter-rouge">npm install -g gulp</code></p>
+
+<p><a href="https://github.com/yeoman/generator-webapp/blob/master/app/templates/gulpfile.js">一个典型的gulp配置文件</a>;</p>
+
+<h2 id="yeomon">yeomon</h2>
+
+<p><code class="highlighter-rouge">npm install -g yo</code></p>
+
+<p><code class="highlighter-rouge">npm install -g generator-webapp</code></p>
+
+<p><code class="highlighter-rouge">yo webapp</code></p>
+
+<p>脚手架，一键自动生成一个配置好的项目，包括目录结构，项目依赖，开发依赖</p>
+
+<p>一般和bower gulp 结合</p>
+
+<p>自定义一个yeoman 包</p>
+
+<p>详细步骤见: <a href="http://yeoman.io/authoring/">创建一个脚手架</a></p>
+
+<p>大致如下</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>npm install -g generator-generator
+yo generator
+</code></pre>
+</div>
+
+<p>会生成一个目录结构</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>--generators/
+----app/
+------temlates/   此目录中放静态文件,以供拷贝
+------index.js    默认会运行的文件
+
+其他省略
+</code></pre>
+</div>
+
+<p>编写index.js</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="s1">'use strict'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">yeoman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'yeoman-generator'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'chalk'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">yosay</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'yosay'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">wiredep</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'wiredep'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">mkdirp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mkdirp'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">_s</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'underscore.string'</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">yeoman</span><span class="p">.</span><span class="nx">Base</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+  <span class="na">prompting</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Have Yeoman greet the user.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">yosay</span><span class="p">(</span>
+      <span class="s1">'Welcome to the remarkable '</span> <span class="o">+</span> <span class="nx">chalk</span><span class="p">.</span><span class="nx">red</span><span class="p">(</span><span class="s1">'generator-mobile-app-myl'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' generator!'</span>
+    <span class="p">));</span>
+
+    <span class="kd">var</span> <span class="nx">prompts</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="s1">'confirm'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'includeBootStrap'</span><span class="p">,</span>
+        <span class="na">message</span><span class="p">:</span> <span class="s1">'Would you like to use bootStrap?'</span><span class="p">,</span>
+        <span class="na">default</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="s1">'confirm'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'includeJquery'</span><span class="p">,</span>
+        <span class="na">message</span><span class="p">:</span> <span class="s1">'Would you like to use jQuery?'</span><span class="p">,</span>
+        <span class="na">default</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="s1">'confirm'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'includeTouch'</span><span class="p">,</span>
+        <span class="na">message</span><span class="p">:</span> <span class="s1">'Would you like to use Baidu Touch.js?'</span><span class="p">,</span>
+        <span class="na">default</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="s1">'confirm'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'includeSwiper'</span><span class="p">,</span>
+        <span class="na">message</span><span class="p">:</span> <span class="s1">'Would you like to use Swiper.js?'</span><span class="p">,</span>
+        <span class="na">default</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="s1">'input'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span><span class="s1">'name'</span><span class="p">,</span>
+        <span class="na">message</span> <span class="p">:</span><span class="s1">'you app name?'</span><span class="p">,</span>
+        <span class="na">default</span><span class="p">:</span><span class="s1">'mobile'</span>
+      <span class="p">}</span>
+    <span class="p">];</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="nx">prompts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">props</span> <span class="o">=</span> <span class="nx">props</span><span class="p">;</span>
+    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+  <span class="p">},</span>
+
+  <span class="na">default</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">())</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+        <span class="s1">'Your generator must be inside a folder named '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">'\n'</span> <span class="o">+</span>
+        <span class="s1">'I\'ll automatically create this folder.'</span>
+      <span class="p">);</span>
+      <span class="nx">mkdirp</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">destinationRoot</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="na">writing</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">packageJson</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">"private"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"devDependencies"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"gulp"</span><span class="p">:</span> <span class="s2">"^3.9.0"</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeJSON</span><span class="p">(</span><span class="s1">'package.json'</span><span class="p">,</span><span class="nx">packageJson</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">bowerJson</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">appname</span><span class="p">,</span>
+      <span class="na">private</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">main</span><span class="p">:</span> <span class="s1">'index.html'</span><span class="p">,</span>
+      <span class="na">dependencies</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">};</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">includeJquery</span><span class="p">){</span>
+      <span class="nx">bowerJson</span><span class="p">.</span><span class="nx">dependencies</span><span class="p">[</span><span class="s1">'jquery'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'~2.1.1'</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">includeBootStrap</span><span class="p">){</span>
+      <span class="nx">bowerJson</span><span class="p">.</span><span class="nx">dependencies</span><span class="p">[</span><span class="s1">'bootstrap'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'^3.3.6'</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">includeTouch</span><span class="p">){</span>
+      <span class="nx">bowerJson</span><span class="p">.</span><span class="nx">dependencies</span><span class="p">[</span><span class="s1">'touch.code.baidu.com'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Clouda-team/touch.code.baidu.com'</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">includeSwiper</span><span class="p">){</span>
+      <span class="nx">bowerJson</span><span class="p">.</span><span class="nx">dependencies</span><span class="p">[</span><span class="s1">'Swiper'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'swiper#^3.3.1'</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeJSON</span><span class="p">(</span><span class="s1">'bower.json'</span><span class="p">,</span><span class="nx">bowerJson</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">fs</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">templatePath</span><span class="p">(</span><span class="s1">'main.js'</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">(</span><span class="s1">'scripts/main.js'</span><span class="p">)</span>
+    <span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">fs</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">templatePath</span><span class="p">(</span><span class="s1">'gitignore'</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">(</span><span class="s1">'.gitignore'</span><span class="p">)</span>
+    <span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">fs</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">templatePath</span><span class="p">(</span><span class="s1">'main.scss'</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">(</span><span class="s1">'styles/main.scss'</span><span class="p">)</span>
+    <span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">fs</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">templatePath</span><span class="p">(</span><span class="s1">'index.html'</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">(</span><span class="s1">'index.html'</span><span class="p">)</span>
+    <span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">fs</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">templatePath</span><span class="p">(</span><span class="s1">'touch/'</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">(</span><span class="s1">'images/touch/'</span><span class="p">)</span>
+    <span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="na">install</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">installDependencies</span><span class="p">({</span> <span class="p">});</span>
+  <span class="p">},</span>
+  <span class="na">end</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">wiredep</span><span class="p">({</span> <span class="na">src</span><span class="p">:</span> <span class="s1">'index.html'</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>然后</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>npm link
+</code></pre>
+</div>
+
+<p>随后就可以  <code class="highlighter-rouge">yo name</code> 了</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

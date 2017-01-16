@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Fullpage 插件配置项</title>
+  <meta name="description" content="jQuery插件">
+
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2016/04/05/fullpage-js.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Fullpage 插件配置项</h1>
+    <p class="post-meta"><time datetime="2016-04-05T00:00:00+08:00" itemprop="datePublished">Apr 5, 2016</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <h2 id="jquery插件">jQuery插件</h2>
+
+<blockquote>
+  <p>插件调用</p>
+</blockquote>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"lunbo"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jqeury.lunbo.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#lunbo'</span><span class="p">).</span><span class="nx">lunbo</span><span class="p">({</span>
+  <span class="c1">//一些配置项</span>
+  <span class="na">time</span><span class="p">:</span><span class="mi">40</span><span class="p">;</span>
+  <span class="nl">step</span><span class="p">:</span><span class="kd">function</span><span class="p">(){}</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>jQuery 插件文件</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">lunbo</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="na">lunbo</span><span class="p">:</span><span class="nx">lunbo</span><span class="p">;</span>
+  <span class="p">})</span>
+<span class="p">})(</span><span class="nx">jQuery</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="cdn-content-deliver-network-内容分发网络">cdn (content deliver network) 内容分发网络</h2>
+
+<p>如果百度使用了 <code class="highlighter-rouge">某个</code> cdn中的jquery.js,而且用户打开过百度,
+我们自己同样使用了 <code class="highlighter-rouge">同一个</code> cdn中的jquery.js,
+用户打开我们的网页时使用浏览器缓存中的jquery.js.</p>
+
+<blockquote>
+  <p>例子</p>
+</blockquote>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/index.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.boot.com/jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./js/index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="fullpage-插件基本使用"><a href="full-page">fullpage</a> 插件基本使用</h2>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"jquery.fullPage.css"</span> <span class="na">media=</span><span class="s">"screen"</span> <span class="na">title=</span><span class="s">"no title"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jquery.fullPage.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#fullpage'</span><span class="p">).</span><span class="nx">fullpage</span><span class="p">({</span>
+    <span class="c1">//这里是配置项</span>
+  <span class="p">});</span>
+<span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"fullpage"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span> <span class="na">id=</span><span class="s">"section-1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span> <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span> <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span> <span class="na">id=</span><span class="s">"section-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span> <span class="na">id=</span><span class="s">"section-3"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>每滚动一屏，会给当前section加上　active class</p>
+</blockquote>
+
+<blockquote>
+  <p>所以我们可以写出类似下面这样的 scss 文件来操控动画</p>
+</blockquote>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nf">#section1</span><span class="p">{</span>
+  <span class="err">h1{</span>
+    <span class="c">/**/</span>
+  <span class="p">}</span>
+  <span class="nt">h2</span><span class="p">{</span>
+    <span class="nl">transition</span><span class="p">:</span> <span class="c">/**/</span>
+  <span class="p">}</span>
+<span class="err">}</span>
+<span class="nf">#section1</span><span class="nc">.active</span><span class="p">{</span>
+  <span class="err">h1{</span>
+    <span class="nl">animation</span><span class="p">:</span><span class="c">/**/</span>
+  <span class="p">}</span>
+  <span class="nt">h2</span><span class="p">{</span>
+    <span class="c">/**/</span>
+  <span class="p">}</span>
+<span class="err">}</span>
+</code></pre>
+</div>
+
+<h2 id="插件配置项">插件配置项</h2>
+
+<ul>
+  <li>
+    <p>sectionsColor</p>
+
+    <p>一个数组 规定了各个section的颜色</p>
+  </li>
+  <li>
+    <p>verticalCentered</p>
+
+    <p>每一页的内容是否垂直居中，默认值为true</p>
+  </li>
+  <li>
+    <p>resize</p>
+
+    <p>字体大小是否随窗口缩放而缩放 默认值为false</p>
+  </li>
+  <li>
+    <p>scrollingSpeed</p>
+
+    <p>滚动速度,默认为700毫秒</p>
+  </li>
+  <li>
+    <p>anchors</p>
+
+    <p>给每个section定义锚链接</p>
+  </li>
+  <li>
+    <p>lockAnchors</p>
+
+    <p>是否锁定锚链接</p>
+  </li>
+  <li>
+    <p>active class</p>
+
+    <p>默认显示哪个section</p>
+  </li>
+  <li>
+    <p>easing</p>
+
+    <p>定义页面section滚动的动画方式
+设置这个值需要引入jquery.easings 插件</p>
+  </li>
+  <li>
+    <p>css3</p>
+
+    <p>默认为true,使用css3 transform 来实现页面滚动动画</p>
+  </li>
+  <li>
+    <p>loopTop</p>
+
+    <p>滚动到最顶部后是否连续滚动到底部，默认值为false</p>
+  </li>
+  <li>
+    <p>loopBottom</p>
+
+    <p>滚动到最底部后是否连续滚动回顶部 默认值为false</p>
+  </li>
+  <li>
+    <p>loopHorizontal</p>
+
+    <p>横向slide幻灯片是否循环滚动，默认值为true</p>
+  </li>
+  <li>
+    <p>autoScrolling</p>
+
+    <p>是否使用插件的滚动方式，默认值为true, 如果设置为false,则会出现浏览器自带的滚动条</p>
+  </li>
+  <li>
+    <p>scrollBar</p>
+
+    <p>是否包含滚动条，默认值为false
+如果设置为true,则浏览器自带的滚动条出现
+页面滚动时还是页滚动，但是滚动条的默认行为也效果</p>
+  </li>
+  <li>
+    <p>paddingTop  paddingBottom</p>
+
+    <p>设置每一个section顶部和底部的padding，默认值为0
+如果我们需要设置一个固定在顶部或者底部的菜单，导航，元素等，可以使用这两个配置项</p>
+  </li>
+  <li>
+    <p>fixedElements</p>
+
+    <p>普通方式书写的固定定位元素会被插件覆盖
+需要我们通过指定这个属性才会生效，参数为一个jquery选择器</p>
+  </li>
+  <li>
+    <p>keyboardScrolling</p>
+
+    <p>是否可以使用键盘方向键导航，默认值为true</p>
+  </li>
+  <li>
+    <p>touchSensitivity</p>
+
+    <p>在移动设备中滑动页面的敏感性，默认为5，按百分比衡量，越大则越难滑动</p>
+  </li>
+  <li>
+    <p>continuousVertical</p>
+
+    <p>是否循环滚动，默认值为false，如果设置为true,则页面会循环滚动，
+不像loopTop loopBottom那样出现跳动 这个属性和loopTop loopBottom 不兼容 不要同时设置</p>
+  </li>
+  <li>
+    <p>animateAnchor</p>
+
+    <p>锚链接是否可以控制滚动动画，默认为true。如果设置为false,则通过锚链接定位到某个页面显示不再有动画</p>
+  </li>
+  <li>
+    <p>recordHistory</p>
+
+    <p>是否记录历史,默认为true,可以记录页面滚动的地址
+通过浏览器前进和后退按钮来导航</p>
+  </li>
+  <li>
+    <p>menu</p>
+
+    <p>绑定菜单，设定的相关属性与anchors的值对应后，菜单可以控制滚动，默认值为 false
+可以设置为菜单的jquery选择器</p>
+
+    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"fullpageMenu"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">data-menuanchor=</span><span class="s">"page1"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#page1"</span><span class="nt">&gt;</span>1<span class="err">&lt;</span>/a<span class="nt">&lt;/li&gt;</span>
+  .....
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>navigation</p>
+
+    <p>是否显示导航，默认false 如果设置为true 会显示小圆点，作为导航</p>
+  </li>
+  <li>
+    <p>navigationPosition</p>
+
+    <p>导航小圆点位置，可以设置为left或者right</p>
+  </li>
+  <li>
+    <p>navigationTooltips</p>
+
+    <p>导航小圆点的tooltips设置，默认为[],按照顺序放置</p>
+  </li>
+  <li>
+    <p>showActiveTooltip</p>
+
+    <p>是否显示当前页面的导航的tooltip信息，默认为false</p>
+  </li>
+  <li>
+    <p>slidesNavigation</p>
+
+    <p>是否显示横向幻灯片的导航，默认值为false</p>
+  </li>
+  <li>
+    <p>slidesNavPosition</p>
+
+    <p>横向幻灯片导航的位置，默认为bottom 可以设置为top</p>
+  </li>
+  <li>
+    <p>controlArrows</p>
+
+    <p>定义是否通过箭头来控制slide幻灯片,默认值为true
+在移动设备上可以通过滑动来操作幻灯片</p>
+  </li>
+  <li>
+    <p>scrollOverflow</p>
+
+    <p>内容超过满屏后是否显示滚动条，默认为false. 如果设置为true,则会显示滚动条
+如果要滚动查看内容，还需要jquery.slimscroll插件，该插件主要用于模拟传统的浏览器滚动条</p>
+  </li>
+  <li>
+    <p>sectionSelector</p>
+
+    <p>section的选择器，默认为.section</p>
+  </li>
+  <li>
+    <p>slideSelector</p>
+
+    <p>slide的选择器 默认为.slide.</p>
+  </li>
+</ul>
+
+<h2 id="配置项中的回调函数">配置项中的回调函数</h2>
+
+<ul>
+  <li>
+    <p>afterLoad(anchorLink,index)</p>
+
+    <p>滚动到某一section，且滚动结束后，会触发一次此回调函数，函数接收 anchorLink 和index 两个参数，
+anchorLink 是锚链接的名称 index 是序号  从1开始计算
+可以根据 anchorLink 和 index的参数值判断触发相应的事件</p>
+  </li>
+  <li>
+    <p>onLeave(index,nextIndex,direction)</p>
+
+    <p>离开一个section时触发，通过return false可以取消滚动
+离开的序号 到达的序号  滚动的方向</p>
+  </li>
+  <li>
+    <p>afterRender()</p>
+
+    <p>页面结构生成之后的回调函数</p>
+  </li>
+  <li>
+    <p>afterResize()</p>
+
+    <p>浏览器窗口尺寸改变之后的回调函数</p>
+  </li>
+  <li>
+    <p>afterSlideLoad()</p>
+
+    <p>滚动到某一个幻灯片后的回调函数</p>
+  </li>
+  <li>
+    <p>onSlideLeave</p>
+
+    <p>离开一个slide之后的回调函数</p>
+  </li>
+</ul>
+
+<h2 id="fnfullpage-对象中的方法介绍">$.fn.fullpage 对象中的方法介绍</h2>
+
+<ul>
+  <li>
+    <p>moveSectionUp()</p>
+  </li>
+  <li>
+    <p>moveSectionDown()</p>
+
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="nx">$</span><span class="p">(</span><span class="s1">'#movedown'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">fullpage</span><span class="p">.</span><span class="nx">moveSectionDown</span><span class="p">();</span>
+  <span class="p">})</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>moveTo(section,slide)</p>
+
+    <p>滚动到第几页，第几个幻灯片，注意，页面从1开始，而幻灯片从0开始</p>
+  </li>
+  <li>
+    <p>silentMoveTo(section,slide)</p>
+
+    <p>滚动到第几页，和moveTo一样，但是没有动画效果</p>
+  </li>
+  <li>
+    <p>moveSlideRight()</p>
+
+    <p>幻灯片向右滚动</p>
+  </li>
+  <li>
+    <p>moveSlideLeft()</p>
+
+    <p>幻灯片向左滚动</p>
+  </li>
+  <li>
+    <p>setAutoScrolling()</p>
+  </li>
+  <li>
+    <p>setLockAnchors()</p>
+  </li>
+  <li>
+    <p>setRecordHistory()</p>
+  </li>
+  <li>
+    <p>setScrollingSpeed()</p>
+  </li>
+  <li>
+    <p>setAllowScrolling(boolean,[directions])</p>
+
+    <p>添加或删除鼠标滚轮/滑动控制，第一个参数true为启用，false 为禁用
+后面的参数为方向，取值包含 all,up,down,left,right,可以使用多个，逗号隔开</p>
+  </li>
+  <li>
+    <p>destory(type)</p>
+
+    <p>销毁fullpage特效，type可以不写，或者使用all,不写type,fullpage给页面添加的样式和html元素还在
+如果使用all,则样式 html等全部销毁</p>
+  </li>
+  <li>
+    <p>reBuild()</p>
+
+    <p>重新更新页面和尺寸，用于通过ajax请求后改变了页面结构之后，重建效果</p>
+  </li>
+</ul>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

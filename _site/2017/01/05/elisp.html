@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>emacs 插件开发</title>
+  <meta name="description" content="```elisp">
+
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2017/01/05/elisp.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">emacs 插件开发</h1>
+    <p class="post-meta"><time datetime="2017-01-05T00:00:00+08:00" itemprop="datePublished">Jan 5, 2017</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="c1">;; global-set-key为函数 接收两个参数</span>
+<span class="c1">;; 一个字符串 "\M-r" 代表Alt+r</span>
+<span class="c1">;; 一个函数   前面用`符号表示该参数为函数</span>
+
+<span class="p">(</span><span class="nv">global-set-key</span> <span class="s">"\M-r"</span> <span class="o">`</span><span class="nv">indent-buffer</span><span class="p">)</span>
+
+<span class="c1">;; 等价于</span>
+<span class="p">(</span><span class="nv">global-set-key</span> <span class="s">"\M-r"</span> <span class="p">(</span><span class="k">quote</span> <span class="nv">indent-buffer</span><span class="p">))</span>
+
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">string</code>,<code class="highlighter-rouge">Numbers</code>, <code class="highlighter-rouge">characters</code>, <code class="highlighter-rouge">vectors</code> 求值是 <code class="highlighter-rouge">self-evaluating</code> , 不用加 <code class="highlighter-rouge">quote</code></p>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">other-window-backward</span> <span class="p">()</span>
+  <span class="c1">;; interactive 让该函数变为可交互式函数  ALT+x 会看到</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">other-window</span> <span class="mi">-1</span><span class="p">))</span>
+
+</code></pre>
+</div>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">other-window-backward</span> <span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+  <span class="c1">;; 有interactive "p" 这个标示的函数 n默认为1 指定次数调用的时候 n为指定的次数</span>
+  <span class="p">(</span><span class="nv">interactive</span> <span class="s">"p"</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">other-window</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n</span><span class="p">)))</span>
+
+</code></pre>
+</div>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">other-window-backward</span> <span class="p">(</span><span class="k">&amp;optional</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="c1">;; &amp;optional 代表参数可选</span>
+  <span class="p">(</span><span class="nv">interactive</span> <span class="s">"p"</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="nv">n</span>
+      <span class="p">(</span><span class="nv">other-window</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n</span><span class="p">))</span>
+      <span class="p">(</span><span class="nv">other-window</span> <span class="p">(</span><span class="nb">-</span> <span class="mi">1</span><span class="p">))))</span>
+
+</code></pre>
+</div>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">other-window-backward</span> <span class="p">(</span><span class="k">&amp;optional</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="c1">;; &amp;optional 代表参数可选</span>
+  <span class="p">(</span><span class="nv">interactive</span> <span class="s">"p"</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">other-window</span> <span class="p">(</span><span class="nb">-</span> <span class="p">(</span><span class="nb">or</span> <span class="nv">n</span> <span class="mi">1</span><span class="p">))))</span>
+<span class="c1">;;(other-window (if n (- n ) -1)))</span>
+
+</code></pre>
+</div>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">other-window-backward</span> <span class="p">(</span><span class="k">&amp;optional</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="c1">;; P 为大写</span>
+  <span class="p">(</span><span class="nv">interactive</span> <span class="s">"P"</span><span class="p">)</span>
+  <span class="c1">;; prefix-numeric-value 为emacs内置函数 等价于以上</span>
+  <span class="p">(</span><span class="nv">other-window</span> <span class="p">(</span><span class="nb">-</span> <span class="p">(</span><span class="nv">prefix-numeric-value</span> <span class="nv">n</span><span class="p">))))</span>
+
+</code></pre>
+</div>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="p">(</span><span class="nv">defalias</span> <span class="o">`</span><span class="nv">scroll-ahead</span> <span class="o">`</span><span class="nv">scroll-up</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">defalias</span> <span class="o">`</span><span class="nv">scroll-behind</span> <span class="o">`</span><span class="nv">scroll-down</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">scroll-n</span> <span class="p">(</span><span class="k">&amp;optional</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">interactive</span> <span class="s">"P"</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">scroll-ahead</span> <span class="p">(</span><span class="nv">prefix-numeric-value</span> <span class="nv">n</span><span class="p">)))</span>
+
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">hook</code>本质上是一个变量,值为一个列表,列表中有一个或多个函数,这些函数会在某个指定的条件下依次执行</p>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">read-only-if-symlink</span> <span class="p">()</span>
+  <span class="c1">;; file-symlink-p 函数返回一个文件是否为链接文件 p代表predicate(断言)</span>
+  <span class="c1">;; buffer-file-name 当前buffer的绝对路径</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">file-symlink-p</span> <span class="nv">buffer-file-name</span><span class="p">)</span>
+      <span class="c1">;; progn 顺序解析其后的所有表达式 最终值为最后一个表达式的值</span>
+      <span class="p">(</span><span class="k">progn</span>
+       <span class="p">(</span><span class="k">setq</span> <span class="nv">buffer-read-only</span> <span class="no">t</span><span class="p">)</span>
+       <span class="p">(</span><span class="nv">message</span> <span class="s">"File is a symlink"</span><span class="p">))))</span>
+
+<span class="p">(</span><span class="nv">add-hook</span> <span class="o">`</span><span class="nv">find-file-hooks</span> <span class="o">`</span><span class="nv">read-only-if-symlink</span><span class="p">)</span>
+
+<span class="c1">;; (remove-hook `find-file-hooks `read-only-if-symlink)</span>
+
+</code></pre>
+</div>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="c1">;; 只是演示 在hook中不用使用lambda</span>
+<span class="p">(</span><span class="nv">add-hook</span> <span class="o">`</span><span class="nv">find-file-hooks</span>
+          <span class="o">`</span><span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+             <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">file-symlink-p</span> <span class="nv">buffer-file-name</span><span class="p">)</span>
+                 <span class="p">(</span><span class="k">progn</span>
+                  <span class="p">(</span><span class="k">setq</span> <span class="nv">buffer-read-only</span> <span class="no">t</span><span class="p">)</span>
+                  <span class="p">(</span><span class="nv">message</span> <span class="s">"File is symlink"</span><span class="p">)))))</span>
+
+</code></pre>
+</div>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="c1">;; 报错信息</span>
+<span class="p">(</span><span class="nb">error</span> <span class="s">"This is error"</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code>
+<span class="c1">;; 使用局部变量</span>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">local-var</span> <span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">x</span> <span class="mi">12</span><span class="p">))</span>
+    <span class="p">(</span><span class="nb">*</span> <span class="nv">n</span> <span class="nv">x</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="nv">local-var</span> <span class="mi">20</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h2 id="命令配合">命令配合</h2>
+
+<h2 id="搜索和编辑buffer表">搜索和编辑buffer表</h2>
+
+<h2 id="minor-mode">Minor Mode</h2>
+
+<h2 id="调试">调试</h2>
+
+<h2 id="major-mode">Major Mode</h2>
+
+<h2 id="完整的例子">完整的例子</h2>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

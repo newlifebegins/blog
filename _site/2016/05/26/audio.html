@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Audio对象身上的属性方法和事件</title>
+  <meta name="description" content="  一个audio对象就是普通的dom对象比其他的dom对象多出一些自己独有的属性方法和事件">
+
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2016/05/26/audio.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Audio对象身上的属性方法和事件</h1>
+    <p class="post-meta"><time datetime="2016-05-26T00:00:00+08:00" itemprop="datePublished">May 26, 2016</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <blockquote>
+  <p>一个audio对象就是普通的dom对象
+比其他的dom对象多出一些自己独有的属性方法和事件</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">audio</span> <span class="o">=</span>  <span class="nx">$</span><span class="p">(</span><span class="s1">'audio'</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h2 id="属性">属性</h2>
+
+<ul>
+  <li>
+    <p>audio.volume</p>
+
+    <p>(读/写) 音量</p>
+  </li>
+  <li>
+    <p>audio.src</p>
+
+    <p>(读/写) 歌曲地址</p>
+  </li>
+  <li>
+    <p>audio.currentTime</p>
+
+    <p>(读/写) 歌曲当前已播放时长</p>
+  </li>
+  <li>
+    <p>audio.duration</p>
+
+    <p>(读) 歌曲的总长度</p>
+  </li>
+  <li>
+    <p>audio.paused</p>
+
+    <p>(读) 布尔类型 是否处于暂停状态</p>
+  </li>
+  <li>
+    <p>audio.ended</p>
+
+    <p>(读) 布尔类型 歌曲是否已经播放完毕</p>
+  </li>
+</ul>
+
+<h2 id="方法">方法</h2>
+
+<ul>
+  <li>
+    <p>audio.play()</p>
+
+    <p>让歌曲开始播放</p>
+  </li>
+  <li>
+    <p>audio.pause()</p>
+
+    <p>让歌曲暂停</p>
+  </li>
+</ul>
+
+<h2 id="事件">事件</h2>
+
+<ul>
+  <li>
+    <p>audio.oncanplay = fn()</p>
+
+    <p>当歌曲下载完之后调用fn</p>
+  </li>
+  <li>
+    <p>audio.onvolumechange = fn()</p>
+
+    <p>当audio.volume发生变换的时候调用fn</p>
+  </li>
+  <li>
+    <p>audio.onplay = fn()</p>
+
+    <p>歌曲开始播放之后调用fn</p>
+  </li>
+  <li>
+    <p>audio.onpause = fn()</p>
+
+    <p>歌曲暂停之后调用fn</p>
+  </li>
+  <li>
+    <p>audio.ontimeupdate = fn()</p>
+
+    <p>歌曲在播放的过程中会一直调用fn</p>
+  </li>
+  <li>
+    <p>audio.onended = fn()</p>
+
+    <p>一首歌曲播放完之后调用fn</p>
+  </li>
+</ul>
+
+<h2 id="事件驱动的编程模式">事件驱动的编程模式</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="c1">// 这里只设置数据</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'音量div'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+    <span class="nx">audio</span><span class="p">.</span><span class="nx">volume</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">offsetX</span> <span class="o">/</span> <span class="nx">e</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="p">;</span>
+  <span class="p">})</span>
+  <span class="c1">// 这里操作界面</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'audio'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'volumechange'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">let</span> <span class="nx">width</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentTime</span><span class="o">/</span><span class="k">this</span><span class="p">.</span><span class="nx">duration</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span> <span class="o">+</span> <span class="s1">'%'</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'音量div'</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.inner'</span><span class="p">).</span><span class="nx">width</span><span class="p">(</span><span class="nx">width</span><span class="p">);</span>
+  <span class="p">})</span>
+</code></pre>
+</div>
+
+<h2 id="开始项目">开始项目</h2>
+
+<p>使用一个hmtl5模块或其他js插件的一般步骤</p>
+
+<ol>
+  <li>查阅API</li>
+  <li>快速定型API</li>
+  <li>确定一个例子,开始制作</li>
+</ol>
+
+<p>例子中如果依赖一些公开库。</p>
+
+<p><code class="highlighter-rouge">不要下载到本地然后引用</code></p>
+
+<p>如果我们想分享代码给别人，
+需要把所有我们下载的文件也拷贝给别人，
+尤其当依赖的公开库多的情况下，
+项目会变的很大，
+上传到版本控制系统也会变的很庞大。</p>
+
+<p>我们通过其他方式来解决</p>
+
+<ol>
+  <li>使用 <code class="highlighter-rouge">cdn</code></li>
+  <li>使用前端自动化工具 <code class="highlighter-rouge">bower</code></li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>bower init
+bower install jquery --save
+</code></pre>
+</div>
+
+<p>会生成一个.bower文件
+，这样任何人拿到项目之后，同样去运行<code class="highlighter-rouge">bower install</code>， 就会下载出来所有的依赖库</p>
+
+<h2 id="nodejs">node.js</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">minglinghang</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'child_process'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="s1">'./musics/'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="kd">var</span> <span class="nx">format_duration</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">fen</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span> <span class="nx">num</span><span class="o">/</span><span class="mi">60</span> <span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">miao</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">num</span><span class="o">%</span><span class="mi">60</span><span class="p">);</span>
+  <span class="nx">miao</span> <span class="o">=</span> <span class="p">(</span><span class="nx">miao</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)?(</span> <span class="s1">'0'</span> <span class="o">+</span> <span class="nx">miao</span><span class="p">):</span><span class="nx">miao</span><span class="p">;</span>
+  <span class="nx">fen</span> <span class="o">=</span> <span class="s1">'0'</span> <span class="o">+</span> <span class="nx">fen</span><span class="p">;</span>
+  <span class="k">return</span>  <span class="nx">fen</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> <span class="nx">miao</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">files</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">v</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span> <span class="nx">minglinghang</span><span class="p">.</span><span class="nx">execSync</span><span class="p">(</span><span class="s1">'ffprobe -v quiet -print_format json   -show_format  "./musics/'</span><span class="o">+</span> <span class="nx">v</span> <span class="o">+</span><span class="s1">'"'</span><span class="p">));</span>
+
+  <span class="kd">var</span> <span class="nx">duration</span> <span class="o">=</span> <span class="nx">format_duration</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">duration</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">filename</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">filename</span><span class="p">,</span>
+    <span class="na">duration</span><span class="p">:</span> <span class="nx">duration</span><span class="p">,</span>
+    <span class="na">title</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+    <span class="na">album</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">album</span><span class="p">,</span>
+    <span class="na">artist</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">artist</span>
+  <span class="p">};</span>
+  <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">r</span> <span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="s1">'./database.json'</span><span class="p">,</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
+</code></pre>
+</div>
+
+<p>递归遍历文件夹</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span>   <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">childProcess</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'child_process'</span><span class="p">);</span>
+
+<span class="c1">// 递归遍历文件夹 对其中的每一个文件调用 callback</span>
+<span class="kd">var</span> <span class="nx">walk</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">callback</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">files</span>  <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span> <span class="nx">files</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">newpath</span> <span class="o">=</span> <span class="nx">path</span> <span class="o">+</span> <span class="nx">files</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">statSync</span><span class="p">(</span><span class="nx">newpath</span><span class="p">).</span><span class="nx">isFile</span><span class="p">()</span> <span class="p">){</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="nx">files</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="nx">newpath</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">statSync</span><span class="p">(</span><span class="nx">newpath</span><span class="p">).</span><span class="nx">isDirectory</span><span class="p">()</span> <span class="p">){</span>
+      <span class="nx">walk</span><span class="p">(</span> <span class="nx">newpath</span><span class="o">+</span><span class="s1">'/'</span> <span class="p">)</span> <span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 遍历./musics 文件夹  对其中的音乐文件  调用ffprobe 解析音乐数据</span>
+<span class="kd">var</span> <span class="nx">fileExtension</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'mp3'</span><span class="p">,</span> <span class="s1">'wav'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">database</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">walk</span><span class="p">(</span><span class="s1">'./musics/'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">path</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">extName</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">).</span><span class="nx">pop</span><span class="p">();</span>
+  <span class="k">if</span><span class="p">(</span> <span class="nx">fileExtension</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">extName</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">){</span>
+    <span class="c1">// 这个在windows下不生效</span>
+    <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">trim</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">/g</span><span class="p">,</span><span class="s1">'\\ '</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">childProcess</span><span class="p">.</span><span class="nx">execSync</span><span class="p">(</span><span class="s1">'ffprobe -v quiet -print_format json -show_format  '</span> <span class="o">+</span> <span class="nx">path</span><span class="p">);</span>
+    <span class="nx">database</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">).</span><span class="nx">format</span> <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// 写入js文件</span>
+<span class="kd">var</span> <span class="nx">js</span> <span class="o">=</span>  <span class="s1">'var database = '</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">database</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="s1">'./scripts/database.js'</span><span class="p">,</span> <span class="nx">js</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+    <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'saved!'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

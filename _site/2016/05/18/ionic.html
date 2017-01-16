@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ionic 开发hybird app</title>
+  <meta name="description" content="ionic官网">
+
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2016/05/18/ionic.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Ionic 开发hybird app</h1>
+    <p class="post-meta"><time datetime="2016-05-18T00:00:00+08:00" itemprop="datePublished">May 18, 2016</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <p><a href="http://ionicframework.com/">ionic官网</a></p>
+
+<h2 id="环境">环境</h2>
+
+<h3 id="安装-lantern">安装 lantern</h3>
+
+<p>目标： 防止类似 <code class="highlighter-rouge">node-sass</code> 这样的npm包安装不上, 保障node环境的顺利搭建</p>
+
+<p>安装 <a href="https://github.com/getlantern/lantern">lantern</a></p>
+
+<p>或者 .编辑 ~/.npmrc 加入下面内容</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>//采用国内镜像
+registry <span class="o">=</span> http://registry.cnpmjs.org
+</code></pre>
+</div>
+
+<h3 id="安装-cordova---ionic">安装 cordova   ionic</h3>
+
+<p>目标：</p>
+
+<p>cordova 允许我们采用JavaScript调用手机的api.</p>
+
+<p>ionic 提供一堆命令，工具，控件，流程，让我们用html + css + js 来开发 hybird App</p>
+
+<p>ionic 内部集成cordova</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>npm install -g cordova
+npm install -g ionic
+</code></pre>
+</div>
+
+<h3 id="创建一个-ionic-项目">创建一个 ionic 项目</h3>
+
+<p>目标:  利用ionic提供的工具构建一个开发环境</p>
+
+<p>创建文件夹，准备启动一个ionic项目</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>
+<span class="nb">cd</span> ~/users/l/document/
+
+ionic --help
+
+ionic start dribbble tabs
+
+<span class="nb">cd </span>dribbble
+
+ionic setup sass
+
+</code></pre>
+</div>
+
+<h3 id="在浏览器中调试代码">在浏览器中调试代码</h3>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>ionic serve
+</code></pre>
+</div>
+
+<p>也可以采用 <a href="http://lab.ionic.io/">ionic lab</a></p>
+
+<h3 id="在android手机上调试">在android手机上调试</h3>
+
+<p>这一步需要提前做3步比较麻烦的工作</p>
+
+<p>做完之后,用数据线连接手机,运行以下命令即可</p>
+
+<p>其他的开发就是正常的cordova + angular</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>ionic platform add android
+ionic build android
+ionic run android
+</code></pre>
+</div>
+
+<h2 id="真机调试需要的三步麻烦工作">真机调试需要的三步麻烦工作</h2>
+
+<p>目标: 一切都是为了让我们能编译一个android系统中的.apk文件</p>
+
+<p>这一部分 可能更新很快 所以以官方文档为准</p>
+
+<p><a href="http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html">Android Platform Guide</a>;</p>
+
+<p>目前阶段，核心是以下三步</p>
+
+<ul>
+  <li>jdk和环境变量设置</li>
+  <li>android sdk</li>
+  <li>android sdk 设置 以及进一步的安装</li>
+</ul>
+
+<p>android sdk安装过程中注意 把代理服务器换成国内的,速度会快好多.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>『Android SDK Manager - Settings』
+「HTTP Proxy Server」  =&gt;   mirrors.neusoft.edu.cn
+「HTTP Proxy Port」    =&gt;   80
+选中「Force https://... sources to be fetched using http://...」
+</code></pre>
+</div>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

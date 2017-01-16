@@ -16,3 +16,4 @@ github_username: newlifebegins
 
 # Build settings
 markdown: kramdown
+paginate: 5
