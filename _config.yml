@@ -13,7 +13,8 @@ description: >
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "http://newlifebegins.github.io" # the base hostname & protocol for your site
 github_username: newlifebegins
-
+paginate: 5
+favicon: favicon.ico
 # Build settings
 markdown: kramdown
-paginate: 5
+
