@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/blog/</link>
     <atom:link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 17 Jan 2017 12:01:39 +0800</pubDate>
-    <lastBuildDate>Tue, 17 Jan 2017 12:01:39 +0800</lastBuildDate>
+    <pubDate>Tue, 17 Jan 2017 14:13:25 +0800</pubDate>
+    <lastBuildDate>Tue, 17 Jan 2017 14:13:25 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -412,6 +412,16 @@ $ hexo server -p 8080
         <description>&lt;h3 id=&quot;git忽略文件跟踪&quot;&gt;git忽略文件跟踪&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git update-index --assume-unchanged  shuipf/Common/Conf/dataconfig.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;git中hooks使用&quot;&gt;git中hooks使用&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;在.git文件夹中添加post-merge文件,文件中添加
+#!/bin/sh
+echo start migrate
+./bin/phpmig.bat migrate
+echo end
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
