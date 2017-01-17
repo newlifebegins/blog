@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>git学习</title>
+  <meta name="description" content="git忽略文件跟踪">
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico" />
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2017/01/16/git.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">git学习</h1>
+    <p class="post-meta"><time datetime="2017-01-16T00:00:00+08:00" itemprop="datePublished">Jan 16, 2017</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <h3 id="git忽略文件跟踪">git忽略文件跟踪</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git update-index --assume-unchanged  shuipf/Common/Conf/dataconfig.php
+</code></pre>
+</div>
+
+<h3 id="git创建版本库">git创建版本库</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git clone &lt;url&gt;  #克隆远程版本库
+$ git init         #初始化本地版本库
+</code></pre>
+</div>
+
+<h3 id="git修改和提交">git修改和提交</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git status                #查看状态
+$ git diff                  #查看变更内容
+$ git add .                 #跟踪所有改动过的文件，不包括新增的
+$ git add -A                #跟踪所有改动过的文件，包括新增的
+$ git add &lt;file&gt;            #跟踪指定文件
+$ git rm &lt;file&gt;             #删除指定文件
+$ git commit -m'message'    #提交所有跟新过的内容
+</code></pre>
+</div>
+
+<h3 id="git查看提交历史">git查看提交历史</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git log             #查看提交历史
+$ git log -p &lt;file&gt;   #查看指定文件的提交历史
+$ git blame &lt;file&gt;    #以列表的形式查看指定文件的提交历史
+</code></pre>
+</div>
+
+<h3 id="git-撤销">git 撤销</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git reset --hard HEAD          #撤销工作目录中所有未提交文件的修改内容
+$ git checkout HEAD &lt;file&gt;       #撤销工作目录中指定的未提交文件的修改内容
+$ git revert &lt;commit&gt;            #撤销指定的提交
+</code></pre>
+</div>
+
+<h3 id="git-分支与标签">git 分支与标签</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git branch                    #显示所有本地分支
+$ git checkout &lt;branch/tag&gt;     #切换本地分支或标签
+$ git branch &lt;new-branch&gt;       #创建新分支
+$ git branch -d &lt;branch&gt;        #删除本地分支
+$ git tag                       #列出所有本地标签
+</code></pre>
+</div>
+
+<h3 id="git-合并">git 合并</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git merge &lt;branch&gt;           #合并指定分支到当前分支
+$ git rebase &lt;branch&gt;          #衍合指定分支到当前分支
+</code></pre>
+</div>
+
+<h3 id="git-远程操作">git 远程操作</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git remote -v               #查看远程版本库信息
+$ git remote show &lt;remote&gt;    #查看指定远程版本库信息
+$ git remote add &lt;remote&gt; &lt;url&gt;  #添加远程版本库
+$ git fetch &lt;remote&gt;             #从远程库获取代码
+$ git pull &lt;remote&gt; &lt;branch&gt;     #下载代码及快速合并
+$ git push &lt;remote&gt; &lt;branch&gt;     #上传代码及快速合并
+</code></pre>
+</div>
+
+
+  </div>
+
+</article>
+<!-- 多说评论框 start -->
+    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;">
+    	<div class="ds-thread" data-thread-key="/2017/01/16/git" data-title="git学习" data-url="http://newlifebegins//2017/01/16/git.html"></div>
+    </div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"newlifebegins"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
