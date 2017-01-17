@@ -649,9 +649,9 @@ myapp.directive('tsTplcache', [function(){
 
 ## 14.其他
 
-*  ng-bind 解决网络不好的情下刷新页面会看到`{{}}`的问题
+*  ng-bind 解决网络不好的情下刷新页面会看到两个大括号的问题
 
-*  一次绑定问题 `{{:v.name}}`
+*  一次绑定问题两个大括号包裹 :v.name
 
 * $apply  $watch 解决一些监测问题
 
