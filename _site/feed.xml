@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/blog/</link>
     <atom:link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 17 Jan 2017 14:40:33 +0800</pubDate>
-    <lastBuildDate>Tue, 17 Jan 2017 14:40:33 +0800</lastBuildDate>
+    <pubDate>Wed, 18 Jan 2017 11:49:09 +0800</pubDate>
+    <lastBuildDate>Wed, 18 Jan 2017 11:49:09 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -81,136 +81,7 @@ drafts 是未发布的文章。这些文件的格式中都没有 title.MARKUP �
 _includes
 你可以加载这些包含部分到你的布局或者文章中以方便重用。可以用这个标签   来把文件 _includes/file.ext 包含进来。
 _layouts
-layouts 是包裹在文章外部的模板。布局可以在 YAML 头信息中根据不同文章进行选择。 这将在下一个部分进行介绍。标签  &amp;lt;article class=&quot;post&quot; itemscope itemtype=&quot;http://schema.org/BlogPosting&quot;&amp;gt;
-
-  &amp;lt;header class=&quot;post-header&quot;&amp;gt;
-    &amp;lt;h1 class=&quot;post-title&quot; itemprop=&quot;name headline&quot;&amp;gt;Markdown语法&amp;lt;/h1&amp;gt;
-    &amp;lt;p class=&quot;post-meta&quot;&amp;gt;&amp;lt;time datetime=&quot;2017-01-16T00:00:00+08:00&quot; itemprop=&quot;datePublished&quot;&amp;gt;Jan 16, 2017&amp;lt;/time&amp;gt;&amp;lt;/p&amp;gt;
-  &amp;lt;/header&amp;gt;
-
-  &amp;lt;div class=&quot;markdown-body&quot; itemprop=&quot;articleBody&quot;&amp;gt;
-    &amp;lt;h3 id=&quot;标题显示&quot;&amp;gt;标题显示&amp;lt;/h3&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;# 这是H1    ##这是H2   ###这是H3   ####这是H4   #####这是H5    ######这是H6
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h3 id=&quot;无序列表&quot;&amp;gt;无序列表&amp;lt;/h3&amp;gt;
-&amp;lt;p&amp;gt;星号* 加号+ 减号-&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;* red
-* blue
-* green
-等同于
-+ red
-+ blue
-+ green
-也等同于
-- red
-- blue
-- green
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h3 id=&quot;有序列表&quot;&amp;gt;有序列表&amp;lt;/h3&amp;gt;
-&amp;lt;p&amp;gt;数字接着一个英文句点&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;1. red
-2. blue
-3. green
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h3 id=&quot;分隔线&quot;&amp;gt;分隔线&amp;lt;/h3&amp;gt;
-&amp;lt;p&amp;gt;你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;* * *
-***
-*****
-- - -
---------------
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h3 id=&quot;链接&quot;&amp;gt;链接&amp;lt;/h3&amp;gt;
-&amp;lt;p&amp;gt;Markdown 支持两种形式的链接语法： 行内式和参考式两种形式 不管是哪一种，链接文字都是用 [方括号] 来标记 
-要建立一个行内式的链接，只要在方块括号后面紧接着圆括号并插入网址链接即可，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可
-参考式的链接是在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记：&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;This is [an example](http://example.com/ &quot;Title&quot;) inline link.
-[This link](http://example.net/) has no title attribute.
-This is [an example][id] reference-style link.
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h3 id=&quot;强调&quot;&amp;gt;强调&amp;lt;/h3&amp;gt;
-&amp;lt;p&amp;gt;Markdown 使用星号（*）和底线（_）作为标记强调字词的符号，被 * 或 _ 包围的字词会被转成用 &amp;lt;em&amp;gt; 标签包围，用两个 * 或 _ 包起来的话，则会被转成 &amp;lt;strong&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;*single asterisks*
-_single underscores_
-**double asterisks**
-__double underscores__
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h3 id=&quot;图片&quot;&amp;gt;图片&amp;lt;/h3&amp;gt;
-&amp;lt;p&amp;gt;Markdown 使用一种和链接很相似的语法来标记图片，同样也允许两种样式： 行内式和参考式&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;![Alt text](/path/to/img.jpg)
-![Alt text](/path/to/img.jpg &quot;Optional title&quot;)
-![Alt text][id]
-[id]: url/to/image  &quot;Optional title attribute&quot;
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h3 id=&quot;自动链接&quot;&amp;gt;自动链接&amp;lt;/h3&amp;gt;
-&amp;lt;p&amp;gt;Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用方括号包起来， Markdown 就会自动把它转成链接。一般网址的链接文字就和链接地址一样&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;&amp;amp;lt;http://example.com/&amp;amp;gt;
-&amp;amp;lt;address@example.com&amp;amp;gt;
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h3 id=&quot;反斜杠&quot;&amp;gt;反斜杠&amp;lt;/h3&amp;gt;
-&amp;lt;p&amp;gt;Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，例如：如果你想要用星号加在文字旁边的方式来做出强调效果（但不用 &amp;lt;em&amp;gt; 标签），你可以在星号的前面加上反斜杠&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;\   反斜线
-`   反引号
-*   星号
-_   底线
-{}  花括号
-[]  方括号
-()  括弧
-#   井字号
-+   加号
--   减号
-.   英文句点
-!   惊叹号
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-  &amp;lt;/div&amp;gt;
-
-&amp;lt;/article&amp;gt;
-&amp;lt;!-- 多说评论框 start --&amp;gt;
-    &amp;lt;div class=&quot;wrapper&quot; style=&quot;padding: 30px;border: 1px solid #ccc;&quot;&amp;gt;
-    	&amp;lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;/2017/01/16/markdown&quot; data-title=&quot;Markdown语法&quot; data-url=&quot;http://newlifebegins//2017/01/16/markdown.html&quot;&amp;gt;&amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;!-- 多说评论框 end --&amp;gt;
-&amp;lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&amp;gt;
-&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
-var duoshuoQuery = {short_name:&quot;newlifebegins&quot;};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-&amp;lt;/script&amp;gt;
-&amp;lt;!-- 多说公共JS代码 end --&amp;gt;
- 可以将content插入页面中。
+layouts 是包裹在文章外部的模板。布局可以在 YAML 头信息中根据不同文章进行选择。 这将在下一个部分进行介绍。标签 \frac{ content \frac} 可以将content插入页面中。
 _posts
 这里放的就是你的文章了。文件格式很重要，必须要符合: YEAR-MONTH-DAY-title.MARKUP。 The permalinks 可以在文章中自己定制，但是数据和标记语言都是根据文件名来确定的。
 _data
