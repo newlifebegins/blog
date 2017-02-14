@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>html5标签</title>
+  <meta name="description" content="文档:          注释    &lt;!DOCTYPE &gt;:文档类型  head:文档信息  meta:文档元信息(空标签)  title:文档标题  link:文档与外部资源的关系(空标签)  style:文档样式信息  script:客户端脚本  noscript:不支持客户端脚本的用户的替代内...">
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico" />
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2017/02/13/h5tag.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">html5标签</h1>
+    <p class="post-meta"><time datetime="2017-02-13T00:00:00+08:00" itemprop="datePublished">Feb 13, 2017</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <h2 id="文档">文档:</h2>
+<ol>
+  <li>
+    <!-- 注释 -->
+    <p>注释</p>
+  </li>
+  <li>&lt;!DOCTYPE &gt;:文档类型</li>
+  <li>head:文档信息</li>
+  <li>meta:文档元信息(空标签)</li>
+  <li>title:文档标题</li>
+  <li>link:文档与外部资源的关系(空标签)</li>
+  <li>style:文档样式信息</li>
+  <li>script:客户端脚本</li>
+  <li>noscript:不支持客户端脚本的用户的替代内容(放在body中)</li>
+  <li>frameset:框架集</li>
+  <li>noframes:不支持框架的浏览器显示文本(包裹body元素)</li>
+  <li>frame:框架(空标签)</li>
+  <li>base:所有页面默认链接地址(空标签)</li>
+  <li>body:文档主体</li>
+</ol>
+
+<h2 id="块元素总是在新行开始宽高内外边距可控可容纳内联及块元素">块元素:总是在新行开始,宽高内外边距可控,可容纳内联及块元素</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>div:文档节
+section:文档节
+nav:导航
+header:页眉
+article:文章
+aside:文章侧栏
+footer:页脚
+details:元素的细节
+summary:details元素可见的标题
+dialog:对话框窗口
+h1,h2,h3,h4,h5,h6:标题
+p:段落
+ul:无序列表
+ol:有序列表
+dir:目录列表
+li:项目
+dl:列表
+dt:列表项目
+dd:项目描述
+menu:命令的菜单,列表
+menuitem:菜单项目
+command:命令按钮
+form:表单
+fieldset:围绕元素的边框(可用于表单内元素分组)
+legend:在边框上的标题
+select:选择列表(内联元素)
+optgroup:组合选择列表选项
+option:选择列表选项(也可做datalist选项)
+datalist:下拉列表(id要与input中list属性值绑定)
+table:表格
+caption:表格标题
+thead:组合表头内容(th)
+tbody:组合主体内容(td)
+tfoot:组合表注内容(td)
+tr:表格行
+th:表头单元格
+td:表格单元
+col:表格列属性;(空标签)
+colgroup:表格格式化列组;
+iframe:内联框架
+figure:媒介内容分组
+figcaption:figure标题
+map:图像映射
+area:图像区域
+canvas:图形容器(脚本来绘制图形)
+video:视频
+source:媒介源
+track:文本轨道
+audio:声音内容
+br:换行(空标签)
+hr:水平分割线(空标签)
+pre:格式文本
+blockquote:块引用
+address:文档联系信息
+center:居中文本(不赞成使用)
+spacer:在水平和垂直方向插入空间(空元素)
+</code></pre>
+</div>
+
+<h2 id="内联元素">内联元素:</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>span:内联容器
+abbr:缩写
+em:强调
+strong:粗体强调
+mark:突出显示的文本
+b:粗体
+i:斜体
+bdi:文本方向
+bdo:文字方向
+big:大字体
+small:小字体
+sup:上标
+sub:下标
+del:被删除的文本
+strike:删除线
+s:删除线
+ins:被插入的文本
+u:下划线
+nobr:禁止换行
+wbr:单词换行时机(空标签)
+tt:打字机文本
+kbd:键盘文本
+time:日期/时间
+cite:引用
+q:短引用("")
+font:字体设定(不常用)
+acronym:缩写(html5不支持)
+dfn:字段(不常用)
+a:锚点
+img:图片
+embed:内嵌(空标签)
+label:input标记(点击文本触发控件)
+input:输入框
+button:按钮
+keygen:生成秘钥(空标签)
+textarea:多行文本输入框
+output:输出结果
+ruby:中文注音
+rt:注音
+rp:浏览器不支持ruby元素显示的内容
+progress:进度条
+meter:度量
+var:定义变量
+code:计算机代码文本
+samp:计算机代码样本
+select:下拉列表
+</code></pre>
+</div>
+
+<h2 id="可变元素">可变元素:</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>applet:嵌入的对象(html5不支持,object代替)
+object:嵌入的对象
+param:对象的参数(空标签)
+</code></pre>
+</div>
+
+  </div>
+
+</article>
+<!-- 多说评论框 start -->
+    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;">
+    	<div class="ds-thread" data-thread-key="/2017/02/13/h5tag" data-title="html5标签" data-url="http://newlifebegins//2017/02/13/h5tag.html"></div>
+    </div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"newlifebegins"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

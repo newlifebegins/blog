@@ -6,9 +6,360 @@
 </description>
     <link>http://localhost:4000/blog/</link>
     <atom:link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 07 Feb 2017 17:15:35 +0800</pubDate>
-    <lastBuildDate>Tue, 07 Feb 2017 17:15:35 +0800</lastBuildDate>
+    <pubDate>Tue, 14 Feb 2017 11:44:44 +0800</pubDate>
+    <lastBuildDate>Tue, 14 Feb 2017 11:44:44 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>react配置</title>
+        <description>&lt;h2 id=&quot;webpack快速入门&quot;&gt;webpack快速入门&lt;/h2&gt;
+&lt;h4 id=&quot;webpack介绍&quot;&gt;webpack介绍&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Webpack是一个前端模块管理工具，有点类似browserify，出自Facebook的Instagram团队，但功能比browserify更为强大，可以说是目前最为强大的前端模块管理和打包工具。Webpack将项目中的所有静态资源都当做模块，模块之间可以互相依赖，由webpack对它们进行统一的管理和打包发布，下图为官方网站说明：
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://segmentfault.com/img/remote/1460000004839887&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack对React有着与生俱来的良好支持，随着React的流行，webpack也成了React项目中必不可少的一部分。特别是随着ES6的普及，使得webpack有了更广阔的用武之地。
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;安装配置webpack&quot;&gt;安装配置webpack&lt;/h2&gt;
+&lt;h4 id=&quot;安装nodejs&quot;&gt;安装nodejs&lt;/h4&gt;
+
+&lt;p&gt;安装webpack之前，需要确认本机已经安装好了nodejs。
+如果还没有安装，请去&lt;a href=&quot;https://nodejs.org/en/&quot;&gt;nodejs&lt;/a&gt;官网下载安装即可。这里使用的node版本是V4.4.1.&lt;/p&gt;
+&lt;h4 id=&quot;初始化项目环境&quot;&gt;初始化项目环境&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir react_boilerplate
+$ cd react_boilerplate\
+
+$ npm init -y
+Wrote to .\react_boilerplate\package.json:
+
+{
+  &quot;name&quot;: &quot;react_boilerplate&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;amp;&amp;amp; exit 1&quot;
+  },
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;npm init&lt;/em&gt; 加上一个-y选项会生成一个默认的package.json,关于这个文件，不是本文重点，在此不会详述，可以参考&lt;a href=&quot;https://docs.npmjs.com/files/package.json&quot;&gt;官方文档&lt;/a&gt;。可以简单的理解，这个文件是用于管理项目里面的依赖包的。&lt;/p&gt;
+&lt;h4 id=&quot;设置gitignore&quot;&gt;设置.gitignore&lt;/h4&gt;
+&lt;p&gt;如果我们使用git进行版本管理，一个.gitignore文件是必要的。这里我们可以先将项目需要安装的node包目录添加进去。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node_modules
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;使用npm install安装的node包都会在node_modules目录下，这个目录是不需要commit到git的。&lt;/p&gt;
+
+&lt;h4 id=&quot;安装webpack&quot;&gt;安装webpack&lt;/h4&gt;
+&lt;p&gt;安装webpack很简单，命令如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i webpack --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;其中–save-dev表示该包为开发环境依赖包。安装完后会生成一个node_modules目录，并且在package.json文件中多出如下几行：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;......
+  &quot;devDependencies&quot;: {
+    &quot;webpack&quot;: &quot;^1.13.0&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果写为–save则表示该包为生产环境依赖包，在package.json文件中会新增或者修改dependencies 字段。&lt;/p&gt;
+&lt;h4 id=&quot;初始化项目结构和代码&quot;&gt;初始化项目结构和代码&lt;/h4&gt;
+&lt;p&gt;安装完webpack后，我们可以给项目中增加一些内容了。项目的简单结构如下图所示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsxyo.com1.z0.glb.clouddn.com/2016/04/29/Fq4VS1Pe2NGaTyUIkNKJCADwE-iy336.jpg&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;app目录用于存放项目代码，dist目录为编译后的项目文件，webpack.config.js为webpack的配置文件。&lt;/p&gt;
+
+&lt;p&gt;我们给项目中的文件添加一些简单的代码，首先是组件代码：&lt;/p&gt;
+
+&lt;p&gt;app/component.js&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = function () {
+  var element = document.createElement('h1');
+
+  element.innerHTML = 'Hello world';
+
+  return element;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;然后需要一个入口文件，在入口文件中使用上面定义的组件：&lt;/p&gt;
+
+&lt;p&gt;app/index.js&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var component = require('./component');
+
+document.body.appendChild(component());
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;配置webpack&quot;&gt;配置webpack&lt;/h4&gt;
+&lt;p&gt;我们需要让webpack知道如何处理我们的项目目录结构，因此需要配置文件webpack.config.js。一个简单的配置文件如下所示：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var webpack = require('webpack'); 
+var path = require('path');                 //引入node的path库
+
+var config = {
+  entry: ['./app/index.js'],                //入口文件
+  output: {
+    path: path.resolve(__dirname, 'dist'),  // 指定编译后的代码位置为 dist/bundle.js
+    filename: 'bundle.js'
+  },
+  module: {
+    loaders: [
+      // 为webpack指定loaders
+      //{ test: /\.js$/, loaders: ['babel'], exclude: /node_modules/ }   
+    ]
+  }
+}
+
+module.exports = config;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;到目前为止，我们已经可以让webpack工作了，在命令行执行&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ webpack
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;*这时会报错 bash: webpack: command not found
+需要执行&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install webpack -g
+
+$ webpack
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;*我们看到，会有一个新的文件/dist/bundle.js生成出来了。但是我们还需要一个html文件来加载编译后的代码，这就需要用到一个webpack插件：html-webpack-plugin。&lt;/p&gt;
+&lt;h2 id=&quot;安装html-webpack-plugin&quot;&gt;安装html-webpack-plugin&lt;/h2&gt;
+&lt;h4 id=&quot;使用如下命令安装&quot;&gt;使用如下命令安装：&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install html-webpack-plugin --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;然后在我们的webpack.config.js中增加下面几行：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;plugins: [
+    new HtmlwebpackPlugin({
+      title: 'React Biolerplate by Linghucong'
+    })
+  ]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;(这个时候第一个坑.初学者不知道加在哪里.我来截图告诉你)&lt;/p&gt;
+
+&lt;p&gt;1.首先要引入.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://newlifebegins.github.io/blog/images/1.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.按照他的这一步.加在config文件里就行.记得和上一段要用”,”隔开&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://newlifebegins.github.io/blog/images/2.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在在命令行下再次执行webpack命令，会看到在dist目录下生成了两个文件：bundle.js和index.html。其中index.html内容如下：&lt;/p&gt;
+
+&lt;p&gt;dist/index.html&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;React Biolerplate by Linghucong&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;有必要提一下，如果我们安装webpack的时候使用的是全局安装选项（npm install -g webpack），可以在命令行中直接执行webpack命令；如果没有使用-g，那么要用的webpack可执行文件位于：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./node_modules/.bin/webpack
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;我们可以在package.json中为此命令增加一个快捷方式：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# package.json
+... other stuff
+&quot;scripts&quot;: {
+  &quot;build&quot;: &quot;./node_modules/.bin/webpack&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;(如果不知道这段代码加在哪里请看我的截图)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://newlifebegins.github.io/blog/images/3.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在就可以直接使用命令npm run build来执行webpack了。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm run build
+
+&amp;gt; react_boilerplate@1.0.0 build D:\node\react_boilerplate
+&amp;gt; webpack
+
+Hash: cbf754a65493b4d791d7
+Version: webpack 1.13.0
+Time: 919ms
+     Asset       Size  Chunks             Chunk Names
+ bundle.js     233 kB       0  [emitted]  main
+index.html  179 bytes          [emitted]
+   [0] multi main 52 bytes {0} [built]
+  [75] ./app/index.js 82 bytes {0} [built]
+  [76] ./app/component.js 142 bytes {0} [built]
+    + 74 hidden modules
+Child html-webpack-plugin for &quot;index.html&quot;:
+        + 3 hidden modules
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 14 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/blog/2017/02/14/react.html</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2017/02/14/react.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>html5标签</title>
+        <description>&lt;h2 id=&quot;文档&quot;&gt;文档:&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;!-- 注释 --&gt;
+    &lt;p&gt;注释&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&amp;lt;!DOCTYPE &amp;gt;:文档类型&lt;/li&gt;
+  &lt;li&gt;head:文档信息&lt;/li&gt;
+  &lt;li&gt;meta:文档元信息(空标签)&lt;/li&gt;
+  &lt;li&gt;title:文档标题&lt;/li&gt;
+  &lt;li&gt;link:文档与外部资源的关系(空标签)&lt;/li&gt;
+  &lt;li&gt;style:文档样式信息&lt;/li&gt;
+  &lt;li&gt;script:客户端脚本&lt;/li&gt;
+  &lt;li&gt;noscript:不支持客户端脚本的用户的替代内容(放在body中)&lt;/li&gt;
+  &lt;li&gt;frameset:框架集&lt;/li&gt;
+  &lt;li&gt;noframes:不支持框架的浏览器显示文本(包裹body元素)&lt;/li&gt;
+  &lt;li&gt;frame:框架(空标签)&lt;/li&gt;
+  &lt;li&gt;base:所有页面默认链接地址(空标签)&lt;/li&gt;
+  &lt;li&gt;body:文档主体&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;块元素总是在新行开始宽高内外边距可控可容纳内联及块元素&quot;&gt;块元素:总是在新行开始,宽高内外边距可控,可容纳内联及块元素&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;div:文档节
+section:文档节
+nav:导航
+header:页眉
+article:文章
+aside:文章侧栏
+footer:页脚
+details:元素的细节
+summary:details元素可见的标题
+dialog:对话框窗口
+h1,h2,h3,h4,h5,h6:标题
+p:段落
+ul:无序列表
+ol:有序列表
+dir:目录列表
+li:项目
+dl:列表
+dt:列表项目
+dd:项目描述
+menu:命令的菜单,列表
+menuitem:菜单项目
+command:命令按钮
+form:表单
+fieldset:围绕元素的边框(可用于表单内元素分组)
+legend:在边框上的标题
+select:选择列表(内联元素)
+optgroup:组合选择列表选项
+option:选择列表选项(也可做datalist选项)
+datalist:下拉列表(id要与input中list属性值绑定)
+table:表格
+caption:表格标题
+thead:组合表头内容(th)
+tbody:组合主体内容(td)
+tfoot:组合表注内容(td)
+tr:表格行
+th:表头单元格
+td:表格单元
+col:表格列属性;(空标签)
+colgroup:表格格式化列组;
+iframe:内联框架
+figure:媒介内容分组
+figcaption:figure标题
+map:图像映射
+area:图像区域
+canvas:图形容器(脚本来绘制图形)
+video:视频
+source:媒介源
+track:文本轨道
+audio:声音内容
+br:换行(空标签)
+hr:水平分割线(空标签)
+pre:格式文本
+blockquote:块引用
+address:文档联系信息
+center:居中文本(不赞成使用)
+spacer:在水平和垂直方向插入空间(空元素)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;内联元素&quot;&gt;内联元素:&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;span:内联容器
+abbr:缩写
+em:强调
+strong:粗体强调
+mark:突出显示的文本
+b:粗体
+i:斜体
+bdi:文本方向
+bdo:文字方向
+big:大字体
+small:小字体
+sup:上标
+sub:下标
+del:被删除的文本
+strike:删除线
+s:删除线
+ins:被插入的文本
+u:下划线
+nobr:禁止换行
+wbr:单词换行时机(空标签)
+tt:打字机文本
+kbd:键盘文本
+time:日期/时间
+cite:引用
+q:短引用(&quot;&quot;)
+font:字体设定(不常用)
+acronym:缩写(html5不支持)
+dfn:字段(不常用)
+a:锚点
+img:图片
+embed:内嵌(空标签)
+label:input标记(点击文本触发控件)
+input:输入框
+button:按钮
+keygen:生成秘钥(空标签)
+textarea:多行文本输入框
+output:输出结果
+ruby:中文注音
+rt:注音
+rp:浏览器不支持ruby元素显示的内容
+progress:进度条
+meter:度量
+var:定义变量
+code:计算机代码文本
+samp:计算机代码样本
+select:下拉列表
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;可变元素&quot;&gt;可变元素:&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;applet:嵌入的对象(html5不支持,object代替)
+object:嵌入的对象
+param:对象的参数(空标签)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 13 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/blog/2017/02/13/h5tag.html</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2017/02/13/h5tag.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>http与https的区别</title>
@@ -984,98 +1335,6 @@ $ git push &amp;lt;remote&amp;gt; &amp;lt;branch&amp;gt;     #上传代码及快
         <pubDate>Mon, 16 Jan 2017 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/blog/2017/01/16/git.html</link>
         <guid isPermaLink="true">http://localhost:4000/blog/2017/01/16/git.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>px em rem 详细介绍</title>
-        <description>&lt;h3 id=&quot;px-特点&quot;&gt;px 特点&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;相对长度单位  相对于屏幕显示器分辨率
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;em-特点&quot;&gt;em 特点&lt;/h3&gt;
-
-&lt;p&gt;相对长度单位  相对于当前对象内文本的字体尺寸 如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸
-em的值并不是固定的
-em会继承父级元素的字体大小
-任意浏览器的默认字体高都是16px。
-所有未经调整的浏览器都符合: 1em=16px。那么12px=0.75em,10px=0.625em。
-为了简化font-size的换算，需要在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em, 也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了&lt;/p&gt;
-
-&lt;h3 id=&quot;rem-特点&quot;&gt;rem 特点&lt;/h3&gt;
-
-&lt;p&gt;rem是CSS3新增的一个相对单位（root em，根em）
-使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素
-集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 16 Jan 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/2017/01/16/cssunit.html</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2017/01/16/cssunit.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>上传文件</title>
-        <description>&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;enctype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;multipart/form-data&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display:none&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;提交到服务器&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#form'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;formData&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FormData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;formData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ajax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'...'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;processData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;contentType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'post'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;formData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;本地预览上传的图片&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'input:file'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'change'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'img'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&amp;lt;img&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FileReader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readAsDataURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;})(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;php处理上传文件&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$src = $_FILES['file']['tmp_name'];
-$dist = APP . '/static/imgs/' . $_FILES['file']['name'];
-move_uploaded_file($src, $dist);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Thu, 12 Jan 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/2017/01/12/upload.html</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2017/01/12/upload.html</guid>
         
         
       </item>

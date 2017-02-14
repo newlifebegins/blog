@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>react配置</title>
+  <meta name="description" content="webpack快速入门webpack介绍Webpack是一个前端模块管理工具，有点类似browserify，出自Facebook的Instagram团队，但功能比browserify更为强大，可以说是目前最为强大的前端模块管理和打包工具。Webpack将项目中的所有静态资源都当做模块，模块之间可以互相依赖，由we...">
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico" />
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2017/02/14/react.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">react配置</h1>
+    <p class="post-meta"><time datetime="2017-02-14T00:00:00+08:00" itemprop="datePublished">Feb 14, 2017</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <h2 id="webpack快速入门">webpack快速入门</h2>
+<h4 id="webpack介绍">webpack介绍</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>Webpack是一个前端模块管理工具，有点类似browserify，出自Facebook的Instagram团队，但功能比browserify更为强大，可以说是目前最为强大的前端模块管理和打包工具。Webpack将项目中的所有静态资源都当做模块，模块之间可以互相依赖，由webpack对它们进行统一的管理和打包发布，下图为官方网站说明：
+</code></pre>
+</div>
+<p><img src="https://segmentfault.com/img/remote/1460000004839887" alt="Alt text" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>webpack对React有着与生俱来的良好支持，随着React的流行，webpack也成了React项目中必不可少的一部分。特别是随着ES6的普及，使得webpack有了更广阔的用武之地。
+
+</code></pre>
+</div>
+<h2 id="安装配置webpack">安装配置webpack</h2>
+<h4 id="安装nodejs">安装nodejs</h4>
+
+<p>安装webpack之前，需要确认本机已经安装好了nodejs。
+如果还没有安装，请去<a href="https://nodejs.org/en/">nodejs</a>官网下载安装即可。这里使用的node版本是V4.4.1.</p>
+<h4 id="初始化项目环境">初始化项目环境</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ mkdir react_boilerplate
+$ cd react_boilerplate\
+
+$ npm init -y
+Wrote to .\react_boilerplate\package.json:
+
+{
+  "name": "react_boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+</code></pre>
+</div>
+<p><em>npm init</em> 加上一个-y选项会生成一个默认的package.json,关于这个文件，不是本文重点，在此不会详述，可以参考<a href="https://docs.npmjs.com/files/package.json">官方文档</a>。可以简单的理解，这个文件是用于管理项目里面的依赖包的。</p>
+<h4 id="设置gitignore">设置.gitignore</h4>
+<p>如果我们使用git进行版本管理，一个.gitignore文件是必要的。这里我们可以先将项目需要安装的node包目录添加进去。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>node_modules
+</code></pre>
+</div>
+<p>使用npm install安装的node包都会在node_modules目录下，这个目录是不需要commit到git的。</p>
+
+<h4 id="安装webpack">安装webpack</h4>
+<p>安装webpack很简单，命令如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm i webpack --save-dev
+</code></pre>
+</div>
+<p>其中–save-dev表示该包为开发环境依赖包。安装完后会生成一个node_modules目录，并且在package.json文件中多出如下几行：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>......
+  "devDependencies": {
+    "webpack": "^1.13.0"
+  }
+}
+</code></pre>
+</div>
+<p>如果写为–save则表示该包为生产环境依赖包，在package.json文件中会新增或者修改dependencies 字段。</p>
+<h4 id="初始化项目结构和代码">初始化项目结构和代码</h4>
+<p>安装完webpack后，我们可以给项目中增加一些内容了。项目的简单结构如下图所示：</p>
+
+<p><img src="http://7xsxyo.com1.z0.glb.clouddn.com/2016/04/29/Fq4VS1Pe2NGaTyUIkNKJCADwE-iy336.jpg" alt="Alt text" /></p>
+
+<p>app目录用于存放项目代码，dist目录为编译后的项目文件，webpack.config.js为webpack的配置文件。</p>
+
+<p>我们给项目中的文件添加一些简单的代码，首先是组件代码：</p>
+
+<p>app/component.js</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>module.exports = function () {
+  var element = document.createElement('h1');
+
+  element.innerHTML = 'Hello world';
+
+  return element;
+};
+</code></pre>
+</div>
+<p>然后需要一个入口文件，在入口文件中使用上面定义的组件：</p>
+
+<p>app/index.js</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>var component = require('./component');
+
+document.body.appendChild(component());
+</code></pre>
+</div>
+<h4 id="配置webpack">配置webpack</h4>
+<p>我们需要让webpack知道如何处理我们的项目目录结构，因此需要配置文件webpack.config.js。一个简单的配置文件如下所示：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>var webpack = require('webpack'); 
+var path = require('path');                 //引入node的path库
+
+var config = {
+  entry: ['./app/index.js'],                //入口文件
+  output: {
+    path: path.resolve(__dirname, 'dist'),  // 指定编译后的代码位置为 dist/bundle.js
+    filename: 'bundle.js'
+  },
+  module: {
+    loaders: [
+      // 为webpack指定loaders
+      //{ test: /\.js$/, loaders: ['babel'], exclude: /node_modules/ }   
+    ]
+  }
+}
+
+module.exports = config;
+</code></pre>
+</div>
+<p>到目前为止，我们已经可以让webpack工作了，在命令行执行</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ webpack
+</code></pre>
+</div>
+<p>*这时会报错 bash: webpack: command not found
+需要执行</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ npm install webpack -g
+
+$ webpack
+</code></pre>
+</div>
+
+<p>*我们看到，会有一个新的文件/dist/bundle.js生成出来了。但是我们还需要一个html文件来加载编译后的代码，这就需要用到一个webpack插件：html-webpack-plugin。</p>
+<h2 id="安装html-webpack-plugin">安装html-webpack-plugin</h2>
+<h4 id="使用如下命令安装">使用如下命令安装：</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install html-webpack-plugin --save-dev
+</code></pre>
+</div>
+<p>然后在我们的webpack.config.js中增加下面几行：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>plugins: [
+    new HtmlwebpackPlugin({
+      title: 'React Biolerplate by Linghucong'
+    })
+  ]
+</code></pre>
+</div>
+<p>(这个时候第一个坑.初学者不知道加在哪里.我来截图告诉你)</p>
+
+<p>1.首先要引入.</p>
+
+<p><img src="http://newlifebegins.github.io/blog/images/1.png" alt="Alt text" /></p>
+
+<p>2.按照他的这一步.加在config文件里就行.记得和上一段要用”,”隔开</p>
+
+<p><img src="http://newlifebegins.github.io/blog/images/2.png" alt="Alt text" /></p>
+
+<p>现在在命令行下再次执行webpack命令，会看到在dist目录下生成了两个文件：bundle.js和index.html。其中index.html内容如下：</p>
+
+<p>dist/index.html</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>React Biolerplate by Linghucong<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bundle.js"</span><span class="nt">&gt;&lt;/script&gt;&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+<p>有必要提一下，如果我们安装webpack的时候使用的是全局安装选项（npm install -g webpack），可以在命令行中直接执行webpack命令；如果没有使用-g，那么要用的webpack可执行文件位于：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>./node_modules/.bin/webpack
+</code></pre>
+</div>
+<p>我们可以在package.json中为此命令增加一个快捷方式：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code># package.json
+... other stuff
+"scripts": {
+  "build": "./node_modules/.bin/webpack"
+}
+</code></pre>
+</div>
+<p>(如果不知道这段代码加在哪里请看我的截图)</p>
+
+<p><img src="http://newlifebegins.github.io/blog/images/3.png" alt="Alt text" /></p>
+
+<p>现在就可以直接使用命令npm run build来执行webpack了。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ npm run build
+
+&gt; react_boilerplate@1.0.0 build D:\node\react_boilerplate
+&gt; webpack
+
+Hash: cbf754a65493b4d791d7
+Version: webpack 1.13.0
+Time: 919ms
+     Asset       Size  Chunks             Chunk Names
+ bundle.js     233 kB       0  [emitted]  main
+index.html  179 bytes          [emitted]
+   [0] multi main 52 bytes {0} [built]
+  [75] ./app/index.js 82 bytes {0} [built]
+  [76] ./app/component.js 142 bytes {0} [built]
+    + 74 hidden modules
+Child html-webpack-plugin for "index.html":
+        + 3 hidden modules
+</code></pre>
+</div>
+
+  </div>
+
+</article>
+<!-- 多说评论框 start -->
+    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;">
+    	<div class="ds-thread" data-thread-key="/2017/02/14/react" data-title="react配置" data-url="http://newlifebegins//2017/02/14/react.html"></div>
+    </div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"newlifebegins"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
