@@ -6,9 +6,144 @@
 </description>
     <link>http://localhost:4000/blog/</link>
     <atom:link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 14 Feb 2017 14:42:35 +0800</pubDate>
-    <lastBuildDate>Tue, 14 Feb 2017 14:42:35 +0800</lastBuildDate>
+    <pubDate>Wed, 15 Feb 2017 10:10:39 +0800</pubDate>
+    <lastBuildDate>Wed, 15 Feb 2017 10:10:39 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>css3例子</title>
+        <description>&lt;dl id=&quot;content&quot;&gt;
+&lt;/dl&gt;
+
+&lt;script&gt;
+var data = {
+            &quot;边框和背景&quot;:{
+              &quot;半透明边框&quot;: &quot;012289cc14106a1bd7a5&quot;,
+              &quot;多重边框&quot;: &quot;525eb8e9cdade71723c1&quot;,
+              &quot;背景定位1&quot;: &quot;0f226e63595d1bef88cb&quot;,
+              &quot;背景定位2&quot;: &quot;0f19ac5d28d0aa7b6c60&quot;,
+              &quot;背景定位3&quot;: &quot;b5fcb42d055427ab6c1a&quot;,
+              &quot;边框内圆角&quot;: &quot;170fe436f290083cc24c&quot;,
+              &quot;水平条纹&quot;: &quot;119dbf7f0c76dba7b7ee&quot;,
+              &quot;垂直条纹&quot;: &quot;1b4983062fd2b4d7e60e&quot;,
+              &quot;对角条纹&quot;: &quot;abeab80934fc26e6538e&quot;,
+              &quot;对角条纹60度&quot;: &quot;5646121210b0c99c94a7&quot;,
+              &quot;复杂条纹&quot;: &quot;aa50d296a8ec07cf7334&quot;,
+              &quot;蓝网格图&quot;: &quot;43bde2086e9d549fb844&quot;,
+              &quot;圆点图&quot;: &quot;cd33da5d1a48046746cd&quot;,
+              &quot;棋盘图&quot;: &quot;4f7ca0749582b1bd7527&quot;,
+              &quot;棋盘图-svg&quot;: &quot;5d3cacead6f134da842e&quot;,
+              &quot;旋转动画&quot;: &quot;ea53f3bee9a7f1439aa7&quot;,
+              &quot;随机条纹&quot;: &quot;4b4ad05f4c1b5259066f&quot;,
+              &quot;边框图片&quot;: &quot;c73fd4ea4b592a05c004&quot;,
+              &quot;连续的边框图片&quot;: &quot;55b5f131c45702a55684&quot;,
+              &quot;古老的信封背景实现&quot;: &quot;e3cfcb094e65d85df847&quot;,
+              &quot;古老的信封边框实现&quot;: &quot;0f6900d370f55ec9c975&quot;,
+              &quot;行进的蚂蚁&quot;: &quot;f26dddc71730c3847153&quot;,
+              &quot;页脚&quot;: &quot;9483cc7012049f2c808e&quot;,
+            },
+
+
+            &quot;形状&quot;:{
+              &quot;椭圆&quot;: &quot;aada0b96b21ae3e45c1b&quot;,
+              &quot;半椭圆&quot;: &quot;e98d11da331bd9482bb0&quot;,
+              &quot;4分之一椭圆&quot;: &quot;2b75df0e72c9804e8abe&quot;,
+              &quot;平行四边形&quot;: &quot;e1f72639c34a5578dda3&quot;,
+              &quot;利用伪元素的平行四边形&quot;: &quot;f2d98791ab1f0b238aa9&quot;,
+              &quot;钻石图片&quot;: &quot;7563400&quot;,
+              &quot;钻石图片效果&quot;: &quot;c62456fed36a524b8273&quot;,
+              &quot;四角直切图片&quot;: &quot;2937c990d6bfad274740&quot;,
+              &quot;四角圆切图片&quot;: &quot;24484257bc6cf7076a8e&quot;,
+              &quot;使用边框的切角&quot;: &quot;365c867441f3ee298212&quot;,
+              &quot;平行四边形选项卡&quot;: &quot;1345dc9399dc8e794502&quot;,
+              &quot;圆饼动画&quot;: &quot;722909b9808c14eb7300&quot;,
+              &quot;静止饼图&quot;: &quot;66e1e52ac2a44ad87aa4&quot;,
+              &quot;五彩流动&quot;: &quot;e324a92d31b7f67da5c0&quot;,
+              &quot;svg饼动画&quot;: &quot;4696e4c6700fe9f346d8&quot;,
+            },
+
+            &quot;视觉效果&quot;:{
+              &quot;一侧阴影&quot;: &quot;cc055dadf493c15723cf&quot;,
+              &quot;双侧阴影&quot;: &quot;d29d19ab66177b18bd64&quot;,
+              &quot;反向阴影&quot;: &quot;a23e445fca36293d12f6&quot;,
+              &quot;投影滤镜&quot;: &quot;d8a2376c79906d68f3d1&quot;,
+              &quot;图片滤镜&quot;: &quot;b338c9940a31b727b7a9&quot;,
+              &quot;变色的老虎&quot;: &quot;0dced2852818c0f555e9&quot;,
+              &quot;透明背景文字&quot;: &quot;d9f243ddd7dbffa341a4&quot;,
+              &quot;卷脚&quot;: &quot;83b4d6bc907aa5ab576a&quot;,
+              &quot;卷脚2&quot;: &quot;bc32dc20adea2261c731&quot;,
+            },
+
+            &quot;字体处理&quot;:{
+              &quot;文本均分&quot;: &quot;e370ba333ae95116e212&quot;,
+              &quot;断行&quot;: &quot;7eb242f4e8f078cadbca&quot;,
+              &quot;隔行色&quot;: &quot;cf30f5d442533b32600d&quot;,
+              &quot;代码tab数量&quot;: &quot;88c1523dfd1284950b4d&quot;,
+              &quot;个性下划线&quot;: &quot;58f3d67d5bb0f8338776&quot;,
+              &quot;更个性的下划线&quot;: &quot;c9184f634e9e9efde6e8&quot;,
+              &quot;文本阴影&quot;: &quot;80eafefae35d26979972&quot;,
+              &quot;空心文字&quot;: &quot;7a665ce85190f9cb201e&quot;,
+              &quot;发光文字&quot;: &quot;4af6d5c3b22395543cb8&quot;,
+              &quot;3d文字&quot;: &quot;ba8161d038b9c13b99ac&quot;,
+              &quot;圆环文字&quot;: &quot;bda1bf6b0c4adbcea63d&quot;,
+            },
+
+            &quot;用户体验&quot;:{
+              &quot;禁止的按钮&quot;: &quot;41c8da81742e1ab1d07f&quot;,
+              &quot;扩大点击区域&quot;: &quot;df5686d4047307991f73&quot;,
+              &quot;扩大点击区域&quot;: &quot;d76ac0acc80923d47106&quot;,
+              &quot;复选框&quot;: &quot;e269f10328615254e29e&quot;,
+              &quot;点击切换样式的按钮&quot;: &quot;fa5c622180b232043891&quot;,
+              &quot;方便的遮罩&quot;: &quot;91538b2131d3545035ca&quot;,
+              &quot;模糊遮罩&quot;: &quot;1326eb460b0dff91d638&quot;,
+              &quot;滑动到底部顶部的提示&quot;: &quot;20205b5fcdd834461e80&quot;,
+              &quot;可拖动的图片遮罩&quot;: &quot;b7e7fef7dcf9a7161a51&quot;,
+            },
+
+             &quot;动画效果&quot;:{
+              &quot;弹球&quot;: &quot;1b37089310d0a5a2d8e6&quot;,
+              &quot;android风&quot;: &quot;6cf33228089efef8a5ac&quot;,
+              &quot;android动画&quot;: &quot;73294faf1e2bc5ff0078&quot;,
+              &quot;帧动画&quot;: &quot;bcc082518391f45b41dc&quot;,
+              &quot;闪烁&quot;: &quot;46fe09e5f2b97d6f282d&quot;,
+              &quot;打字效果&quot;: &quot;b04ab9f41084b0a66960&quot;,
+              &quot;静态播放动画&quot;: &quot;b7b53efcc2f933ca6d54&quot;,
+              &quot;转动动画&quot;: &quot;87d80a51a5294ec07aea&quot;,
+              &quot;转动动画2&quot;: &quot;6c647a5599dc11145f2c&quot;
+             },
+
+            &quot;弹性布局&quot;:{
+              &quot;intrinsic-sizing&quot;: &quot;82eb1575806f6eff9c37&quot;,
+              &quot;styling-sibling-count&quot;: &quot;70c434a6e802b062f494&quot;,
+              &quot;fluid-fixed&quot;: &quot;763229b68fa27c5c1bfa&quot;,
+              &quot;vertical-centering-text&quot;: &quot;00b5cd0de91a439616e8&quot;,
+              &quot;vertical-centering&quot;: &quot;8aa9aa04ee57f479c513&quot;,
+              &quot;vertical-centering-vh&quot;: &quot;bf12b39d8f5da2b6e5b6&quot;,
+              &quot;vertical-centering-abs&quot;: &quot;cd12fac0e18bb27fb62d&quot;,
+              &quot;sticky-footer-fixed&quot;: &quot;b10c3eb3b7078711a588&quot;,
+              &quot;sticky-footer&quot;: &quot;410e43c60863a8dba193&quot;,
+             },
+           };
+var content = document.querySelector('#content');
+var htmlStr = '';
+for(var cate in data){
+  htmlStr += '&lt;h2&gt;'+cate+'&lt;/h2&gt;';
+  for( var name in data[cate] ){
+    htmlStr += '&lt;dd&gt;&lt;a href=&quot;http://dabblet.com/gist/'+data[cate][name]+'&quot;&gt;'+name+'&lt;/a&gt;&lt;/dd&gt;';
+  }
+}
+content.innerHTML = htmlStr;
+&lt;/script&gt;
+
+</description>
+        <pubDate>Wed, 15 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/blog/git/2017/02/15/css-example.html</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/git/2017/02/15/css-example.html</guid>
+        
+        
+        <category>git</category>
+        
+      </item>
     
       <item>
         <title>react配置</title>
@@ -1487,95 +1622,6 @@ $ hexo server -p 8080
         <pubDate>Mon, 16 Jan 2017 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/blog/2017/01/16/hexo.html</link>
         <guid isPermaLink="true">http://localhost:4000/blog/2017/01/16/hexo.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>git学习</title>
-        <description>&lt;h3 id=&quot;git忽略文件跟踪&quot;&gt;git忽略文件跟踪&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git update-index --assume-unchanged  shuipf/Common/Conf/dataconfig.php
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;git中hooks使用&quot;&gt;git中hooks使用&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;在.git文件夹中添加post-merge文件,文件中添加
-#!/bin/sh
-echo start migrate
-./bin/phpmig.bat migrate
-echo end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;git创建版本库&quot;&gt;git创建版本库&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git clone &amp;lt;url&amp;gt;  #克隆远程版本库
-$ git init         #初始化本地版本库
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;git修改和提交&quot;&gt;git修改和提交&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git status                #查看状态
-$ git diff                  #查看变更内容
-$ git add .                 #跟踪所有改动过的文件，不包括新增的
-$ git add -A                #跟踪所有改动过的文件，包括新增的
-$ git add &amp;lt;file&amp;gt;            #跟踪指定文件
-$ git rm &amp;lt;file&amp;gt;             #删除指定文件
-$ git commit -m'message'    #提交所有跟新过的内容
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;git查看提交历史&quot;&gt;git查看提交历史&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git log             #查看提交历史
-$ git log -p &amp;lt;file&amp;gt;   #查看指定文件的提交历史
-$ git blame &amp;lt;file&amp;gt;    #以列表的形式查看指定文件的提交历史
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;git-撤销&quot;&gt;git 撤销&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git reset --hard HEAD          #撤销工作目录中所有未提交文件的修改内容
-$ git checkout HEAD &amp;lt;file&amp;gt;       #撤销工作目录中指定的未提交文件的修改内容
-$ git revert &amp;lt;commit&amp;gt;            #撤销指定的提交
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;git-分支与标签&quot;&gt;git 分支与标签&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git branch                    #显示所有本地分支
-$ git checkout &amp;lt;branch/tag&amp;gt;     #切换本地分支或标签
-$ git branch &amp;lt;new-branch&amp;gt;       #创建新分支
-$ git branch -d &amp;lt;branch&amp;gt;        #删除本地分支
-$ git tag                       #列出所有本地标签
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;git-合并&quot;&gt;git 合并&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git merge &amp;lt;branch&amp;gt;           #合并指定分支到当前分支
-$ git rebase &amp;lt;branch&amp;gt;          #衍合指定分支到当前分支
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;git-远程操作&quot;&gt;git 远程操作&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git remote -v               #查看远程版本库信息
-$ git remote show &amp;lt;remote&amp;gt;    #查看指定远程版本库信息
-$ git remote add &amp;lt;remote&amp;gt; &amp;lt;url&amp;gt;  #添加远程版本库
-$ git fetch &amp;lt;remote&amp;gt;             #从远程库获取代码
-$ git pull &amp;lt;remote&amp;gt; &amp;lt;branch&amp;gt;     #下载代码及快速合并
-$ git push &amp;lt;remote&amp;gt; &amp;lt;branch&amp;gt;     #上传代码及快速合并
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-</description>
-        <pubDate>Mon, 16 Jan 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/2017/01/16/git.html</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2017/01/16/git.html</guid>
         
         
       </item>
