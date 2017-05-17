@@ -1,44 +1,14 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>css3例子</title>
-  <meta name="description" content="">
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico" />
-  <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/blog/git/2016/09/21/css3-example.html">
-  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
-</head>
+---
+layout: post
+title:  css3例子
+tags:
+categories: git
+---
 
 
-  <body>
-
-    <header class="site-header">
-
-  <div class="wrapper">
-
-    <a class="site-title" href="/blog/">newlifebegins</a>
-
-  </div>
-
-</header>
 
 
-    <div class="page-content">
-      <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">css3例子</h1>
-    <p class="post-meta"><time datetime="2016-09-21T00:00:00+08:00" itemprop="datePublished">Sep 21, 2016</time></p>
-  </header>
-
-  <div class="markdown-body" itemprop="articleBody">
-    <dl id="content">
+<dl id="content">
 </dl>
 
 <script>
@@ -86,9 +56,9 @@ var data = {
               "静止饼图": "66e1e52ac2a44ad87aa4",
               "五彩流动": "e324a92d31b7f67da5c0",
               "svg饼动画": "4696e4c6700fe9f346d8",
-           	},
+            },
 
-           	"视觉效果":{
+            "视觉效果":{
               "一侧阴影": "cc055dadf493c15723cf",
               "双侧阴影": "d29d19ab66177b18bd64",
               "反向阴影": "a23e445fca36293d12f6",
@@ -98,9 +68,9 @@ var data = {
               "透明背景文字": "d9f243ddd7dbffa341a4",
               "卷脚": "83b4d6bc907aa5ab576a",
               "卷脚2": "bc32dc20adea2261c731",
-           	},
+            },
 
-           	"字体处理":{
+            "字体处理":{
               "文本均分": "e370ba333ae95116e212",
               "断行": "7eb242f4e8f078cadbca",
               "隔行色": "cf30f5d442533b32600d",
@@ -160,58 +130,3 @@ for(var cate in data){
 }
 content.innerHTML = htmlStr;
 </script>
-
-
-  </div>
-
-</article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/git/2016/09/21/css3-example" data-title="css3例子" data-url="http://newlifebegins//git/2016/09/21/css3-example.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
-
-      </div>
-    </div>
-
-    <footer class="site-footer">
-
-  <div class="wrapper">
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col">
-        <ul class="social-media-list">
-          
-          <li>
-            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
-</span><span class="username">newlifebegins</span></a>
-
-            <span>fullstack web developer
-</span>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-
-
-  </body>
-
-</html>
