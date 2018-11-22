@@ -128,9 +128,9 @@
 
 <p>第7步代码</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>{pc:content action="category" catid="0"}
-{php print_r($data)} <span class="err">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> 这行是调试代码
-<span class="nt">&lt;ul&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{pc:content action="category" catid="0"}
+{php print_r($data)} <span class="nt">&lt;</span><span class="err">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="err">这行是调试代码</span>
+<span class="err">&lt;</span><span class="na">ul</span><span class="nt">&gt;</span>
 {loop $data $r}
   <span class="nt">&lt;li&gt;</span>
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"$r['url']"</span><span class="nt">&gt;</span>
@@ -140,11 +140,10 @@
 {/loop}
 <span class="nt">&lt;/ul&gt;</span>
 {/pc}
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>第八步代码</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>{pc:content action="lists" catid=$catid}
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{pc:content action="lists" catid=$catid}
 <span class="nt">&lt;ul&gt;</span>
 {loop $data $r}
 <span class="nt">&lt;li&gt;</span>
@@ -155,18 +154,16 @@
 {/loop}
 <span class="nt">&lt;/ul&gt;</span>
 {/pc}
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>第九步代码</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;span&gt;</span>{$content}<span class="nt">&lt;/span&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span&gt;</span>{$content}<span class="nt">&lt;/span&gt;</span>
+</code></pre></div></div>
 
 <h2 id="常用代码">常用代码</h2>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
   {loop subcat(12) $k $v}{/loop}  快速遍历子栏目
 
   {php }  添加一段php代码
@@ -274,8 +271,7 @@
 
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="一些常见的问题处理">一些常见的问题处理</h2>
 
@@ -378,24 +374,6 @@
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2016/07/14/phpcms" data-title="Phpcms 的使用" data-url="http://newlifebegins//2016/07/14/phpcms.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

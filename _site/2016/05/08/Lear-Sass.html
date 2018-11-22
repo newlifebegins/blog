@@ -58,44 +58,40 @@
 
 <p>来看一个示例：</p>
 
-<div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="cm">/* Sass 语法 */
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Sass 语法 */
 </span><span class="nv">$font-stack</span><span class="p">:</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="nb">sans-serif</span>
 <span class="nv">$primary-color</span><span class="p">:</span> <span class="mh">#333</span>
 <span class="nt">body</span>
   <span class="nl">font</span><span class="p">:</span> <span class="m">100%</span> <span class="nv">$font-stack</span>
   <span class="nl">color</span><span class="p">:</span> <span class="nv">$primary-color</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="cm">/* Scss 语法 */</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Scss 语法 */</span>
 <span class="nv">$font-stack</span><span class="p">:</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
 <span class="nv">$primary-color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
 <span class="nt">body</span> <span class="p">{</span>
   <span class="nl">font</span><span class="p">:</span> <span class="m">100%</span> <span class="nv">$font-stack</span><span class="p">;</span>
   <span class="nl">color</span><span class="p">:</span> <span class="nv">$primary-color</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>编译出来的 CSS</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
   <span class="nl">font</span><span class="p">:</span> <span class="m">100%</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
   <span class="nl">color</span><span class="p">:</span> <span class="m">#333</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>scss文件中可以完全像写正常的css那样去写.</p>
 
 <h2 id="2-sass安装">2. sass安装</h2>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>npm install -g node-sass
-node-sass -w xxx.scss xxx.css --output-style expanded
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> node-sass
+node-sass <span class="nt">-w</span> xxx.scss xxx.css <span class="nt">--output-style</span> expanded
+</code></pre></div></div>
 <p>node-sass 参数:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>-w, --watch                Watch a directory or file
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-w, --watch                Watch a directory or file
 -r, --recursive            Recursively watch directories or files
 -o, --output               Output directory
 -x, --omit-source-map-url  Omit source map URL comment from output
@@ -117,14 +113,13 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 --importer                 Path to .js file containing custom importer
 --functions                Path to .js file containing custom functions
 --help                     Print usage info
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="3-sass的基本特性">3. Sass的基本特性</h2>
 
 <h3 id="变量">变量</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$brand-primary</span> <span class="p">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#428bca</span><span class="o">,</span> <span class="m">6</span><span class="mi">.5%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$brand-primary</span> <span class="p">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#428bca</span><span class="o">,</span> <span class="m">6</span><span class="mi">.5%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
 <span class="nv">$btn-primary-color</span> <span class="p">:</span> <span class="mh">#fff</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
 <span class="nv">$btn-primary-bg</span> <span class="p">:</span> <span class="nv">$brand-primary</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
 <span class="nv">$btn-primary-border</span> <span class="p">:</span> <span class="nf">darken</span><span class="p">(</span><span class="nv">$btn-primary-bg</span><span class="o">,</span> <span class="m">5%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
@@ -133,18 +128,16 @@ node-sass -w xxx.scss xxx.css --output-style expanded
    <span class="nl">color</span><span class="p">:</span> <span class="nv">$btn-primary-color</span><span class="p">;</span>
    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nv">$btn-primary-border</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$baseLineHeight</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$baseLineHeight</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
 <span class="nv">$baseLineHeight</span><span class="p">:</span> <span class="m">1</span><span class="mi">.5</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
 <span class="nt">body</span><span class="p">{</span>
     <span class="nl">line-height</span><span class="p">:</span> <span class="nv">$baseLineHeight</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="cm">/* 局部变量 */</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 局部变量 */</span>
 <span class="nv">$color</span><span class="p">:</span> <span class="no">orange</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
 <span class="nc">.block</span> <span class="p">{</span>
   <span class="nl">color</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
@@ -158,12 +151,11 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nt">span</span> <span class="p">{</span>
   <span class="nl">color</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="嵌套">嵌套</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nt">nav</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">nav</span> <span class="p">{</span>
   <span class="nt">a</span> <span class="p">{</span>
     <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
     <span class="nt">header</span> <span class="k">&amp;</span> <span class="p">{</span>
@@ -190,14 +182,13 @@ node-sass -w xxx.scss xxx.css --output-style expanded
     <span class="nl">overflow</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>不要无节制嵌套,一切都根据实际情况判断</p>
 
 <h3 id="混合宏">混合宏</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">@mixin</span> <span class="nf">border-radius</span><span class="p">{</span>
   <span class="na">-webkit-border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
   <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
@@ -205,10 +196,9 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nt">button</span><span class="p">{</span>
   <span class="k">@include</span> <span class="nd">border-radius</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">border-radius</span><span class="p">(</span><span class="nv">$radius</span><span class="o">:</span><span class="m">5px</span><span class="p">){</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">border-radius</span><span class="p">(</span><span class="nv">$radius</span><span class="o">:</span><span class="m">5px</span><span class="p">){</span>
   <span class="na">-webkit-border-radius</span><span class="p">:</span> <span class="nv">$radius</span><span class="p">;</span>
   <span class="nl">border-radius</span><span class="p">:</span> <span class="nv">$radius</span><span class="p">;</span>
 <span class="p">}</span>
@@ -218,10 +208,9 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nc">.box</span><span class="p">{</span>
   <span class="k">@include</span> <span class="nd">border-radius</span><span class="p">(</span><span class="m">3px</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">center</span><span class="p">(</span><span class="nv">$width</span><span class="o">,</span><span class="nv">$height</span><span class="p">){</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">center</span><span class="p">(</span><span class="nv">$width</span><span class="o">,</span><span class="nv">$height</span><span class="p">){</span>
   <span class="nl">width</span><span class="p">:</span> <span class="nv">$width</span><span class="p">;</span>
   <span class="nl">height</span><span class="p">:</span> <span class="nv">$height</span><span class="p">;</span>
   <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
@@ -233,10 +222,9 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nc">.box-center</span> <span class="p">{</span>
   <span class="k">@include</span> <span class="nd">center</span><span class="p">(</span><span class="m">500px</span><span class="o">,</span><span class="m">300px</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">box-shadow</span><span class="p">(</span><span class="nv">$shadows</span><span class="o">...</span><span class="p">){</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">box-shadow</span><span class="p">(</span><span class="nv">$shadows</span><span class="o">...</span><span class="p">){</span>
   <span class="k">@if</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$shadows</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="m">1</span> <span class="p">{</span>
     <span class="na">-webkit-box-shadow</span><span class="p">:</span> <span class="nv">$shadows</span><span class="p">;</span>
     <span class="nl">box-shadow</span><span class="p">:</span> <span class="nv">$shadows</span><span class="p">;</span>
@@ -249,14 +237,13 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nc">.box</span> <span class="p">{</span>
   <span class="k">@include</span> <span class="nd">box-shadow</span><span class="p">(</span><span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="nf">rgba</span><span class="p">(</span><span class="mh">#000</span><span class="o">,.</span><span class="m">5</span><span class="p">)</span><span class="o">,</span><span class="m">0</span> <span class="m">0</span> <span class="m">2px</span> <span class="nf">rgba</span><span class="p">(</span><span class="mh">#000</span><span class="o">,.</span><span class="m">2</span><span class="p">));</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>混合宏会生成冗余代码</p>
 
 <h3 id="扩展继承">扩展/继承</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nc">.btn</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.btn</span> <span class="p">{</span>
   <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#ccc</span><span class="p">;</span>
   <span class="nl">padding</span><span class="p">:</span> <span class="m">6px</span> <span class="m">10px</span><span class="p">;</span>
   <span class="nl">font-size</span><span class="p">:</span> <span class="m">14px</span><span class="p">;</span>
@@ -273,14 +260,13 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <span class="nl">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
   <span class="k">@extend</span> <span class="nc">.btn</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>不会生成冗余代码</p>
 
 <h3 id="占位符">占位符</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">%mt5</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">%mt5</span> <span class="p">{</span>
   <span class="nl">margin-top</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nv">%pt5</span><span class="p">{</span>
@@ -290,15 +276,14 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <span class="k">@extend</span> <span class="nv">%mt5</span><span class="p">;</span>
   <span class="k">@extend</span> <span class="nv">%pt5</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>mt5 和 pt5 并不会生成最终代码</p>
 
 <h3 id="插值">插值#{}</h3>
 
 <p>允许在#{}内部解析变量</p>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$properties</span><span class="p">:</span> <span class="p">(</span><span class="n">margin</span><span class="o">,</span> <span class="n">padding</span><span class="p">);</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$properties</span><span class="p">:</span> <span class="p">(</span><span class="n">margin</span><span class="o">,</span> <span class="n">padding</span><span class="p">);</span>
 <span class="k">@mixin</span> <span class="nf">set-value</span><span class="p">(</span><span class="nv">$side</span><span class="o">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">@each</span> <span class="nv">$prop</span> <span class="n">in</span> <span class="nv">$properties</span> <span class="p">{</span>
     <span class="si">#{</span><span class="nv">$prop</span><span class="si">}</span><span class="nt">-</span><span class="si">#{</span><span class="nv">$side</span><span class="si">}</span><span class="nd">:</span> <span class="err">$</span><span class="nt">value</span><span class="p">;</span>
@@ -307,8 +292,7 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nc">.login-box</span> <span class="p">{</span>
   <span class="k">@include</span> <span class="nd">set-value</span><span class="p">(</span><span class="nb">top</span><span class="o">,</span> <span class="m">14px</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="注释">注释</h3>
 
@@ -334,7 +318,7 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 
 <h3 id="运算">运算</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nc">.box</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box</span> <span class="p">{</span>
   <span class="nl">width</span><span class="p">:</span> <span class="m">20px</span> <span class="o">+</span> <span class="m">8in</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nv">$full-width</span><span class="p">:</span> <span class="m">960px</span><span class="p">;</span>
@@ -349,13 +333,13 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <span class="nl">width</span><span class="p">:</span> <span class="p">(</span><span class="m">100px</span> <span class="o">/</span> <span class="m">2</span><span class="p">);</span>  
 <span class="p">}</span>
 <span class="nt">p</span> <span class="p">{</span>
-  <span class="nl">font</span><span class="p">:</span> <span class="m">10px</span><span class="o">/</span><span class="m">8px</span><span class="p">;</span>             <span class="c1">// 纯 CSS，不是除法运算
-</span>  <span class="nv">$width</span><span class="p">:</span> <span class="m">1000px</span><span class="p">;</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="nv">$width</span><span class="o">/</span><span class="m">2</span><span class="p">;</span>            <span class="c1">// 使用了变量，是除法运算
-</span>  <span class="nl">width</span><span class="p">:</span> <span class="nf">round</span><span class="p">(</span><span class="m">1</span><span class="mi">.5</span><span class="p">)</span><span class="o">/</span><span class="m">2</span><span class="p">;</span>        <span class="c1">// 使用了函数，是除法运算
-</span>  <span class="nl">height</span><span class="p">:</span> <span class="p">(</span><span class="m">500px</span><span class="o">/</span><span class="m">2</span><span class="p">);</span>          <span class="c1">// 使用了圆括号，是除法运算
-</span>  <span class="nl">margin-left</span><span class="p">:</span> <span class="m">5px</span> <span class="o">+</span> <span class="m">8px</span><span class="o">/</span><span class="m">2px</span><span class="p">;</span> <span class="c1">// 使用了加（+）号，是除法运算
-</span><span class="p">}</span>
+  <span class="nl">font</span><span class="p">:</span> <span class="m">10px</span><span class="o">/</span><span class="m">8px</span><span class="p">;</span>             <span class="c1">// 纯 CSS，不是除法运算</span>
+  <span class="nv">$width</span><span class="p">:</span> <span class="m">1000px</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="nv">$width</span><span class="o">/</span><span class="m">2</span><span class="p">;</span>            <span class="c1">// 使用了变量，是除法运算</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="nf">round</span><span class="p">(</span><span class="m">1</span><span class="mi">.5</span><span class="p">)</span><span class="o">/</span><span class="m">2</span><span class="p">;</span>        <span class="c1">// 使用了函数，是除法运算</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="p">(</span><span class="m">500px</span><span class="o">/</span><span class="m">2</span><span class="p">);</span>          <span class="c1">// 使用了圆括号，是除法运算</span>
+  <span class="nl">margin-left</span><span class="p">:</span> <span class="m">5px</span> <span class="o">+</span> <span class="m">8px</span><span class="o">/</span><span class="m">2px</span><span class="p">;</span> <span class="c1">// 使用了加（+）号，是除法运算</span>
+<span class="p">}</span>
 <span class="nc">.box</span> <span class="p">{</span>
   <span class="nl">width</span><span class="p">:</span> <span class="p">((</span><span class="m">220px</span> <span class="o">+</span> <span class="m">720px</span><span class="p">)</span> <span class="o">-</span> <span class="m">11</span> <span class="o">*</span> <span class="m">20</span> <span class="p">)</span> <span class="o">/</span> <span class="m">12</span> <span class="p">;</span>  
 <span class="p">}</span>
@@ -368,14 +352,13 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nc">.box</span><span class="nd">:before</span> <span class="p">{</span>
   <span class="nl">content</span><span class="p">:</span> <span class="s2">" </span><span class="si">#{</span><span class="nv">$content</span><span class="si">}</span><span class="s2"> "</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="4-sass高级特性">4. Sass高级特性</h2>
 
 <h3 id="if">@if</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">blockOrHidden</span><span class="p">(</span><span class="nv">$boolean</span><span class="o">:</span><span class="bp">true</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">blockOrHidden</span><span class="p">(</span><span class="nv">$boolean</span><span class="o">:</span><span class="bp">true</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">@if</span> <span class="nv">$boolean</span> <span class="p">{</span>
     <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
   <span class="p">}</span>
@@ -389,12 +372,11 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nc">.hidden</span><span class="p">{</span>
   <span class="k">@include</span> <span class="nd">blockOrHidden</span><span class="p">(</span><span class="bp">false</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="for">@for</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="o">&lt;</span><span class="n">start</span><span class="o">&gt;</span> <span class="ow">through</span> <span class="o">&lt;</span><span class="n">end</span><span class="o">&gt;</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="o">&lt;</span><span class="n">start</span><span class="o">&gt;</span> <span class="ow">through</span> <span class="o">&lt;</span><span class="n">end</span><span class="o">&gt;</span>
 <span class="o">@</span><span class="n">for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="o">&lt;</span><span class="n">start</span><span class="o">&gt;</span> <span class="ow">to</span> <span class="o">&lt;</span><span class="n">end</span><span class="o">&gt;</span>
 <span class="o">@</span><span class="n">for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="m">3</span> <span class="p">{</span>
   <span class="nc">.item-</span><span class="si">#{</span><span class="nv">$i</span><span class="si">}</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">2em</span> <span class="o">*</span> <span class="nv">$i</span><span class="p">;</span> <span class="p">}</span>
@@ -402,10 +384,9 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">to</span> <span class="m">3</span> <span class="p">{</span>
   <span class="nc">.item-</span><span class="si">#{</span><span class="nv">$i</span><span class="si">}</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">2em</span> <span class="o">*</span> <span class="nv">$i</span><span class="p">;</span> <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$grid-prefix</span><span class="p">:</span> <span class="n">span</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$grid-prefix</span><span class="p">:</span> <span class="n">span</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
 <span class="nv">$grid-width</span><span class="p">:</span> <span class="m">60px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
 <span class="nv">$grid-gutter</span><span class="p">:</span> <span class="m">20px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
 
@@ -420,13 +401,12 @@ node-sass -w xxx.scss xxx.css --output-style expanded
     <span class="k">@extend</span> <span class="nv">%grid</span><span class="p">;</span>
   <span class="p">}</span>  
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="each">@each</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$list</span><span class="p">:</span> <span class="n">adam</span> <span class="n">john</span> <span class="n">wynn</span> <span class="n">mason</span> <span class="n">kuroir</span><span class="p">;</span> <span class="c1">//$list 就是一个列表
-</span><span class="k">@mixin</span> <span class="nf">author-images</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$list</span><span class="p">:</span> <span class="n">adam</span> <span class="n">john</span> <span class="n">wynn</span> <span class="n">mason</span> <span class="n">kuroir</span><span class="p">;</span> <span class="c1">//$list 就是一个列表</span>
+<span class="k">@mixin</span> <span class="nf">author-images</span> <span class="p">{</span>
     <span class="k">@each</span> <span class="nv">$author</span> <span class="n">in</span> <span class="nv">$list</span> <span class="p">{</span>
         <span class="nc">.photo-</span><span class="si">#{</span><span class="nv">$author</span><span class="si">}</span> <span class="p">{</span>
             <span class="nl">background</span><span class="p">:</span> <span class="sx">url("/images/avatars/</span><span class="si">#{</span><span class="nv">$author</span><span class="si">}</span><span class="sx">.png")</span> <span class="nb">no-repeat</span><span class="p">;</span>
@@ -436,19 +416,17 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nc">.author-bio</span> <span class="p">{</span>
     <span class="k">@include</span> <span class="nd">author-images</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="5-sass中的函数">5. Sass中的函数</h3>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@function</span> <span class="nf">double</span><span class="p">(</span><span class="nv">$n</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@function</span> <span class="nf">double</span><span class="p">(</span><span class="nv">$n</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">@return</span> <span class="nv">$n</span> <span class="o">*</span> <span class="m">2</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nn">#sidebar</span> <span class="p">{</span>
   <span class="nl">width</span><span class="p">:</span> <span class="nf">double</span><span class="p">(</span><span class="m">5px</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>全部的内置函数</p>
 
@@ -462,11 +440,10 @@ node-sass -w xxx.scss xxx.css --output-style expanded
       <li>percentage</li>
     </ul>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nc">.footer</span><span class="p">{</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.footer</span><span class="p">{</span>
   <span class="nl">width</span> <span class="p">:</span> <span class="nf">percentage</span><span class="p">(</span><span class="mi">.2</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
     <ul>
       <li>round</li>
@@ -506,7 +483,7 @@ node-sass -w xxx.scss xxx.css --output-style expanded
       <li>keywords</li>
     </ul>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$map</span><span class="p">:</span> <span class="p">(</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$map</span><span class="p">:</span> <span class="p">(</span>
   <span class="nv">$key1</span><span class="o">:</span> <span class="n">value1</span><span class="o">,</span>
   <span class="nv">$key2</span><span class="o">:</span> <span class="n">value2</span><span class="o">,</span>
   <span class="nv">$key3</span><span class="o">:</span> <span class="n">value3</span>
@@ -539,10 +516,9 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <span class="p">)</span>
 <span class="p">);</span>
 
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="cm">/* map-get */</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* map-get */</span>
 <span class="nv">$social-colors</span><span class="p">:</span> <span class="p">(</span>
   <span class="n">dribble</span><span class="o">:</span> <span class="mh">#ea4c89</span><span class="o">,</span>
   <span class="n">facebook</span><span class="o">:</span> <span class="mh">#3b5998</span><span class="o">,</span>
@@ -559,10 +535,9 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <span class="nl">color</span><span class="p">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$social-colors</span><span class="o">,</span><span class="n">weibo</span><span class="p">);</span>
 <span class="p">}</span>
 
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="cm">/* map中的容错函数 */</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* map中的容错函数 */</span>
 <span class="k">@function</span> <span class="nf">colors</span><span class="p">(</span><span class="nv">$color</span><span class="p">){</span>
   <span class="k">@if</span> <span class="ow">not</span> <span class="nf">map-has-key</span><span class="p">(</span><span class="nv">$social-colors</span><span class="o">,</span><span class="nv">$color</span><span class="p">){</span>
       <span class="k">@warn</span> <span class="s2">"No color found for `</span><span class="si">#{</span><span class="nv">$color</span><span class="si">}</span><span class="s2">` in $social-colors map. Property omitted."</span><span class="p">;</span>
@@ -572,10 +547,9 @@ node-sass -w xxx.scss xxx.css --output-style expanded
 <span class="nc">.btn-dribble</span> <span class="p">{</span>
   <span class="nl">color</span><span class="p">:</span> <span class="nf">colors</span><span class="p">(</span><span class="n">dribble</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="cm">/* each 遍历 map */</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* each 遍历 map */</span>
 <span class="k">@each</span> <span class="nv">$name</span> <span class="n">in</span> <span class="nf">map-keys</span><span class="p">(</span><span class="nv">$social-colors</span><span class="p">){</span>
   <span class="nc">.btn-</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span><span class="p">{</span>
       <span class="nl">color</span><span class="p">:</span> <span class="nf">colors</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
@@ -587,15 +561,13 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nt">map-values</span><span class="o">(</span><span class="err">$</span><span class="nt">social-colors</span><span class="o">)</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">map-values</span><span class="o">(</span><span class="err">$</span><span class="nt">social-colors</span><span class="o">)</span>
 <span class="o">/*</span><span class="err">得到所有的值</span><span class="o">*/</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$color</span><span class="p">:</span> <span class="p">(</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color</span><span class="p">:</span> <span class="p">(</span>
   <span class="nb">text</span><span class="o">:</span> <span class="mh">#f36</span><span class="o">,</span>
   <span class="n">link</span><span class="o">:</span> <span class="mh">#f63</span><span class="o">,</span>
   <span class="n">border</span><span class="o">:</span> <span class="mh">#ddd</span><span class="o">,</span>
@@ -606,13 +578,11 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <span class="n">line-height</span><span class="o">:</span> <span class="m">1</span><span class="mi">.6</span>
 <span class="p">);</span>
 <span class="err">$</span><span class="nt">newcolor</span> <span class="o">=</span> <span class="nt">map-merge</span><span class="o">(</span><span class="err">$</span><span class="nt">color</span><span class="o">,</span> <span class="err">$</span><span class="nt">typo</span><span class="o">)</span><span class="p">;</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="cm">/* 得到新值 */</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 得到新值 */</span>
 <span class="nv">$map</span><span class="p">:</span><span class="nf">map-remove</span><span class="p">(</span><span class="nv">$social-colors</span><span class="o">,</span><span class="n">dribble</span><span class="p">);</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>颜色函数
     <ul>
@@ -645,7 +615,7 @@ node-sass -w xxx.scss xxx.css --output-style expanded
       <li>fade-out        减少透明度</li>
     </ul>
 
-    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"swatches red"</span><span class="nt">&gt;</span>
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"swatches red"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;li&gt;&lt;/li&gt;</span>
   ...      
   <span class="nt">&lt;li&gt;&lt;/li&gt;</span>
@@ -675,28 +645,27 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   …
   <span class="nt">&lt;li&gt;&lt;/li&gt;</span>
 <span class="nt">&lt;/ul&gt;</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$redBase</span><span class="p">:</span> <span class="mh">#DC143C</span><span class="p">;</span>
-<span class="nv">$orangeBase</span><span class="p">:</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">lighten</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">39</span><span class="p">)</span><span class="o">,</span> <span class="m">5</span><span class="p">)</span><span class="o">,</span> <span class="m">7</span><span class="p">);</span><span class="c1">//#f37a16
-</span><span class="nv">$yellowBase</span><span class="p">:</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">lighten</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">64</span><span class="p">)</span><span class="o">,</span> <span class="m">6</span><span class="p">)</span><span class="o">,</span> <span class="m">13</span><span class="p">);</span><span class="c1">//#fbdc14
-</span><span class="nv">$greenBase</span><span class="p">:</span> <span class="nf">desaturate</span><span class="p">(</span><span class="nf">darken</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">102</span><span class="p">)</span><span class="o">,</span> <span class="m">2</span><span class="p">)</span><span class="o">,</span> <span class="m">11</span><span class="p">);</span><span class="c1">//#73c620
-</span><span class="nv">$blueBase</span><span class="p">:</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">darken</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">201</span><span class="p">)</span><span class="o">,</span> <span class="m">2</span><span class="p">)</span><span class="o">,</span> <span class="m">1</span><span class="p">);</span><span class="c1">//#12b7d4
-</span><span class="nv">$purpleBase</span><span class="p">:</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">darken</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">296</span><span class="p">)</span><span class="o">,</span> <span class="m">2</span><span class="p">)</span><span class="o">,</span> <span class="m">1</span><span class="p">);</span><span class="c1">//#a012d4
-</span><span class="nv">$blackBase</span><span class="p">:</span> <span class="mh">#777</span><span class="p">;</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$redBase</span><span class="p">:</span> <span class="mh">#DC143C</span><span class="p">;</span>
+<span class="nv">$orangeBase</span><span class="p">:</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">lighten</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">39</span><span class="p">)</span><span class="o">,</span> <span class="m">5</span><span class="p">)</span><span class="o">,</span> <span class="m">7</span><span class="p">);</span><span class="c1">//#f37a16</span>
+<span class="nv">$yellowBase</span><span class="p">:</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">lighten</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">64</span><span class="p">)</span><span class="o">,</span> <span class="m">6</span><span class="p">)</span><span class="o">,</span> <span class="m">13</span><span class="p">);</span><span class="c1">//#fbdc14</span>
+<span class="nv">$greenBase</span><span class="p">:</span> <span class="nf">desaturate</span><span class="p">(</span><span class="nf">darken</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">102</span><span class="p">)</span><span class="o">,</span> <span class="m">2</span><span class="p">)</span><span class="o">,</span> <span class="m">11</span><span class="p">);</span><span class="c1">//#73c620</span>
+<span class="nv">$blueBase</span><span class="p">:</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">darken</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">201</span><span class="p">)</span><span class="o">,</span> <span class="m">2</span><span class="p">)</span><span class="o">,</span> <span class="m">1</span><span class="p">);</span><span class="c1">//#12b7d4</span>
+<span class="nv">$purpleBase</span><span class="p">:</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">darken</span><span class="p">(</span><span class="nf">adjust_hue</span><span class="p">(</span><span class="nv">$redBase</span><span class="o">,</span> <span class="m">296</span><span class="p">)</span><span class="o">,</span> <span class="m">2</span><span class="p">)</span><span class="o">,</span> <span class="m">1</span><span class="p">);</span><span class="c1">//#a012d4</span>
+<span class="nv">$blackBase</span><span class="p">:</span> <span class="mh">#777</span><span class="p">;</span>
 <span class="nv">$bgc</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
 
-<span class="c1">//定义颜色变暗的 mixin
-</span><span class="k">@mixin</span> <span class="nf">swatchesDarken</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">//定义颜色变暗的 mixin</span>
+<span class="k">@mixin</span> <span class="nf">swatchesDarken</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="m">10</span> <span class="p">{</span>
     <span class="nv">$x</span><span class="p">:</span><span class="nv">$i</span><span class="o">+</span><span class="m">11</span><span class="p">;</span>
     <span class="nt">li</span><span class="nd">:nth-child</span><span class="o">(</span><span class="si">#{</span><span class="nv">$x</span><span class="si">}</span><span class="o">)</span> <span class="p">{</span>
       <span class="nv">$n</span><span class="p">:</span><span class="nv">$i</span><span class="o">*</span><span class="m">5</span><span class="p">;</span>
-      <span class="nv">$bgc</span><span class="p">:</span><span class="nf">darken</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span><span class="nv">$n</span><span class="p">);</span> <span class="c1">//颜色变暗
-</span>      <span class="nl">background-color</span><span class="p">:</span> <span class="nv">$bgc</span><span class="p">;</span>
-      <span class="k">&amp;</span><span class="nd">:hover:before</span> <span class="p">{</span> <span class="c1">//hover状态显示颜色编号
-</span>        <span class="nl">content</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$bgc</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+      <span class="nv">$bgc</span><span class="p">:</span><span class="nf">darken</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span><span class="nv">$n</span><span class="p">);</span> <span class="c1">//颜色变暗</span>
+      <span class="nl">background-color</span><span class="p">:</span> <span class="nv">$bgc</span><span class="p">;</span>
+      <span class="k">&amp;</span><span class="nd">:hover:before</span> <span class="p">{</span> <span class="c1">//hover状态显示颜色编号</span>
+        <span class="nl">content</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$bgc</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
         <span class="nl">color</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$bgc</span><span class="o">,</span><span class="m">40</span><span class="p">);</span>
         <span class="nl">font-family</span><span class="p">:</span> <span class="n">verdana</span><span class="p">;</span>
         <span class="nl">font-size</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
@@ -705,8 +674,8 @@ node-sass -w xxx.scss xxx.css --output-style expanded
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1">//定义颜色变亮的 mixin
-</span><span class="k">@mixin</span> <span class="nf">swatchesLighten</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">//定义颜色变亮的 mixin</span>
+<span class="k">@mixin</span> <span class="nf">swatchesLighten</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="m">10</span> <span class="p">{</span>
     <span class="nv">$x</span><span class="p">:</span><span class="m">11</span><span class="o">-</span><span class="nv">$i</span><span class="p">;</span>
     <span class="nt">li</span><span class="nd">:nth-child</span><span class="o">(</span><span class="si">#{</span><span class="nv">$x</span><span class="si">}</span><span class="o">)</span> <span class="p">{</span>
@@ -786,8 +755,7 @@ node-sass -w xxx.scss xxx.css --output-style expanded
     <span class="nl">background-color</span><span class="p">:</span> <span class="nv">$blackBase</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
     <h3 id="6-sass的规则">6. Sass的@规则</h3>
   </li>
@@ -797,7 +765,7 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <li>
     <p>@media</p>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nc">.sidebar</span> <span class="p">{</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.sidebar</span> <span class="p">{</span>
   <span class="nl">width</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span>
   <span class="k">@media</span> <span class="n">screen</span> <span class="nf">and</span> <span class="p">(</span><span class="n">orientation</span><span class="o">:</span> <span class="nb">landscape</span><span class="p">)</span> <span class="p">{</span>
     <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
@@ -820,8 +788,7 @@ node-sass -w xxx.scss xxx.css --output-style expanded
     <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>@extend</p>
@@ -841,7 +808,7 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <li>
     <p>@content</p>
 
-    <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$small</span> <span class="p">:</span> <span class="m">750px</span><span class="p">;</span>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$small</span> <span class="p">:</span> <span class="m">750px</span><span class="p">;</span>
 <span class="k">@mixin</span>  <span class="nf">onsmall</span> <span class="p">{</span>
   <span class="k">@media</span>  <span class="n">only</span> <span class="n">screen</span> <span class="nf">and</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="nv">$small</span><span class="p">){</span>
     <span class="k">@content</span><span class="p">;</span>
@@ -854,12 +821,11 @@ node-sass -w xxx.scss xxx.css --output-style expanded
     <span class="nl">min-width</span><span class="p">:</span><span class="m">320px</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ul>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">useRem</span><span class="p">(</span><span class="nv">$size</span><span class="p">){</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">useRem</span><span class="p">(</span><span class="nv">$size</span><span class="p">){</span>
   <span class="nv">$device-list</span> <span class="p">:</span> <span class="m">320px</span><span class="o">,</span> <span class="m">375px</span> <span class="o">,</span> <span class="m">414px</span><span class="p">;</span>
   <span class="nt">html</span><span class="p">{</span>
     <span class="k">@each</span> <span class="nv">$device</span> <span class="n">in</span> <span class="nv">$device-list</span><span class="p">{</span>
@@ -870,30 +836,11 @@ node-sass -w xxx.scss xxx.css --output-style expanded
   <span class="p">}</span>
 <span class="p">}</span>
 <span class="k">@include</span> <span class="nd">useRem</span><span class="p">(</span><span class="m">750px</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2016/05/08/Lear-Sass" data-title="使用SASS" data-url="http://newlifebegins//2016/05/08/Lear-Sass.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

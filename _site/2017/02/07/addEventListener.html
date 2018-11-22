@@ -75,15 +75,14 @@ window.onload = function(){
 
 <h4 id="第三个参数的使用">第三个参数的使用</h4>
 <p>有时候的情况是这样的</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;body&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;body&gt;
 　　&lt;div id="box"&gt;
 　　　　&lt;div id="child"&gt;&lt;/div&gt;
 　　&lt;/div&gt;
 &lt;/body&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>如果我给box加click事件，如果我直接单击box没有什么问题，但是如果我单击的是child元素，那么它是怎么样执行的？（执行顺序）</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>box.addEventListener("click",function(){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>box.addEventListener("click",function(){
     console.log("box");
 })
 
@@ -93,11 +92,10 @@ child.addEventListener("click",function(){
 　　执行的结果：
 　　　　　　　　child
 　　　　　　　　box
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>也就是说，默认情况事件是按照事件冒泡的执行顺序进行的。
 如果第三个参数写的是true，则按照事件捕获的执行顺序进行的。</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>box.addEventListener("click",function(){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>box.addEventListener("click",function(){
     console.log("box");
 },true)
 
@@ -107,8 +105,7 @@ child.addEventListener("click",function(){
 　　执行的结果：
 　　　　　　　　box
 　　　　　　　　child
-</code></pre>
-</div>
+</code></pre></div></div>
 <ul>
   <li>事件冒泡执行过程：最具体的的元素（你单击的那个元素）开始向上开始冒泡，拿我们上面的案例讲它的顺序是：child-&gt;box</li>
   <li>事件捕获执行过程：从最不具体的元素（最外面的那个盒子）开始向里面冒泡，拿我们上面的案例讲它的顺序是：box-&gt;child</li>
@@ -117,24 +114,6 @@ child.addEventListener("click",function(){
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2017/02/07/addEventListener" data-title="addEventListener 和 on 的区别" data-url="http://newlifebegins//2017/02/07/addEventListener.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

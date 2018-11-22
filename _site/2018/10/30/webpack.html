@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>解决webpack打包后-webkit-box-orient被移除问题</title>
+  <meta name="description" content="[产生原因] : autoprefixer自动移除老式过时的代码">
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico" />
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2018/10/30/webpack.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">解决webpack打包后-webkit-box-orient被移除问题</h1>
+    <p class="post-meta"><time datetime="2018-10-30T00:00:00+08:00" itemprop="datePublished">Oct 30, 2018</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <p>[产生原因] : autoprefixer自动移除老式过时的代码</p>
+
+<h2 id="解决">[解决]</h2>
+<h3 id="方法一-添加注释关闭autoprefixer但是若果有清除注释的插件请将该插件设为false否则不生效">方法一: 添加注释关闭autoprefixer,但是若果有清除注释的插件,请将该插件设为false,否则不生效</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* autoprefixer: off */
+-webkit-box-orient: vertical;
+/* autoprefixer: on */
+</code></pre></div></div>
+<h3 id="方法二将autoprefixer设置为false或者只是将移除功能关闭">方法二:将autoprefixer设置为false,或者只是将移除功能关闭</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autoprefixer:{remove:false}
+
+</code></pre></div></div>
+<p>需要注意的是cssnano里会有对autoprefixer的配置,而在使用webpack进行css压缩时有使用到optimize-css-assets-webpack-plugin插件,而这个插件实际上就是依靠cssnano来实现其功能,所以我们需要修改插件的配置(如下)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+ new OptimizeCSSPlugin({
+     cssProcessorOptions: {
+         safe: true, map: { inline: false },
+         autoprefixer: { remove: false }  //添加对autoprefixer的配置
+
+    }
+ })
+</code></pre></div></div>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

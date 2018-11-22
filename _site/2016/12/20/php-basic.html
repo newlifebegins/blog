@@ -40,16 +40,15 @@
   <div class="markdown-body" itemprop="articleBody">
     <h2 id="基本介绍">基本介绍</h2>
 
-<p>php标记 <code class="highlighter-rouge">&lt;?php ?&gt;</code></p>
+<p>php标记 <code class="highlighter-rouge"><span class="cp">&lt;?php</span> <span class="cp">?&gt;</span></code></p>
 
 <p>如果文件内容是纯 PHP 代码，在文件末尾删除 PHP 结束标记。可以避免在 PHP 结束标记之后意外加入了空格或换行符，会导致 PHP 开始输出这些空白，而脚本中此时并无输出的意图</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">echo</span> <span class="s2">"Hello world"</span><span class="p">;</span>
 <span class="k">echo</span> <span class="s2">"Last statement"</span><span class="p">;</span>
-<span class="c1">// 脚本至此结束，并无 PHP 结束标记
-</span></code></pre>
-</div>
+<span class="c1">// 脚本至此结束，并无 PHP 结束标记</span>
+</code></pre></div></div>
 
 <ul>
   <li>
@@ -64,7 +63,7 @@
 
 <p><code class="highlighter-rouge">index.html</code>文件</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;head&gt;</span>
   <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
@@ -76,16 +75,14 @@
 <span class="cp">&lt;?php endif; ?&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">index.php</code> 文件</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="nv">$expression</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="k">include</span><span class="p">(</span><span class="nx">relpath</span><span class="p">(</span><span class="s1">'./'</span><span class="p">)</span><span class="o">.</span><span class="s1">'/index.html'</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="数据类型">数据类型</h2>
 
@@ -114,22 +111,22 @@
   </li>
 </ol>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 
-<span class="c1">// 字符串连接
-</span><span class="nv">$num</span> <span class="o">=</span> <span class="mf">12.8</span><span class="p">;</span>
+<span class="c1">// 字符串连接</span>
+<span class="nv">$num</span> <span class="o">=</span> <span class="mf">12.8</span><span class="p">;</span>
 <span class="nv">$string</span> <span class="o">=</span> <span class="s2">"this is world"</span><span class="o">.</span><span class="nv">$num</span><span class="p">;</span>
 
-<span class="c1">// 双引号中使用变量
-</span><span class="nv">$world</span> <span class="o">=</span> <span class="s2">"world"</span><span class="p">;</span>
+<span class="c1">// 双引号中使用变量</span>
+<span class="nv">$world</span> <span class="o">=</span> <span class="s2">"world"</span><span class="p">;</span>
 <span class="nv">$hello</span> <span class="o">=</span> <span class="s2">"hello </span><span class="si">{</span><span class="nv">$world</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
 
-<span class="c1">// 转义特殊字符
-</span><span class="nv">$class_name</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\\</span><span class="s2">name"</span><span class="p">;</span>
+<span class="c1">// 转义特殊字符</span>
+<span class="nv">$class_name</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\\</span><span class="s2">name"</span><span class="p">;</span>
 <span class="k">echo</span> <span class="nv">$class_name</span><span class="p">;</span>
 
-<span class="c1">// 数组
-</span><span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+<span class="c1">// 数组</span>
+<span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
     <span class="s2">"foo"</span> <span class="o">=&gt;</span> <span class="s2">"bar"</span><span class="p">,</span>
     <span class="s2">"bar"</span> <span class="o">=&gt;</span> <span class="s2">"foo"</span><span class="p">,</span>
     <span class="mi">100</span>   <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span>
@@ -140,17 +137,17 @@
 <span class="nv">$array</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
 
 
-<span class="c1">// 没有键名的索引数组
-</span><span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="s2">"hallo"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">);</span>
+<span class="c1">// 没有键名的索引数组</span>
+<span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="s2">"hallo"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">);</span>
 <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
 
-<span class="c1">// 遍历
-</span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$array</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// 遍历</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$array</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
   <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="c1">// 对象
-</span><span class="k">class</span> <span class="nc">foo</span>
+<span class="c1">// 对象</span>
+<span class="k">class</span> <span class="nc">foo</span>
 <span class="p">{</span>
     <span class="k">function</span> <span class="nf">do_foo</span><span class="p">()</span>
     <span class="p">{</span>
@@ -162,8 +159,7 @@
 <span class="nv">$bar</span><span class="o">-&gt;</span><span class="na">do_foo</span><span class="p">();</span>
 
 <span class="cp">?&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><code class="highlighter-rouge">gettype()</code>函数可以得到变量的类型</li>
@@ -221,7 +217,7 @@
 
 <p>php 中全局变量在函数中使用时必须声明为 global</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
@@ -233,12 +229,11 @@
 
 <span class="nx">Sum</span><span class="p">();</span>
 <span class="k">echo</span> <span class="nv">$b</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>使用静态变量</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">fac</span><span class="p">(</span><span class="nv">$number</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">static</span> <span class="nv">$sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -253,33 +248,31 @@
   <span class="p">}</span>
 <span class="p">}</span>
 <span class="k">echo</span> <span class="nx">fac</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="常量">常量</h2>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 
-<span class="c1">// 合法的常量名
-</span><span class="nb">define</span><span class="p">(</span><span class="s2">"FOO"</span><span class="p">,</span>     <span class="s2">"something"</span><span class="p">);</span>
+<span class="c1">// 合法的常量名</span>
+<span class="nb">define</span><span class="p">(</span><span class="s2">"FOO"</span><span class="p">,</span>     <span class="s2">"something"</span><span class="p">);</span>
 <span class="nb">define</span><span class="p">(</span><span class="s2">"FOO2"</span><span class="p">,</span>    <span class="s2">"something else"</span><span class="p">);</span>
 <span class="nb">define</span><span class="p">(</span><span class="s2">"FOO_BAR"</span><span class="p">,</span> <span class="s2">"something more"</span><span class="p">);</span>
 
-<span class="c1">// 非法的常量名
-</span><span class="nb">define</span><span class="p">(</span><span class="s2">"2FOO"</span><span class="p">,</span>    <span class="s2">"something"</span><span class="p">);</span>
+<span class="c1">// 非法的常量名</span>
+<span class="nb">define</span><span class="p">(</span><span class="s2">"2FOO"</span><span class="p">,</span>    <span class="s2">"something"</span><span class="p">);</span>
 
-<span class="c1">// 下面的定义是合法的，但应该避免这样做：(自定义常量不要以__开头)
-// 也许将来有一天PHP会定义一个__FOO__的魔术常量
-// 这样就会与你的代码相冲突
-</span><span class="nb">define</span><span class="p">(</span><span class="s2">"__FOO__"</span><span class="p">,</span> <span class="s2">"something"</span><span class="p">);</span>
-</code></pre>
-</div>
+<span class="c1">// 下面的定义是合法的，但应该避免这样做：(自定义常量不要以__开头)</span>
+<span class="c1">// 也许将来有一天PHP会定义一个__FOO__的魔术常量</span>
+<span class="c1">// 这样就会与你的代码相冲突</span>
+<span class="nb">define</span><span class="p">(</span><span class="s2">"__FOO__"</span><span class="p">,</span> <span class="s2">"something"</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>PHP 向它运行的任何脚本提供了大量的预定义常量。不过很多常量都是由不同的扩展库定义的，只有在加载了这些扩展库时才会出现，或者动态加载后，或者在编译时已经包括进去了</p>
 
 <p><a href="http://php.net/manual/zh/language.constants.predefined.php">预定义常量</a></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">class</span> <span class="nc">System</span> <span class="p">{</span>
   <span class="k">const</span> <span class="no">OS_UNKNOWN</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
   <span class="k">const</span> <span class="no">OS_WIN</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
@@ -298,8 +291,7 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>常用的魔术常量</p>
 
@@ -326,13 +318,12 @@
       <p>PHP 提供了一些流程控制的替代语法，包括 if，while，for，foreach 和 switch。替代语法的基本形式是把左花括号（{）换成冒号（:），把右花括号（}）分别换成 endif;，endwhile;，endfor;，endforeach; 以及 endswitch;通常在html页面中使用</p>
     </blockquote>
 
-    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
   <span class="cp">&lt;?php if ($a == 5): ?&gt;</span>
   A is equal to 5
   <span class="cp">&lt;?php endif; ?&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>while</li>
   <li>do-while</li>
@@ -344,16 +335,15 @@
       <p>在遍历中使用引用</p>
     </blockquote>
 
-    <div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$arr</span> <span class="k">as</span> <span class="o">&amp;</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
   <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$value</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">// $arr 成为 (2, 4, 6, 8)
-</span><span class="nb">unset</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span> <span class="c1">// 最后取消掉引用
-</span><span class="cp">?&gt;</span>
-</code></pre>
-    </div>
+<span class="c1">// $arr 成为 (2, 4, 6, 8)</span>
+<span class="nb">unset</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span> <span class="c1">// 最后取消掉引用</span>
+<span class="cp">?&gt;</span>
+</code></pre></div>    </div>
   </li>
   <li>break</li>
   <li>continue</li>
@@ -381,18 +371,17 @@
 
 <p>正常的函数使用</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$arg_1</span><span class="p">,</span> <span class="nv">$arg_2</span><span class="p">,</span> <span class="cm">/* ..., */</span> <span class="nv">$arg_n</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">echo</span> <span class="s2">"Example function.</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
     <span class="k">return</span> <span class="nv">$retval</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>默认情况下，函数参数通过值传递（因而即使在函数内部改变参数的值，它并不会改变函数外部的值）。如果希望允许函数修改它的参数值，必须通过引用传递参数</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">add_some_extra</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$string</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nv">$string</span> <span class="o">.=</span> <span class="s1">'and something extra.'</span><span class="p">;</span>
@@ -401,12 +390,11 @@
 <span class="nx">add_some_extra</span><span class="p">(</span><span class="nv">$str</span><span class="p">);</span>
 <span class="k">echo</span> <span class="nv">$str</span><span class="p">;</span>
 <span class="cp">?&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>在函数中使用默认参数</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">makecoffee</span><span class="p">(</span><span class="nv">$type</span> <span class="o">=</span> <span class="s2">"cappuccino"</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="s2">"Making a cup of </span><span class="nv">$type</span><span class="s2">.</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
@@ -415,17 +403,16 @@
 <span class="k">echo</span> <span class="nx">makecoffee</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 <span class="k">echo</span> <span class="nx">makecoffee</span><span class="p">(</span><span class="s2">"espresso"</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>限制函数参数的类型</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">class</span> <span class="nc">C</span> <span class="p">{}</span>
 <span class="k">class</span> <span class="nc">D</span> <span class="k">extends</span> <span class="nx">C</span> <span class="p">{}</span>
 
-<span class="c1">// 并没有继承C
-</span><span class="k">class</span> <span class="nc">E</span> <span class="p">{}</span>
+<span class="c1">// 并没有继承C</span>
+<span class="k">class</span> <span class="nc">E</span> <span class="p">{}</span>
 
 <span class="k">function</span> <span class="nf">f</span><span class="p">(</span><span class="nx">C</span> <span class="nv">$c</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="nb">get_class</span><span class="p">(</span><span class="nv">$c</span><span class="p">)</span><span class="o">.</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
@@ -433,10 +420,9 @@
 
 <span class="nx">f</span><span class="p">(</span><span class="k">new</span> <span class="nx">C</span><span class="p">);</span>
 <span class="nx">f</span><span class="p">(</span><span class="k">new</span> <span class="nx">D</span><span class="p">);</span>
-<span class="nx">f</span><span class="p">(</span><span class="k">new</span> <span class="nx">E</span><span class="p">);</span> <span class="c1">// 这里会报错
-</span><span class="cp">?&gt;</span>
-</code></pre>
-</div>
+<span class="nx">f</span><span class="p">(</span><span class="k">new</span> <span class="nx">E</span><span class="p">);</span> <span class="c1">// 这里会报错</span>
+<span class="cp">?&gt;</span>
+</code></pre></div></div>
 
 <p>可变函数</p>
 
@@ -444,16 +430,15 @@
 
 <p>可变函数不能用于例如 echo()，print()，unset()，isset()，empty()，include()，require() 以及类似的语言结构。需要使用自己的包装函数来将这些结构用作可变函数。</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="nv">$method</span> <span class="o">=</span> <span class="s2">"action"</span><span class="p">;</span>
 <span class="k">function</span> <span class="nf">action</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="k">echo</span> <span class="s2">"foo"</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">// 可变函数
-</span><span class="nv">$method</span><span class="p">();</span>
-</code></pre>
-</div>
+<span class="c1">// 可变函数</span>
+<span class="nv">$method</span><span class="p">();</span>
+</code></pre></div></div>
 
 <p>内部（内置）函数</p>
 
@@ -465,60 +450,58 @@
 
 <h2 id="类与对象">类与对象</h2>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">class</span> <span class="nc">simpleClass</span>
 <span class="p">{</span>
-  <span class="c1">// public 代表可以在任何地方被访问
-</span>  <span class="k">public</span> <span class="nv">$var</span> <span class="o">=</span> <span class="s1">'a default value'</span><span class="p">;</span>
+  <span class="c1">// public 代表可以在任何地方被访问</span>
+  <span class="k">public</span> <span class="nv">$var</span> <span class="o">=</span> <span class="s1">'a default value'</span><span class="p">;</span>
 
-  <span class="c1">// 类常量
-</span>  <span class="k">const</span> <span class="no">pi</span> <span class="o">=</span> <span class="mf">3.1415926</span><span class="p">;</span>
+  <span class="c1">// 类常量</span>
+  <span class="k">const</span> <span class="no">pi</span> <span class="o">=</span> <span class="mf">3.1415926</span><span class="p">;</span>
 
-  <span class="c1">// 任何地方可访问的一个方法
-</span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">displayVar</span><span class="p">()</span>
+  <span class="c1">// 任何地方可访问的一个方法</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">displayVar</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="c1">//$this是一个到主对象的引用
-</span>    <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">;</span>
+    <span class="c1">//$this是一个到主对象的引用</span>
+    <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1">// 利用new关键字生成一个对象
-</span><span class="k">var</span> <span class="nx">simple</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">simpleClass</span><span class="p">();</span>
+<span class="c1">// 利用new关键字生成一个对象</span>
+<span class="k">var</span> <span class="nx">simple</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">simpleClass</span><span class="p">();</span>
 
-<span class="c1">// 继承上一个类
-</span><span class="k">class</span> <span class="nc">extendClass</span> <span class="k">extends</span> <span class="nx">simplerClass</span>
+<span class="c1">// 继承上一个类</span>
+<span class="k">class</span> <span class="nc">extendClass</span> <span class="k">extends</span> <span class="nx">simplerClass</span>
 <span class="p">{</span>
   <span class="k">function</span> <span class="nf">displayVar</span><span class="p">()</span>
   <span class="p">{</span>
     <span class="k">echo</span> <span class="s2">"Extending class</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
-    <span class="c1">//调用父类中的方法
-</span>    <span class="k">parent</span><span class="o">::</span><span class="na">displayVar</span><span class="p">();</span>
+    <span class="c1">//调用父类中的方法</span>
+    <span class="k">parent</span><span class="o">::</span><span class="na">displayVar</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="自动加载类">自动加载类</h4>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">class</span> <span class="nc">core</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">load</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="c1">// include
-</span>  <span class="p">}</span>
+    <span class="c1">// include</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 <span class="nb">spl_autoload_register</span><span class="p">(</span><span class="s1">'core::load'</span><span class="p">);</span>
 
-<span class="c1">// 调用了一个不存在的类 spl_autoload_register中指定的方法会被调用
-// 类名 \core\lib\route 或作为参数传入core::load方法
-</span><span class="k">new</span> <span class="nx">\core\lib\route</span><span class="p">();</span>
+<span class="c1">// 调用了一个不存在的类 spl_autoload_register中指定的方法会被调用</span>
+<span class="c1">// 类名 \core\lib\route 或作为参数传入core::load方法</span>
+<span class="k">new</span> <span class="nx">\core\lib\route</span><span class="p">();</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="构造函数">构造函数</h4>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">class</span> <span class="nc">core</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="nv">$action</span> <span class="o">=</span>  <span class="s1">'index'</span><span class="p">;</span>
@@ -533,35 +516,34 @@
 <span class="p">{</span>
   <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="c1">// 调用父类的构造函数
-</span>    <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
+    <span class="c1">// 调用父类的构造函数</span>
+    <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="范围解析操作符号">范围解析操作符号</h4>
 
 <p>范围解析操作符（也可称作 Paamayim Nekudotayim）或者更简单地说是一对冒号，可以用于访问静态成员，类常量，还可以用于覆盖类中的属性和方法。</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 
-<span class="c1">// 在类外部使用
-</span><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<span class="c1">// 在类外部使用</span>
+<span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
   <span class="k">const</span> <span class="no">CONST_VALUE</span> <span class="o">=</span> <span class="s1">'A constant value'</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nv">$classname</span> <span class="o">=</span> <span class="s1">'MyClass'</span><span class="p">;</span>
-<span class="c1">// 自 PHP 5.3.0 起
-</span><span class="k">echo</span> <span class="nv">$classname</span><span class="o">::</span><span class="na">CONST_VALUE</span><span class="p">;</span>
+<span class="c1">// 自 PHP 5.3.0 起</span>
+<span class="k">echo</span> <span class="nv">$classname</span><span class="o">::</span><span class="na">CONST_VALUE</span><span class="p">;</span>
 
 <span class="k">echo</span> <span class="nx">MyClass</span><span class="o">::</span><span class="na">CONST_VALUE</span><span class="p">;</span>
 
-<span class="c1">// 在类内部使用
-</span><span class="k">class</span> <span class="nc">OtherClass</span> <span class="k">extends</span> <span class="nx">MyClass</span>
+<span class="c1">// 在类内部使用</span>
+<span class="k">class</span> <span class="nc">OtherClass</span> <span class="k">extends</span> <span class="nx">MyClass</span>
 <span class="p">{</span>
-  <span class="c1">// static关键字是使用范围解析符的关键
-</span>  <span class="k">public</span> <span class="k">static</span> <span class="nv">$my_static</span> <span class="o">=</span> <span class="s1">'static var'</span><span class="p">;</span>
+  <span class="c1">// static关键字是使用范围解析符的关键</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="nv">$my_static</span> <span class="o">=</span> <span class="s1">'static var'</span><span class="p">;</span>
 
   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">doubleColon</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="k">parent</span><span class="o">::</span><span class="na">CONST_VALUE</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
@@ -570,10 +552,9 @@
 <span class="p">}</span>
 
 <span class="nv">$classname</span> <span class="o">=</span> <span class="s1">'OtherClass'</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nv">$classname</span><span class="o">::</span><span class="na">doubleColon</span><span class="p">();</span> <span class="c1">// 自 PHP 5.3.0 起
-</span><span class="nx">OtherClass</span><span class="o">::</span><span class="na">doubleColon</span><span class="p">();</span>
-</code></pre>
-</div>
+<span class="k">echo</span> <span class="nv">$classname</span><span class="o">::</span><span class="na">doubleColon</span><span class="p">();</span> <span class="c1">// 自 PHP 5.3.0 起</span>
+<span class="nx">OtherClass</span><span class="o">::</span><span class="na">doubleColon</span><span class="p">();</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>PHP 对待对象的方式与引用和句柄相同，即每个变量都持有对象的引用，而不是整个对象的拷贝。</p>
@@ -607,34 +588,32 @@
 
 <p><code class="highlighter-rouge">/index.php</code></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">include</span><span class="p">(</span><span class="nb">realpath</span><span class="p">(</span><span class="s1">'./'</span><span class="p">)</span><span class="o">.</span><span class="s1">'/lib/core.php'</span><span class="p">);</span>
-<span class="c1">// 静态方法
-</span><span class="nx">\lib\core</span><span class="o">::</span><span class="na">load</span><span class="p">();</span>
+<span class="c1">// 静态方法</span>
+<span class="nx">\lib\core</span><span class="o">::</span><span class="na">load</span><span class="p">();</span>
 
-<span class="c1">// 非静态方法
-</span><span class="nv">$o</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\lib\core</span><span class="p">();</span>
+<span class="c1">// 非静态方法</span>
+<span class="nv">$o</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\lib\core</span><span class="p">();</span>
 <span class="nv">$o</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">();</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">/lib/core.php</code></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">namespace</span> <span class="nx">lib</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">core</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">dump</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="c1">//code
-</span>  <span class="p">}</span>
+    <span class="c1">//code</span>
+  <span class="p">}</span>
   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">load</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="c1">//code
-</span>  <span class="p">}</span>
+    <span class="c1">//code</span>
+  <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="使用pdo连接数据库">使用PDO连接数据库</h2>
 
@@ -655,7 +634,7 @@
   <li>PDO大大简化了数据库的操作并能够屏蔽不同数据库之间的差异，使用pdo可以很方便地进行跨数据库程序的开发,以及不同数据库间的移植,是将来php在数据库处理方面的主要发展方向。</li>
 </ul>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$db</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'dsn'</span> <span class="o">=&gt;</span> <span class="s1">'mysql:host=localhost;dbname=test;port=3306;charset=utf8'</span><span class="p">,</span>
@@ -667,12 +646,12 @@
   <span class="s1">'charset'</span> <span class="o">=&gt;</span> <span class="s1">'utf8'</span><span class="p">,</span>
 <span class="p">);</span>
 
-<span class="c1">//连接
-</span><span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="c1">//默认是PDO::ERRMODE_SILENT, 0, (忽略错误模式)
-</span>  <span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span> <span class="o">=&gt;</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">,</span>
-  <span class="c1">// 默认是PDO::FETCH_BOTH, 4
-</span>  <span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_DEFAULT_FETCH_MODE</span> <span class="o">=&gt;</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">,</span>
+<span class="c1">//连接</span>
+<span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="c1">//默认是PDO::ERRMODE_SILENT, 0, (忽略错误模式)</span>
+  <span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span> <span class="o">=&gt;</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">,</span>
+  <span class="c1">// 默认是PDO::FETCH_BOTH, 4</span>
+  <span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_DEFAULT_FETCH_MODE</span> <span class="o">=&gt;</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">,</span>
 <span class="p">);</span>
 
 <span class="k">try</span><span class="p">{</span>
@@ -681,52 +660,52 @@
   <span class="k">die</span><span class="p">(</span><span class="s1">'数据库连接失败:'</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
 <span class="p">}</span>
 
-<span class="c1">//或者更通用的设置属性方式:
-//设置异常处理方式
-//$pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//设置默认关联索引遍历
-//$pdo-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-</span>
+<span class="c1">//或者更通用的设置属性方式:</span>
+<span class="c1">//设置异常处理方式</span>
+<span class="c1">//$pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
+<span class="c1">//设置默认关联索引遍历</span>
+<span class="c1">//$pdo-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);</span>
+
 <span class="k">echo</span> <span class="s1">'&lt;pre/&gt;'</span><span class="p">;</span>
 
-<span class="c1">//1 查询
-</span>
-<span class="c1">//1)使用query
-//返回一个PDOStatement对象
-</span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">'select * from user limit 2'</span><span class="p">);</span>
+<span class="c1">//1 查询</span>
 
-<span class="c1">//从结果集中获取下一行，用于while循环
-//$row = $stmt-&gt;fetch();
-//获取所有
-</span><span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
+<span class="c1">//1)使用query</span>
+<span class="c1">//返回一个PDOStatement对象</span>
+<span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">'select * from user limit 2'</span><span class="p">);</span>
+
+<span class="c1">//从结果集中获取下一行，用于while循环</span>
+<span class="c1">//$row = $stmt-&gt;fetch();</span>
+<span class="c1">//获取所有</span>
+<span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
 
 <span class="nv">$row_count</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">rowCount</span><span class="p">();</span>
-<span class="c1">//print_r($rows);
-</span>
+<span class="c1">//print_r($rows);</span>
+
 <span class="k">echo</span> <span class="s1">'&lt;br&gt;'</span><span class="p">;</span>
 
-<span class="c1">//2)使用prepare 推荐
-</span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"select * from user where name = ? and age = ? "</span><span class="p">);</span>
+<span class="c1">//2)使用prepare 推荐</span>
+<span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"select * from user where name = ? and age = ? "</span><span class="p">);</span>
 <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">'test'</span><span class="p">);</span>
 <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">22</span><span class="p">);</span>
-<span class="c1">//执行一条预处理语句 .成功时返回 TRUE, 失败时返回 FALSE
-</span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>  
+<span class="c1">//执行一条预处理语句 .成功时返回 TRUE, 失败时返回 FALSE</span>
+<span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>  
 <span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$rows</span><span class="p">);</span>
 
 
 
-<span class="c1">//2 新增、更新、删除
-//1)普通操作
-//$count  =  $pdo-&gt;exec("insert into user(name,gender,age)values('test',2,23)");
-//echo $pdo-&gt;lastInsertId();
-</span>
-<span class="c1">//$count  =  $pdo-&gt;exec("update user set name='test2' where id = 15");
-//$count  =  $pdo-&gt;exec("delete from  user where id = 15");
-</span>
+<span class="c1">//2 新增、更新、删除</span>
+<span class="c1">//1)普通操作</span>
+<span class="c1">//$count  =  $pdo-&gt;exec("insert into user(name,gender,age)values('test',2,23)");</span>
+<span class="c1">//echo $pdo-&gt;lastInsertId();</span>
 
-<span class="c1">//2)使用prepare 推荐!
-</span><span class="cm">/*
+<span class="c1">//$count  =  $pdo-&gt;exec("update user set name='test2' where id = 15");</span>
+<span class="c1">//$count  =  $pdo-&gt;exec("delete from  user where id = 15");</span>
+
+
+<span class="c1">//2)使用prepare 推荐!</span>
+<span class="cm">/*
 $stmt = $pdo-&gt;prepare("insert into user(name,gender,age)values(?,?,?)");
 $stmt-&gt;bindValue(1, 'test');
 $stmt-&gt;bindValue(2, 2);
@@ -734,8 +713,8 @@ $stmt-&gt;bindValue(3, 23);
 $stmt-&gt;execute();
 */</span>
 
-<span class="c1">//3)使用prepare 批量新增
-</span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"insert into user(name,gender,age)values(?,?,?)"</span><span class="p">);</span>
+<span class="c1">//3)使用prepare 批量新增</span>
+<span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"insert into user(name,gender,age)values(?,?,?)"</span><span class="p">);</span>
 <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
 <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nv">$gender</span><span class="p">);</span>
 <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nv">$age</span><span class="p">);</span>
@@ -749,48 +728,28 @@ $stmt-&gt;execute();
   <span class="k">list</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$gender</span><span class="p">,</span> <span class="nv">$age</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$vo</span><span class="p">;</span>
   <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>pdo事务</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="c1">//开启事务处理
-</span><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="c1">//开启事务处理</span>
+<span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
 
 <span class="k">try</span><span class="p">{</span>
-  <span class="c1">//PDO预处理以及执行语句...
-</span>  <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">commit</span><span class="p">();</span>
+  <span class="c1">//PDO预处理以及执行语句...</span>
+  <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">commit</span><span class="p">();</span>
 <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">){</span>
   <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">rollBack</span><span class="p">();</span>
 
-  <span class="c1">//相关错误处理
-</span>  <span class="k">throw</span> <span class="nv">$e</span><span class="p">;</span>
+  <span class="c1">//相关错误处理</span>
+  <span class="k">throw</span> <span class="nv">$e</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2016/12/20/php-basic" data-title="php基础知识" data-url="http://newlifebegins//2016/12/20/php-basic.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

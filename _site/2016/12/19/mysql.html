@@ -93,7 +93,7 @@
 
 <p><code class="highlighter-rouge">vendors</code>表存储销售产品的供应商</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">Vendors</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">Vendors</span><span class="p">;</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Vendors</span>
 <span class="p">(</span>
   <span class="n">vend_id</span> <span class="n">INT</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
@@ -104,14 +104,13 @@
   <span class="n">vend_address</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="p">,</span>
   <span class="n">vend_zip</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
 <span class="p">)</span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">Products</code>表</p>
 
 <p><code class="highlighter-rouge">Products</code>表中包含所有产品，每行代表一个</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">Products</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">Products</span><span class="p">;</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Products</span>
 <span class="p">(</span>
 <span class="n">prod_id</span> <span class="n">INT</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
@@ -122,14 +121,13 @@
 <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">vend_id</span><span class="p">)</span>
       <span class="k">REFERENCES</span> <span class="n">Vendors</span><span class="p">(</span><span class="n">vend_id</span><span class="p">)</span>
 <span class="p">)</span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">Customers</code>表</p>
 
 <p><code class="highlighter-rouge">Customers</code>表中存储所有顾客信息</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">Customers</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">Customers</span><span class="p">;</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Customers</span>
 <span class="p">(</span>
 <span class="n">cust_id</span> <span class="n">INT</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
@@ -142,14 +140,13 @@
 <span class="n">cust_contact</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="p">,</span>
 <span class="n">cust_email</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
 <span class="p">)</span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">Orders</code>表</p>
 
 <p><code class="highlighter-rouge">Orders</code> 表存储顾客订单</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">Orders</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">Orders</span><span class="p">;</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Orders</span>
 <span class="p">(</span>
 <span class="n">order_num</span> <span class="n">INT</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
@@ -158,14 +155,13 @@
 <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">cust_id</span><span class="p">)</span>
       <span class="k">REFERENCES</span> <span class="n">Customers</span><span class="p">(</span><span class="n">cust_id</span><span class="p">)</span>
 <span class="p">)</span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">OrderItems</code>表</p>
 
 <p><code class="highlighter-rouge">OrderItems</code>表中存储每个订单的实际物品</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">OrderItems</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">OrderItems</span><span class="p">;</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">OrderItems</span>
 <span class="p">(</span>
 <span class="n">order_item</span> <span class="n">INT</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span>  <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
@@ -178,8 +174,7 @@
 <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">prod_id</span><span class="p">)</span>
   <span class="k">REFERENCES</span> <span class="n">Products</span><span class="p">(</span><span class="n">prod_id</span><span class="p">)</span>
 <span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="检索数据">检索数据</h2>
 
@@ -189,21 +184,19 @@
   <li>不区分大小写，建议大写关键字</li>
 </ul>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span> <span class="p">,</span> <span class="n">prod_id</span><span class="p">,</span> <span class="n">prod_city</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span> <span class="p">,</span> <span class="n">prod_id</span><span class="p">,</span> <span class="n">prod_city</span>
 <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>不显示重复值, <code class="highlighter-rouge">DISTINCT</code>关键字作用于所有列</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">vend_id</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">vend_id</span>
 <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="排列数据">排列数据</h2>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span>
 <span class="k">FROM</span> <span class="n">Products</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">prod_name</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">prod_price</span>
 <span class="k">LIMIT</span> <span class="mi">5</span> <span class="k">OFFSET</span> <span class="mi">5</span> <span class="p">;</span>
@@ -212,8 +205,7 @@
 <span class="c1">-- 对输出进行排序  ( ORDER BY 子句要保障是最后一条子句 )</span>
 <span class="c1">-- DESC    -- 默认按照升序排列，指定DESC按照降序排列</span>
 <span class="c1">-- 注意先后顺序</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>
   <p>如果想在多个列降序，必须对每一列指定DESC关键字
@@ -222,15 +214,14 @@
 
 <h2 id="过滤数据">过滤数据</h2>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
 <span class="k">FROM</span> <span class="n">Products</span>
 <span class="k">WHERE</span> <span class="n">prod_desc</span> <span class="k">IS</span> <span class="k">NULL</span><span class="p">;</span>
 <span class="c1">-- WHERE prod_price = 3.49;</span>
 <span class="c1">-- WHERE prod_price BETWEEN 5 AND 10;</span>
 <span class="c1">-- WHERE prod_name = 'apple iphone5'</span>
 <span class="c1">-- 如果将值与字符串类型的列进行比较，就需要加上引号</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <table>
   <thead>
@@ -291,28 +282,25 @@
 
 <p>组合<code class="highlighter-rouge">where</code>子句</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
 <span class="k">FROM</span> <span class="n">products</span>
 <span class="k">WHERE</span> <span class="n">prod_name</span> <span class="o">=</span> <span class="s1">'iphone'</span>
 <span class="k">AND</span> <span class="n">prod_price</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>组合时需要注意优先级，<code class="highlighter-rouge">AND</code>比<code class="highlighter-rouge">OR</code>拥有更高的优先级,可以使用括号限制优先级</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
 <span class="k">FROM</span> <span class="n">products</span>
 <span class="k">WHERE</span>
 <span class="p">(</span> <span class="n">prod_name</span> <span class="o">=</span> <span class="s1">'iphone'</span> <span class="k">OR</span> <span class="n">prod_desc</span> <span class="o">=</span>  <span class="s1">'DELL'</span> <span class="p">)</span>
 <span class="k">AND</span> <span class="n">prod_price</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
 <span class="k">FROM</span> <span class="n">products</span>
 <span class="k">WHERE</span> <span class="n">vend_name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'dell01'</span><span class="p">,</span><span class="s1">'brs01'</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>使用<code class="highlighter-rouge">IN</code>的优点</p>
 
@@ -323,15 +311,14 @@
   <li>IN可以包含其他SELECT语句</li>
 </ul>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
 <span class="k">FROM</span> <span class="n">products</span>
 <span class="k">WHERE</span> <span class="k">NOT</span> <span class="n">vend_name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'dell01'</span><span class="p">,</span><span class="s1">'brs01'</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="用通配符进行过滤">用通配符进行过滤</h2>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span>  <span class="o">*</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span>  <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">products</span>
 <span class="k">WHERE</span> <span class="n">prod_name</span>
 <span class="k">LIKE</span> <span class="s1">'%Fish%'</span><span class="p">;</span>
@@ -342,8 +329,7 @@
 <span class="c1">--  找特定格式的电子邮件地址</span>
 <span class="c1">-- LIKE '_____@qq.com'</span>
 <span class="c1">--  _代表一个字符</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>不要过度使用通配符</li>
@@ -367,18 +353,16 @@
   <p>sql语句内完成的许多转换工作和格式化工作可以直接在客户端完成，不过在服务器上会更快</p>
 </blockquote>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="c1">-- AS关键字可以创建一个别名 有时候也叫导出列</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- AS关键字可以创建一个别名 有时候也叫导出列</span>
 <span class="k">SELECT</span>  <span class="n">vend_name</span> <span class="o">+</span> <span class="s1">' ('</span> <span class="o">+</span> <span class="n">vend_country</span> <span class="o">+</span> <span class="s1">')'</span> <span class="k">AS</span> <span class="n">vend_title</span>
 <span class="k">FROM</span> <span class="n">Vendors</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">vend_name</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_id</span><span class="p">,</span><span class="n">quantity</span><span class="p">,</span><span class="n">item_price</span><span class="p">,</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">item_price</span> <span class="k">AS</span> <span class="n">expanded_price</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">prod_id</span><span class="p">,</span><span class="n">quantity</span><span class="p">,</span><span class="n">item_price</span><span class="p">,</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">item_price</span> <span class="k">AS</span> <span class="n">expanded_price</span>
 <span class="k">FROM</span> <span class="n">OrderItems</span>
 <span class="k">WHERE</span> <span class="n">order_num</span> <span class="o">=</span> <span class="mi">20008</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="使用函数处理数据">使用函数处理数据</h2>
 
@@ -395,35 +379,31 @@
   <li>系统函数</li>
 </ul>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="c1">-- 常用字符处理函数  UPPER LEFT LENGTH LEN LOWER LTRIM RTRIM SOUNDEX</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 常用字符处理函数  UPPER LEFT LENGTH LEN LOWER LTRIM RTRIM SOUNDEX</span>
 <span class="k">SELECT</span> <span class="n">vend_name</span> <span class="p">,</span> <span class="k">UPPER</span><span class="p">(</span><span class="n">vend_name</span><span class="p">)</span> <span class="k">AS</span> <span class="n">vend_name_upcase</span>
 <span class="k">FROM</span> <span class="n">Vendors</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">vend_name</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">SOUNDEX</code> 函数为一个字符串生成语音格式的字符串,例子如下</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_contact</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_contact</span>
 <span class="k">FROM</span> <span class="n">Customers</span>
 <span class="k">WHERE</span> <span class="n">cust_contact</span> <span class="o">=</span> <span class="s1">'Michael Green'</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>数据库中存储的是发音相似但拼写错误的字符串 ‘Michealle Green’,使用<code class="highlighter-rouge">SOUNDEX</code>可以查找到</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_contact</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_contact</span>
 <span class="k">FROM</span> <span class="n">Customers</span>
 <span class="k">WHERE</span> <span class="n">SOUNDEX</span><span class="p">(</span><span class="n">cust_contact</span><span class="p">)</span> <span class="o">=</span> <span class="n">SOUNDEX</span><span class="p">(</span><span class="s1">'Michael Green'</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">order_num</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">order_num</span>
 <span class="k">FROM</span> <span class="n">Orders</span>
 <span class="k">WHERE</span> <span class="n">DATE_SUB</span><span class="p">(</span><span class="n">CURDATE</span><span class="p">(),</span><span class="n">INTERVAL</span> <span class="mi">30</span> <span class="k">DAY</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">order_date</span><span class="p">;</span>
 <span class="c1">-- 查询30天以内的订单</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Mysql常用数值处理函数</p>
 
@@ -462,7 +442,7 @@
   <p>以上5各函数都可以搭配<code class="highlighter-rouge">DISTINCT</code>参数</p>
 </blockquote>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">prod_price</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_price</span>
 <span class="k">FROM</span> <span class="n">Products</span>
 
@@ -480,22 +460,20 @@
 <span class="k">FROM</span> <span class="n">OrderItems</span>
 <span class="k">WHERE</span> <span class="n">order_num</span> <span class="o">=</span> <span class="mi">20005</span><span class="p">;</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>
   <p>可以组合</p>
 </blockquote>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span>
 <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num_items</span><span class="p">,</span>
 <span class="k">MIN</span><span class="p">(</span><span class="n">prod_price</span><span class="p">)</span> <span class="k">AS</span> <span class="n">price_min</span><span class="p">,</span>
 <span class="k">MAX</span><span class="p">(</span><span class="n">prod_price</span><span class="p">)</span> <span class="k">AS</span> <span class="n">price_max</span><span class="p">,</span>
 <span class="k">AVG</span><span class="p">(</span><span class="n">prod_price</span><span class="p">)</span> <span class="k">AS</span> <span class="n">price_avg</span>
 <span class="k">FROM</span>
 <span class="n">Products</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="分组数据">分组数据</h2>
 
@@ -503,11 +481,10 @@
   <p>计算每一种商品各有多少个</p>
 </blockquote>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">vend_id</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num_prods</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">vend_id</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num_prods</span>
 <span class="k">FROM</span> <span class="n">Products</span>
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">vend_id</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><code class="highlighter-rouge">GROUP BY</code> 子句可以包含任意数目的列，因而可以对分组进行嵌套，进行更细致的分组</li>
@@ -517,25 +494,23 @@
   <li><code class="highlighter-rouge">GROUP BY</code> 子句必须出现在 <code class="highlighter-rouge">WHERE</code> 子句之前，<code class="highlighter-rouge">ORDER BY</code> 子句之后</li>
 </ul>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_id</span> <span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">orders</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_id</span> <span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">orders</span>
 <span class="k">FROM</span> <span class="n">Orders</span>
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">cust_id</span>
 <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <blockquote>
   <p><code class="highlighter-rouge">WHERE</code> 在数据分组前进行过滤, HAVING 在数据分组后进行过滤。</p>
 </blockquote>
 
 <p>过去12个月内具有两个以上订单的用户</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">vend_id</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num_prods</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">vend_id</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num_prods</span>
 <span class="k">FROM</span> <span class="n">Products</span>
 <span class="k">WHERE</span> <span class="n">prod_price</span> <span class="o">&gt;=</span> <span class="mi">4</span>
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">vend_id</span>
 <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>
   <p>一般在使用<code class="highlighter-rouge">GROUP BY</code>子句时，应该也给出<code class="highlighter-rouge">ORDER BY</code>子句。保障数据正确排序</p>
@@ -587,30 +562,28 @@
 
 <h2 id="使用子查询">使用子查询</h2>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_id</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_id</span>
 <span class="k">FROM</span> <span class="n">Orders</span>
 <span class="k">WHERE</span> <span class="n">order_num</span> <span class="k">IN</span> <span class="p">(</span>
   <span class="k">SELECT</span> <span class="n">order_num</span>
   <span class="k">FROM</span> <span class="n">OrderItems</span>
   <span class="k">WHERE</span> <span class="n">prod_id</span> <span class="o">=</span> <span class="s1">'rgan01'</span>
 <span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>作为子查询的SELECT语句只能查询单个列.</li>
   <li>注意子查询的性能</li>
 </ul>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_state</span><span class="p">,(</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_state</span><span class="p">,(</span>
   <span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
   <span class="k">FROM</span> <span class="n">Orders</span>
   <span class="k">WHERE</span> <span class="n">Orders</span><span class="p">.</span><span class="n">cust_id</span> <span class="o">=</span> <span class="n">Customers</span><span class="p">.</span><span class="n">cust_id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">orders</span>
 <span class="p">)</span>
 <span class="k">FROM</span> <span class="n">Customes</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">cust_name</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="联结表">联结表</h2>
 
@@ -634,7 +607,7 @@
   <p>把数据分开存储之后检索需要使用联结</p>
 </blockquote>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">vend_name</span><span class="p">,</span><span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">vend_name</span><span class="p">,</span><span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
 <span class="k">FROM</span> <span class="n">Vendors</span><span class="p">,</span><span class="n">Products</span>
 <span class="k">WHERE</span> <span class="n">Vendors</span><span class="p">.</span><span class="n">vend_id</span> <span class="o">=</span> <span class="n">Products</span><span class="p">.</span><span class="n">vend_id</span><span class="p">;</span>
 
@@ -642,19 +615,17 @@
 <span class="k">SELECT</span> <span class="n">vend_name</span><span class="p">,</span><span class="n">prod_name</span><span class="p">,</span><span class="n">prod_price</span>
 <span class="k">FROM</span> <span class="n">Vendors</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Products</span>
 <span class="k">ON</span> <span class="n">Vendors</span><span class="p">.</span><span class="n">vend_id</span> <span class="o">=</span> <span class="n">Products</span><span class="p">.</span><span class="n">vend_id</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="创建高级联结">创建高级联结</h2>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_contact</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_contact</span>
 <span class="k">FROM</span> <span class="n">Customers</span> <span class="k">AS</span> <span class="k">C</span><span class="p">,</span><span class="n">Orders</span> <span class="k">AS</span> <span class="n">O</span><span class="p">,</span><span class="n">OrderItems</span> <span class="k">AS</span> <span class="n">OI</span>
 <span class="k">WHERE</span>
 <span class="k">C</span><span class="p">.</span><span class="n">cust_id</span>  <span class="o">=</span> <span class="n">O</span><span class="p">.</span><span class="n">cust_id</span>
 <span class="k">AND</span> <span class="n">OI</span><span class="p">.</span><span class="n">order_num</span> <span class="o">=</span> <span class="n">O</span><span class="p">.</span><span class="n">order_num</span>
 <span class="k">AND</span> <span class="n">prod_id</span> <span class="o">=</span> <span class="s1">'RGAN01'</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>
   <p>以上使用为内联结或等值联结
@@ -663,37 +634,33 @@
 
 <p>使用自联结替换一次子查询</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">c1</span><span class="p">.</span><span class="n">cust_id</span><span class="p">,</span><span class="n">c1</span><span class="p">.</span><span class="n">cust_name</span><span class="p">,</span><span class="n">c1</span><span class="p">.</span><span class="n">cust_contact</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">c1</span><span class="p">.</span><span class="n">cust_id</span><span class="p">,</span><span class="n">c1</span><span class="p">.</span><span class="n">cust_name</span><span class="p">,</span><span class="n">c1</span><span class="p">.</span><span class="n">cust_contact</span>
 <span class="k">FROM</span> <span class="n">Customers</span> <span class="k">AS</span> <span class="n">c1</span><span class="p">,</span> <span class="n">Customers</span> <span class="k">AS</span> <span class="n">c2</span>
 <span class="k">WHERE</span> <span class="n">c1</span><span class="p">.</span><span class="n">cust_name</span> <span class="o">=</span> <span class="n">c2</span><span class="p">.</span><span class="n">cust_name</span>
 <span class="k">AND</span> <span class="n">c2</span><span class="p">.</span><span class="n">cust_contact</span> <span class="o">=</span> <span class="s1">'Jim Jones'</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>标准的联结返回所有数据，相同的列甚至出现多次。自然联结排除列多次出现的问题</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">C</span><span class="p">.</span><span class="o">*</span> <span class="p">,</span> <span class="n">O</span><span class="p">.</span><span class="n">order_num</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">C</span><span class="p">.</span><span class="o">*</span> <span class="p">,</span> <span class="n">O</span><span class="p">.</span><span class="n">order_num</span>
 <span class="k">FROM</span> <span class="n">Customers</span> <span class="k">AS</span> <span class="k">C</span> <span class="p">,</span> <span class="n">Orders</span> <span class="k">AS</span> <span class="n">O</span>
 <span class="k">WHERE</span> <span class="k">C</span><span class="p">.</span><span class="n">cust_id</span> <span class="o">=</span> <span class="n">O</span><span class="p">.</span><span class="n">cust_di</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>许多联结将一个表中的行和另一个表中的行相关联，但是有时候需要包含没有关联行的那些行，这个时候需要使用外联结</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">Customers</span><span class="p">.</span><span class="n">cust_id</span><span class="p">,</span><span class="n">Orders</span><span class="p">.</span><span class="n">order_num</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">Customers</span><span class="p">.</span><span class="n">cust_id</span><span class="p">,</span><span class="n">Orders</span><span class="p">.</span><span class="n">order_num</span>
 <span class="k">FROM</span> <span class="n">Customers</span> <span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">Orders</span>
 <span class="k">ON</span> <span class="n">Customers</span><span class="p">.</span><span class="n">cust_id</span> <span class="o">=</span> <span class="n">Orders</span><span class="p">.</span><span class="n">cust_id</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>带聚集函数的联结，比如检索所有的顾客及每个顾客所下的订单数</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">Customers</span><span class="p">.</span><span class="n">cust_id</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">Orders</span><span class="p">.</span><span class="n">order_num</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num_ord</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">Customers</span><span class="p">.</span><span class="n">cust_id</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">Orders</span><span class="p">.</span><span class="n">order_num</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num_ord</span>
 <span class="k">FROM</span> <span class="n">Customers</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Orders</span>
 <span class="k">ON</span> <span class="n">Customers</span><span class="p">.</span><span class="n">cust_id</span> <span class="o">=</span> <span class="n">Orders</span><span class="p">.</span><span class="n">cust_id</span>
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Customers</span><span class="p">.</span><span class="n">cust_id</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="组合查询">组合查询</h2>
 
@@ -708,7 +675,7 @@
   <li>对一个表执行多个查询，按一个查询返回数据</li>
 </ul>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span> <span class="n">cust_contact</span><span class="p">,</span><span class="n">cust_email</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span> <span class="n">cust_contact</span><span class="p">,</span><span class="n">cust_email</span>
 <span class="k">FROM</span> <span class="n">Customers</span>
 <span class="k">WHERE</span> <span class="n">cust_state</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'IL'</span><span class="p">,</span><span class="s1">'IN'</span><span class="p">,</span><span class="s1">'MI'</span><span class="p">)</span>
 <span class="k">UNION</span>
@@ -716,8 +683,7 @@
 <span class="k">FROM</span> <span class="n">Customers</span>
 <span class="k">WHERE</span> <span class="n">cust_name</span> <span class="o">=</span> <span class="s1">'Fun4All'</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_contact</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <ul>
   <li>UNION 必须由两条或两条以上的SELECT语句组成</li>
   <li>UNION 中每个查询必须包含相同的列，表达式或聚集函数</li>
@@ -731,18 +697,16 @@
 
 <h2 id="插入数据">插入数据</h2>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Customers</span> <span class="k">VALUES</span><span class="p">(</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Customers</span> <span class="k">VALUES</span><span class="p">(</span>
   <span class="s1">'1000000006'</span><span class="p">,</span> <span class="s1">'Toy Land'</span><span class="p">,</span> <span class="s1">'123 Any Street'</span><span class="p">,</span> <span class="s1">'New York'</span><span class="p">,</span> <span class="s1">'NY'</span><span class="p">,</span> <span class="s1">'11111'</span><span class="p">,</span> <span class="s1">'USA'</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span>
 <span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <blockquote>
   <p>编写依赖于特定列次序的SQL语句是很不安全的</p>
 </blockquote>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Customers</span><span class="p">(</span> <span class="n">cust_</span> <span class="n">id</span><span class="p">,</span> <span class="n">cust_</span> <span class="n">contact</span> <span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span> <span class="s1">'10'</span><span class="p">,</span> <span class="s1">'123456789'</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Customers</span><span class="p">(</span> <span class="n">cust_</span> <span class="n">id</span><span class="p">,</span> <span class="n">cust_</span> <span class="n">contact</span> <span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span> <span class="s1">'10'</span><span class="p">,</span> <span class="s1">'123456789'</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>可以省略列</p>
 
@@ -755,11 +719,10 @@
   <p>插入检索出的数据</p>
 </blockquote>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Customers</span><span class="p">(</span><span class="n">cust_id</span><span class="p">,</span><span class="n">cust_contact</span><span class="p">,</span><span class="n">cust_email</span><span class="p">)</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Customers</span><span class="p">(</span><span class="n">cust_id</span><span class="p">,</span><span class="n">cust_contact</span><span class="p">,</span><span class="n">cust_email</span><span class="p">)</span>
 <span class="k">SELECT</span> <span class="n">cust_id</span><span class="p">,</span><span class="n">cust_contact</span><span class="p">,</span><span class="n">cust_email</span>
 <span class="k">FROM</span> <span class="n">CustNew</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="更新和删除数据">更新和删除数据</h2>
 
@@ -767,14 +730,13 @@
   <p>使用更新和删除前，应该保证自己有足够的安全权限</p>
 </blockquote>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="n">Customers</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="n">Customers</span>
 <span class="k">SET</span> <span class="n">cust_email</span> <span class="o">=</span> <span class="s1">'kim@qq.com'</span><span class="p">,</span> <span class="n">cust_contact</span> <span class="o">=</span> <span class="s1">'Sam rose'</span>
 <span class="k">WHERE</span> <span class="n">cust_id</span> <span class="o">=</span> <span class="s1">'100000005'</span><span class="p">;</span>
 
 <span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">Customers</span>
 <span class="k">WHERE</span> <span class="n">cust_id</span> <span class="o">=</span> <span class="s1">'100000006'</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <blockquote>
   <p>DELETE 删除整行，要删除指定的列，请使用UPDATE语句</p>
 </blockquote>
@@ -783,7 +745,7 @@
 
 <p>创建一张表</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Products</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Products</span>
 <span class="p">(</span>
   <span class="n">prod_id</span> <span class="n">char</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
   <span class="n">vend_id</span> <span class="n">char</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
@@ -791,12 +753,11 @@
   <span class="n">prod_price</span> <span class="n">decimal</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
   <span class="n">prod_desc</span> <span class="n">text</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">null</span>
 <span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>创建带默认值的表</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">OrderItems</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">OrderItems</span>
 <span class="p">(</span>
   <span class="n">order_num</span> <span class="n">integer</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
   <span class="n">order_item</span> <span class="n">integer</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
@@ -806,25 +767,21 @@
   <span class="n">ctime</span> <span class="n">time</span> <span class="k">current_date</span><span class="p">(),</span>
   <span class="c1">---------</span>
 <span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>更新表结构</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Vendors</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Vendors</span>
 <span class="k">ADD</span> <span class="n">vend_phone</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Vendors</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Vendors</span>
 <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="n">vend_phone</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>删除表</p>
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">CustCopy</span>
-</code></pre>
-</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">CustCopy</span>
+</code></pre></div></div>
 
 <h2 id="使用视图">使用视图</h2>
 
@@ -847,7 +804,7 @@
   <li>可以创建的视图数目没有限制</li>
 </ul>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">ProductCustomers</span> <span class="k">AS</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">ProductCustomers</span> <span class="k">AS</span>
 <span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span><span class="n">cust_contact</span><span class="p">,</span><span class="n">prod_id</span>
 <span class="k">FROM</span> <span class="n">Customers</span><span class="p">,</span> <span class="n">Orders</span><span class="p">,</span> <span class="n">OrderItems</span>
 <span class="k">WHERE</span> <span class="n">Customers</span><span class="p">.</span><span class="n">cust_id</span> <span class="o">=</span> <span class="n">Orders</span><span class="p">.</span><span class="n">cust_id</span>
@@ -857,8 +814,7 @@
 <span class="k">SELECT</span> <span class="n">cust_name</span><span class="p">,</span> <span class="n">cust_contact</span>
 <span class="k">FROM</span> <span class="n">ProductCustomers</span>
 <span class="k">WHERE</span> <span class="n">prod_id</span> <span class="o">=</span> <span class="s1">'RGAN01'</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="使用存储过程">使用存储过程</h2>
 
@@ -915,26 +871,23 @@
   <p>事务处理用来管理INSERT UPDATE DELETE 语句。 不能回退SELECT语句 也不能回退 CREATE DROP</p>
 </blockquote>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">START</span> <span class="n">TRANSACTION</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">START</span> <span class="n">TRANSACTION</span>
 
 <span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">Orders</span><span class="p">;</span>
 <span class="k">ROLLBACK</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">START</span> <span class="n">TRANSACTION</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">START</span> <span class="n">TRANSACTION</span>
 <span class="k">DELETE</span> <span class="n">OrderItems</span> <span class="k">WHERE</span> <span class="n">order_num</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
 <span class="k">DELETE</span> <span class="n">Orders</span> <span class="k">WHERE</span> <span class="n">order_num</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
 <span class="k">COMMIT</span> <span class="n">TRANSACTION</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="c1">-- 保留点</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 保留点</span>
 <span class="n">SAVEPOINT</span> <span class="n">delete1</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">BEGIN</span> <span class="n">TRANSACTION</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">BEGIN</span> <span class="n">TRANSACTION</span>
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Customers</span><span class="p">(</span><span class="n">cust_id</span><span class="p">,</span><span class="n">cust_name</span><span class="p">)</span>
 <span class="k">VALUES</span><span class="p">(</span><span class="s1">'10000'</span><span class="p">,</span><span class="s1">'Toys Emporium'</span><span class="p">);</span>
 <span class="n">SAVE</span> <span class="n">TRANSACTION</span> <span class="n">StartOrder</span><span class="p">;</span>
@@ -942,8 +895,7 @@
 <span class="k">VALUES</span> <span class="p">(</span><span class="mi">20100</span><span class="p">,</span><span class="s1">'2011/12/1'</span><span class="p">,</span><span class="s1">'1000000010'</span><span class="p">);</span>
 <span class="n">IF</span> <span class="o">@@</span><span class="n">ERROR</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span> <span class="k">ROLLBACK</span> <span class="n">TRANSACTION</span> <span class="n">StartOrder</span><span class="p">;</span>
 <span class="k">COMMIT</span> <span class="n">TRANSACTION</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="使用游标">使用游标</h2>
 
@@ -970,39 +922,35 @@
 
 <h4 id="添加一个主键">添加一个主键</h4>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Vendors</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Vendors</span>
 <span class="p">(</span>
   <span class="n">vend_id</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
   <span class="n">vend_name</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
 <span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Vendors</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Vendors</span>
 <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">vend_id</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="外键">外键</h4>
 
 <p>外键是表中的一列，其值必须列在另一个表的主键中，外键是保证引用完整性的及其重要的部分。</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Orders</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Orders</span>
 <span class="p">(</span>
   <span class="n">order_num</span> <span class="n">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
   <span class="n">order_date</span> <span class="n">DATETIME</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="p">,</span>
   <span class="n">cust_id</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">REFERENCES</span> <span class="n">Customers</span><span class="p">(</span><span class="n">cust_id</span><span class="p">)</span>
 <span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>以上示例中 cust_id的值必须是Customers表中cust_id的值。</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Orders</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Orders</span>
 <span class="k">ADD</span> <span class="k">CONSTRAINT</span> 
 <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">cust_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">Customers</span><span class="p">(</span><span class="n">cust_id</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>
   <p>外键有助于防止意外删除</p>
@@ -1022,13 +970,12 @@
 
 <p>唯一约束可以使用 UNIQUE关键字在表定义中定义</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span>  <span class="k">user</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span>  <span class="k">user</span>
 <span class="err">{</span>
   <span class="n">u_id</span> <span class="n">interger</span> <span class="k">not</span> <span class="k">null</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
   <span class="n">card_num</span> <span class="n">interger</span> <span class="k">not</span> <span class="k">null</span> <span class="k">unique</span>
 <span class="err">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="检查约束">检查约束</h4>
 
@@ -1040,7 +987,7 @@
   <li>只允许特定的值。例如，在性别字段中只允许M或F</li>
 </ul>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">OrderItems</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">OrderItems</span>
 <span class="p">(</span>
   <span class="n">order_num</span> <span class="n">Interger</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
   <span class="n">order_item</span> <span class="n">interger</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
@@ -1049,8 +996,7 @@
   <span class="n">item_price</span> <span class="n">money</span> <span class="n">nto</span> <span class="k">null</span>
 <span class="p">);</span>
 <span class="k">ADD</span> <span class="n">CONSTAINT</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">gender</span> <span class="k">LIKE</span> <span class="s1">'[MF]'</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="索引">索引</h4>
 
@@ -1067,10 +1013,9 @@
   <li>索引用于数据过滤和数据排序。如果你经常以某种特定的顺序排序数据，则该数据可能适合做索引</li>
 </ul>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">prod_name_ind</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">prod_name_ind</span>
 <span class="k">ON</span> <span class="n">Products</span> <span class="p">(</span><span class="n">prod_name</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>索引必须唯一命名。</p>
 
 <h4 id="触发器">触发器</h4>
@@ -1080,24 +1025,6 @@
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2016/12/19/mysql" data-title="Sql" data-url="http://newlifebegins//2016/12/19/mysql.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

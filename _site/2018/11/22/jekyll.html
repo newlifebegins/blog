@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>jekyll安装运行</title>
+  <meta name="description" content="既然都看到这篇文章了，想必也对jekyll有所了解，我也是新手，将自己遇到的一些问题分享出来，希望能对大家有帮助。">
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico" />
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2018/11/22/jekyll.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">jekyll安装运行</h1>
+    <p class="post-meta"><time datetime="2018-11-22T00:00:00+08:00" itemprop="datePublished">Nov 22, 2018</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <h6 id="既然都看到这篇文章了想必也对jekyll有所了解我也是新手将自己遇到的一些问题分享出来希望能对大家有帮助">既然都看到这篇文章了，想必也对jekyll有所了解，我也是新手，将自己遇到的一些问题分享出来，希望能对大家有帮助。</h6>
+
+<h3 id="步骤">步骤</h3>
+<ul>
+  <li>安装 Ruby</li>
+  <li>安装 DevKit</li>
+  <li>安装 Jekyll</li>
+</ul>
+
+<hr />
+
+<h1 id="1安装-ruby">1、安装 Ruby</h1>
+
+<p>下载地址：<a href="https://rubyinstaller.org/downloads/">https://rubyinstaller.org/downloads/</a></p>
+
+<p><img src="../../../images/2018-11-22_124443.png" alt="ruby" title="ruby" /></p>
+
+<p>注意版本要选 2.3，本文使用的是：rubyinstaller-2.3.3-x64</p>
+
+<p><img src="../../../images/20180209145741879.png" alt="path" title="path" /></p>
+
+<p>如果是第一次安装，推荐默认路径，不要乱改路径，避免一些不必要的问题，比如我的路径是：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Ruby23-x64
+</code></pre></div></div>
+<p>安装的时候注意勾选把ruby添加到路径PATH，如果不勾选也可以手动添加
+例如，按照我的路径，就应该添加：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Ruby23-x64\bin;
+</code></pre></div></div>
+<p>检查ruby是否正常安装，会出现版本号</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -v
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby -v
+ruby 2.3.3p222 (2016-11-21 revision 56859) [x64-mingw32]
+</code></pre></div></div>
+
+<h1 id="2安装devkit">2、安装DevKit</h1>
+
+<p>回到刚刚的下载 ruby 的页面，往下滑。。。
+下载 DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</p>
+
+<p><img src="../../../images/20180209162815496.png" alt="DevKit" title="DevKit" /></p>
+
+<p>解压文件，路径不要太长，推荐：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\DevKit
+</code></pre></div></div>
+
+<p>进入目录，初始化</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby dk.rb init
+</code></pre></div></div>
+
+<p>打开 config.yml 添加</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:/Ruby22-x64
+</code></pre></div></div>
+
+<p>依次执行以下命令</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby dk.rb review  # 审查（非必须）
+
+ruby dk.rb install  # 安装
+
+gem -v  # 查看gem是否正常安装
+</code></pre></div></div>
+<p><img src="../../../images/20180209163206604.png" alt="bash" title="bash" /></p>
+
+<p>均无报错，ok</p>
+
+<h1 id="3安装jekyll">3、安装jekyll</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll
+</code></pre></div></div>
+
+<p>测试一下</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll --version
+jekyll 3.8.5
+</code></pre></div></div>
+<p>新建项目</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new myblog
+</code></pre></div></div>
+<p>如果没有任何报错，会在当前目录下回生产一个 myblog 文件夹
+<img src="../../../images/2018-11-22_131209.png" alt="myblog" title="myblog" /></p>
+<h1 id="4运行服务器">4、运行服务器</h1>
+
+<p>进入 myblog 文件夹，运行服务器</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd myblog
+myblog&gt;jekyll serve
+</code></pre></div></div>
+<p>访问测试：<a href="http://127.0.0.1:4000/">http://127.0.0.1:4000/</a>
+<img src="../../../images/20180209160150711.png" alt="myblog" title="myblog" />
+一切都很完美，不过这才刚刚开始。。。</p>
+<h1 id="5遇到的问题">5、遇到的问题</h1>
+
+<p>运行：gem install jekyll 时报错</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dependency Error: Yikes! It looks like you don’t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you’ll need to install this gem. The full error message from Ruby is: ‘cannot load such file – jekyll-paginate’ If you run into trouble, you can find helpful resources at Getting Help
+
+jekyll 3.1.2 | Error: jekyll-paginate
+</code></pre></div></div>
+<p>解决办法：安装jekyll时候直接运行</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll-paginate
+</code></pre></div></div>
+<p>即可解决。</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -63,22 +63,19 @@
 <p>windows下 node.js 的安装很简单,访问<a href="https://nodejs.org"><code class="highlighter-rouge">node.js官网</code></a>,下载安装包,默认安装就好.</p>
 
 <p>打开控制台测试是否安装成功</p>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>node -v
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node <span class="nt">-v</span>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">npm</code> 是node.js的包管理工具, node.js以模块的方式组织代码,允许任何人提交一个模块,来扩展javascript, npm用来管理这些模块</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>npm -v
-npm install -g bower
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nt">-v</span>
+npm <span class="nb">install</span> <span class="nt">-g</span> bower
+</code></pre></div></div>
 
 <p>如果有的包安装不上 复制以下代码替换 <code class="highlighter-rouge">x</code> 为安装不上的包 (会带来一定的问题,建议翻墙)</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code> npm install x --registry<span class="o">=</span>http://registry.npm.taobao.org
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm <span class="nb">install </span>x <span class="nt">--registry</span><span class="o">=</span>http://registry.npm.taobao.org
+</code></pre></div></div>
 
 <h2 id="bower">bower</h2>
 
@@ -128,25 +125,23 @@ npm install -g bower
 
 <p>大致如下</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>npm install -g generator-generator
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> generator-generator
 yo generator
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>会生成一个目录结构</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>--generators/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gd">--generators/
 ----app/
 ------temlates/   此目录中放静态文件,以供拷贝
 ------index.js    默认会运行的文件
-
+</span>
 其他省略
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>编写index.js</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="s1">'use strict'</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'use strict'</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">yeoman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'yeoman-generator'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'chalk'</span><span class="p">);</span>
@@ -204,8 +199,8 @@ yo generator
   <span class="na">default</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">())</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
-        <span class="s1">'Your generator must be inside a folder named '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">'\n'</span> <span class="o">+</span>
-        <span class="s1">'I\'ll automatically create this folder.'</span>
+        <span class="s1">'Your generator must be inside a folder named '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">'</span><span class="err">\</span><span class="s1">n'</span> <span class="o">+</span>
+        <span class="s1">'I</span><span class="se">\'</span><span class="s1">ll automatically create this folder.'</span>
       <span class="p">);</span>
       <span class="nx">mkdirp</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">destinationRoot</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">));</span>
@@ -273,38 +268,18 @@ yo generator
     <span class="nx">wiredep</span><span class="p">({</span> <span class="na">src</span><span class="p">:</span> <span class="s1">'index.html'</span> <span class="p">});</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>npm link
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">link</span>
+</code></pre></div></div>
 
 <p>随后就可以  <code class="highlighter-rouge">yo name</code> 了</p>
 
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2016/05/23/node-yoman" data-title="搭建前端自动化开发环境" data-url="http://newlifebegins//2016/05/23/node-yoman.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

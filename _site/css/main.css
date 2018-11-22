@@ -267,10 +267,6 @@ blue      #268bd2  reserved keywords
 cyan      #2aa198  strings, numbers
 green     #859900  operators, other keywords
 */
-.highlight {
-  background-color: #002b36;
-  color: #93a1a1; }
-
 .highlight .c {
   color: #586e75; }
 
@@ -1030,9 +1026,10 @@ green     #859900  operators, other keywords
   padding: 16px;
   overflow: auto;
   font-size: 85%;
+  color: #abb2bf;
   line-height: 1.45;
-  background-color: #f7f7f7;
-  border-radius: 3px; }
+  background-color: #1c1c1c;
+  border-radius: 4px; }
 
 .markdown-body pre code {
   display: inline;

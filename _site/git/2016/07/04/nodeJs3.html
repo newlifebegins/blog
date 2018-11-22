@@ -40,20 +40,18 @@
   <div class="markdown-body" itemprop="articleBody">
     <h1 id="nodejs">node.js</h1>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>node.js 是一个 javascript 运行环境,基于google chrome v8 引擎,现在可以写js代码操作DOM以外的一些东西,比如操作文件,监听tcp端口,发送网络请求(不再是以ajax的方式),发送邮件,解析MP3元数据.........
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node.js 是一个 javascript 运行环境,基于google chrome v8 引擎,现在可以写js代码操作DOM以外的一些东西,比如操作文件,监听tcp端口,发送网络请求(不再是以ajax的方式),发送邮件,解析MP3元数据.........
+</code></pre></div></div>
 
 <h2 id="一个简单的使用">一个简单的使用</h2>
 
 <p><code class="highlighter-rouge">windows</code> <code class="highlighter-rouge">cmd</code> 常用命令</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>dir
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dir
 cd (table补全)
 ctrl+c 两次退出程序
 D: 切换盘符
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
   <li><code class="highlighter-rouge">node.js</code>安装</li>
@@ -69,11 +67,10 @@ D: 切换盘符
   <li>下载库的步骤</li>
 </ol>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>   npm  install express
-   npm  install -g cnpm
-   cnpm install mysql
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   npm  <span class="nb">install </span>express
+   npm  <span class="nb">install</span> <span class="nt">-g</span> cnpm
+   cnpm <span class="nb">install </span>mysql
+</code></pre></div></div>
 
 <h2 id="利用nodejs自己给cmd中加一个小程序的步骤">利用<code class="highlighter-rouge">nodeJs</code>自己给<code class="highlighter-rouge">cmd</code>中加一个小程序的步骤</h2>
 
@@ -83,13 +80,12 @@ D: 切换盘符
   <li>在 <code class="highlighter-rouge">json</code> 文件中添加</li>
 </ol>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"bin"</span><span class="p">:{</span><span class="w">
-      </span><span class="nt">"myCopy"</span><span class="p">:</span><span class="s2">"./index.js"</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"bin"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"myCopy"</span><span class="p">:</span><span class="s2">"./index.js"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 <ol>
   <li>用 <code class="highlighter-rouge">npm</code> 安装依赖,写 <code class="highlighter-rouge">index.js</code></li>
   <li>首行要写上<code class="highlighter-rouge">#!c:/nodejs/node.exe --harmony</code></li>
@@ -103,24 +99,6 @@ D: 切换盘符
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/git/2016/07/04/nodeJs3" data-title="node.js开发cmd小程序" data-url="http://newlifebegins//git/2016/07/04/nodeJs3.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

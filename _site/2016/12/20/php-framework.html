@@ -42,28 +42,27 @@
 
 <p>.htaccess文件 ‘/.htaccess’</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;IfModule mod_rewrite.c&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IfModule mod_rewrite.c&gt;
     RewriteEngine on
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 &lt;/IfModule&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>入口文件 <code class="highlighter-rouge">/index.php</code></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="c1">// 整个框架所在的根目录
-</span><span class="nb">define</span> <span class="p">(</span><span class="s1">'UEK'</span><span class="p">,</span> <span class="nb">realpath</span><span class="p">(</span><span class="s1">'./'</span><span class="p">));</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="c1">// 整个框架所在的根目录</span>
+<span class="nb">define</span> <span class="p">(</span><span class="s1">'UEK'</span><span class="p">,</span> <span class="nb">realpath</span><span class="p">(</span><span class="s1">'./'</span><span class="p">));</span>
 
-<span class="c1">// 核心类所有在目录
-</span><span class="nb">define</span> <span class="p">(</span><span class="s1">'CORE'</span><span class="p">,</span> <span class="nx">UEK</span><span class="o">.</span><span class="s1">'/core'</span><span class="p">);</span>
+<span class="c1">// 核心类所有在目录</span>
+<span class="nb">define</span> <span class="p">(</span><span class="s1">'CORE'</span><span class="p">,</span> <span class="nx">UEK</span><span class="o">.</span><span class="s1">'/core'</span><span class="p">);</span>
 
-<span class="c1">// APP开发目录
-</span><span class="nb">define</span> <span class="p">(</span><span class="s1">'APP'</span><span class="p">,</span> <span class="nx">UEK</span><span class="o">.</span><span class="s1">'/app'</span><span class="p">);</span>
+<span class="c1">// APP开发目录</span>
+<span class="nb">define</span> <span class="p">(</span><span class="s1">'APP'</span><span class="p">,</span> <span class="nx">UEK</span><span class="o">.</span><span class="s1">'/app'</span><span class="p">);</span>
 
-<span class="c1">// 是否开启调试模式
-</span><span class="nb">define</span> <span class="p">(</span><span class="s1">'DEBUG'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="c1">// 是否开启调试模式</span>
+<span class="nb">define</span> <span class="p">(</span><span class="s1">'DEBUG'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
 
 <span class="k">if</span><span class="p">(</span> <span class="nx">DEBUG</span> <span class="p">){</span>
   <span class="nb">ini_set</span><span class="p">(</span><span class="s1">'display_errors'</span><span class="p">,</span> <span class="s1">'On'</span><span class="p">);</span>
@@ -71,23 +70,22 @@
   <span class="nb">ini_set</span><span class="p">(</span><span class="s1">'display_errors'</span><span class="p">,</span> <span class="s1">'Off'</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="c1">// 引入公共函数库
-</span><span class="k">include</span> <span class="nx">CORE</span> <span class="o">.</span> <span class="s1">'/common/function.php'</span><span class="p">;</span>
+<span class="c1">// 引入公共函数库</span>
+<span class="k">include</span> <span class="nx">CORE</span> <span class="o">.</span> <span class="s1">'/common/function.php'</span><span class="p">;</span>
 
-<span class="c1">// 引入框架核心类
-</span><span class="k">include</span> <span class="nx">CORE</span> <span class="o">.</span> <span class="s1">'/uek.php'</span><span class="p">;</span>
+<span class="c1">// 引入框架核心类</span>
+<span class="k">include</span> <span class="nx">CORE</span> <span class="o">.</span> <span class="s1">'/uek.php'</span><span class="p">;</span>
 
-<span class="c1">// 如果new一个不存在的类，则调用\core\uek类中的load方法
-</span><span class="nb">spl_autoload_register</span><span class="p">(</span><span class="s1">'\core\uek::load'</span><span class="p">);</span>
+<span class="c1">// 如果new一个不存在的类，则调用\core\uek类中的load方法</span>
+<span class="nb">spl_autoload_register</span><span class="p">(</span><span class="s1">'\core\uek::load'</span><span class="p">);</span>
 
-<span class="c1">// 调用uek类中的run方法启动整个框架
-</span><span class="nx">\core\uek</span><span class="o">::</span><span class="na">run</span><span class="p">();</span>
-</code></pre>
-</div>
+<span class="c1">// 调用uek类中的run方法启动整个框架</span>
+<span class="nx">\core\uek</span><span class="o">::</span><span class="na">run</span><span class="p">();</span>
+</code></pre></div></div>
 
 <p>公共函数库 <code class="highlighter-rouge">/core/common/function.php</code></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">p</span><span class="p">(</span><span class="nv">$var</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">if</span><span class="p">(</span> <span class="nb">is_bool</span><span class="p">(</span><span class="nv">$var</span><span class="p">)</span> <span class="p">){</span>
@@ -98,35 +96,34 @@
     <span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span> <span class="o">.</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>框架核心类 <code class="highlighter-rouge">/core/uek.php</code></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">namespace</span> <span class="nx">core</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">uek</span>
 <span class="p">{</span>
-  <span class="c1">// 缓存已经加载过的类
-</span>  <span class="k">public</span> <span class="k">static</span> <span class="nv">$class_map</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+  <span class="c1">// 缓存已经加载过的类</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="nv">$class_map</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
 
-  <span class="c1">// 保存要输出到视图中的变量
-</span>  <span class="k">public</span> <span class="nv">$assign</span><span class="p">;</span>
+  <span class="c1">// 保存要输出到视图中的变量</span>
+  <span class="k">public</span> <span class="nv">$assign</span><span class="p">;</span>
 
-  <span class="c1">// 框架启动方法 调用路由类管理路由
-</span>  <span class="k">static</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+  <span class="c1">// 框架启动方法 调用路由类管理路由</span>
+  <span class="k">static</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="c1">// 当前并没有include route类文件 会触发spl_autoload_register() 函数中指定的方法
-</span>    <span class="c1">// 也就是本类中的 load() 方法
-</span>    <span class="c1">// spl_autoload_register函数会把 \core\lib\route 作为字符串传递给load()
-</span>
+    <span class="c1">// 当前并没有include route类文件 会触发spl_autoload_register() 函数中指定的方法</span>
+    <span class="c1">// 也就是本类中的 load() 方法</span>
+    <span class="c1">// spl_autoload_register函数会把 \core\lib\route 作为字符串传递给load()</span>
+
     <span class="nv">$route</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\core\lib\route</span><span class="p">();</span>
 
     <span class="nv">$controller_class</span> <span class="o">=</span> <span class="nv">$route</span><span class="o">-&gt;</span><span class="na">controller</span><span class="p">;</span>
     <span class="nv">$action</span> <span class="o">=</span> <span class="nv">$route</span><span class="o">-&gt;</span><span class="na">action</span><span class="p">;</span>
 
-    <span class="c1">// 根据路由规则找到app下对应的类文件， 根据路由规则运行其中的方法
-</span>    <span class="nv">$controller_file</span> <span class="o">=</span> <span class="nx">APP</span> <span class="o">.</span> <span class="s1">'/controller/'</span> <span class="o">.</span> <span class="nv">$controller_class</span> <span class="o">.</span> <span class="s1">'Controller.php'</span><span class="p">;</span>
+    <span class="c1">// 根据路由规则找到app下对应的类文件， 根据路由规则运行其中的方法</span>
+    <span class="nv">$controller_file</span> <span class="o">=</span> <span class="nx">APP</span> <span class="o">.</span> <span class="s1">'/controller/'</span> <span class="o">.</span> <span class="nv">$controller_class</span> <span class="o">.</span> <span class="s1">'Controller.php'</span><span class="p">;</span>
     <span class="k">if</span><span class="p">(</span> <span class="nb">is_file</span><span class="p">(</span><span class="nv">$controller_file</span><span class="p">)</span> <span class="p">){</span>
       <span class="k">include</span> <span class="nv">$controller_file</span><span class="p">;</span>
       <span class="nv">$class_name</span> <span class="o">=</span>  <span class="s1">'\\app\\controller\\'</span><span class="o">.</span><span class="nv">$controller_class</span><span class="o">.</span><span class="s1">'Controller'</span><span class="p">;</span>
@@ -138,20 +135,20 @@
 
   <span class="p">}</span>
 
-  <span class="c1">// 自动加载一个类文件
-</span>  <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="nv">$class</span><span class="p">)</span>
+  <span class="c1">// 自动加载一个类文件</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="nv">$class</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="c1">// 存在于缓存中
-</span>    <span class="k">if</span><span class="p">(</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$class_map</span><span class="p">[</span><span class="nv">$class</span><span class="p">])){</span>
+    <span class="c1">// 存在于缓存中</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$class_map</span><span class="p">[</span><span class="nv">$class</span><span class="p">])){</span>
       <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
     <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-      <span class="c1">// 根据命名空间规则找到对应的类文件
-</span>      <span class="nv">$file</span>  <span class="o">=</span> <span class="nx">UEK</span> <span class="o">.</span> <span class="s1">'/'</span> <span class="o">.</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">'\\'</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">,</span> <span class="nv">$class</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'.php'</span><span class="p">;</span>
+      <span class="c1">// 根据命名空间规则找到对应的类文件</span>
+      <span class="nv">$file</span>  <span class="o">=</span> <span class="nx">UEK</span> <span class="o">.</span> <span class="s1">'/'</span> <span class="o">.</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">'\\'</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">,</span> <span class="nv">$class</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'.php'</span><span class="p">;</span>
 
       <span class="k">if</span><span class="p">(</span> <span class="nb">is_file</span><span class="p">(</span><span class="nv">$file</span><span class="p">)</span> <span class="p">){</span>
         <span class="k">include</span> <span class="nv">$file</span><span class="p">;</span>
-        <span class="c1">// 如果已经include过,利用类名做一次缓存
-</span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$class_map</span><span class="p">[</span><span class="nv">$class</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$class</span><span class="p">;</span>
+        <span class="c1">// 如果已经include过,利用类名做一次缓存</span>
+        <span class="nx">self</span><span class="o">::</span><span class="nv">$class_map</span><span class="p">[</span><span class="nv">$class</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$class</span><span class="p">;</span>
       <span class="p">}</span><span class="k">else</span><span class="p">{</span>
         <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
       <span class="p">}</span>
@@ -172,25 +169,24 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>框架路由类 <code class="highlighter-rouge">/core/lib/route.php</code></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">namespace</span> <span class="nx">core\lib</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">route</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="nv">$controller</span><span class="p">;</span>
   <span class="k">public</span> <span class="nv">$action</span><span class="p">;</span>
 
-  <span class="c1">// new 本类时会自动运行的方法
-</span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">__constructor</span><span class="p">()</span>
+  <span class="c1">// new 本类时会自动运行的方法</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">__constructor</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="c1">// 根据用户访问的路径确定调用APP下哪个php文件中的哪个方法
-</span>    <span class="c1">// 这里返回的只是$controller的名字和对应方法的名字
-</span>    <span class="c1">// 这里还要处理用户的get传参
-</span>    <span class="k">if</span><span class="p">(</span> <span class="nb">isset</span><span class="p">(</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">]</span> <span class="p">)</span> <span class="o">&amp;&amp;</span>  <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">'/'</span> <span class="p">){</span>
+    <span class="c1">// 根据用户访问的路径确定调用APP下哪个php文件中的哪个方法</span>
+    <span class="c1">// 这里返回的只是$controller的名字和对应方法的名字</span>
+    <span class="c1">// 这里还要处理用户的get传参</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nb">isset</span><span class="p">(</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">]</span> <span class="p">)</span> <span class="o">&amp;&amp;</span>  <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">'/'</span> <span class="p">){</span>
       <span class="nv">$path</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">];</span>
       <span class="nv">$params</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="nb">trim</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">));</span>
 
@@ -205,28 +201,27 @@
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">action</span> <span class="o">=</span> <span class="s1">'index'</span><span class="p">;</span>
       <span class="p">}</span>
 
-      <span class="c1">// 将多余的参数收入$_GET
-</span>      <span class="c1">// index/index/id/1/str/2/test/3
-</span>      <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$params</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 将多余的参数收入$_GET</span>
+      <span class="c1">// index/index/id/1/str/2/test/3</span>
+      <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$params</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$params</span><span class="p">[</span><span class="nv">$i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
           <span class="nv">$_GET</span><span class="p">[</span><span class="nv">$params</span><span class="p">[</span><span class="nv">$i</span><span class="p">]]</span> <span class="o">=</span> <span class="nv">$params</span><span class="p">[</span><span class="nv">$i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
         <span class="p">}</span>
       <span class="p">}</span>
 
     <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-      <span class="c1">// 用户访问 / 时候默认调用app下的 indexController.php 下的 index() 方法
-</span>
+      <span class="c1">// 用户访问 / 时候默认调用app下的 indexController.php 下的 index() 方法</span>
+
       <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">controller</span> <span class="o">=</span> <span class="s1">'index'</span><span class="p">;</span>
       <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">action</span> <span class="o">=</span> <span class="s1">'index'</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>框架model类 利用pdo实现连接数据库 <code class="highlighter-rouge">/core/lib/model.php</code></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">namespace</span> <span class="nx">core\lib</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">model</span> <span class="k">extends</span> <span class="nx">\PDO</span>
 <span class="p">{</span>
@@ -243,16 +238,15 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>用户首页类 <code class="highlighter-rouge">/app/controller/indexController.php</code></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">namespace</span> <span class="nx">app\controller</span><span class="p">;</span>
-<span class="c1">// 继承框架核心文件
-// 利用核心文件中的 assign 和 display 方法来管理视图
-</span>
+<span class="c1">// 继承框架核心文件</span>
+<span class="c1">// 利用核心文件中的 assign 和 display 方法来管理视图</span>
+
 <span class="k">class</span> <span class="nc">indexController</span> <span class="k">extends</span> <span class="nx">\core\uek</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
@@ -268,12 +262,11 @@
     <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">display</span><span class="p">(</span><span class="s1">'view/index.html'</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>用户视图文件 ‘/app/view/index.html’</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;head&gt;</span>
   <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;</span>
   <span class="nt">&lt;title&gt;</span><span class="cp">&lt;?php echo $title ?&gt;</span><span class="nt">&lt;/title&gt;</span>
@@ -282,12 +275,11 @@
   <span class="nt">&lt;div&gt;</span><span class="cp">&lt;?php echo $data ?&gt;</span><span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>db文件</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SET</span> <span class="n">SQL_MODE</span> <span class="o">=</span> <span class="nv">"NO_AUTO_VALUE_ON_ZERO"</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SET</span> <span class="n">SQL_MODE</span> <span class="o">=</span> <span class="nv">"NO_AUTO_VALUE_ON_ZERO"</span><span class="p">;</span>
 <span class="k">SET</span> <span class="n">time_zone</span> <span class="o">=</span> <span class="nv">"+00:00"</span><span class="p">;</span>
 
 <span class="c1">--</span>
@@ -337,32 +329,13 @@
 <span class="c1">--</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="nv">`todos`</span>
   <span class="k">MODIFY</span> <span class="nv">`id`</span> <span class="n">int</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>访问 <code class="highlighter-rouge">http://localhost/index/index</code></p>
 
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2016/12/20/php-framework" data-title="php框架" data-url="http://newlifebegins//2016/12/20/php-framework.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

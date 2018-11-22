@@ -42,13 +42,12 @@
 
 <p>在 http://www.bootcdn.cn/ 中搜索 <code class="highlighter-rouge">angular</code> 下载</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"pathto/angular.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"pathto/angular.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
 
 <h2 id="2简单使用">2.简单使用</h2>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="c">&lt;!-- 这里使用 ng-app 指令  --&gt;</span>
 <span class="nt">&lt;html</span>  <span class="na">ng-app=</span><span class="s">"reminder"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;head&gt;</span>
@@ -65,12 +64,11 @@
   <span class="nt">&lt;/body&gt;</span>
   <span class="c">&lt;!-- controller的作用域范围在这里结束--&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="3以模块化的方式来开发自己的应用-和-依赖注入">3.以模块化的方式来开发自己的应用 和 依赖注入</h2>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span>  <span class="na">ng-app=</span><span class="s">"reminder"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
@@ -102,10 +100,9 @@
     <span class="nt">&lt;/table&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="c1">// 把我们的应用作用单独的一个模块 和系统中的其他模块解耦</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// 把我们的应用作用单独的一个模块 和系统中的其他模块解耦</span>
   <span class="kd">var</span> <span class="nx">reminder</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'reminder'</span><span class="p">,[]);</span>
 
   <span class="c1">// 在我们的模块上创建一个控制器  来控制本模块中某个局部的可见数据</span>
@@ -119,8 +116,7 @@
       <span class="k">this</span><span class="p">.</span><span class="nx">stuents</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">id</span><span class="p">:</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">(),</span><span class="na">name</span><span class="p">:</span><span class="s1">'new man'</span><span class="p">,</span> <span class="na">sex</span><span class="p">:</span><span class="s1">'nan'</span><span class="p">});</span>
     <span class="p">}</span>
   <span class="p">}]);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="4常用的装饰型指令">4.常用的装饰型指令</h2>
 
@@ -160,17 +156,16 @@
 
 <p>login.html</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"login"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"login"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usernam"</span><span class="nt">&gt;&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"password"</span><span class="nt">&gt;&lt;/div&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Login<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>index.html</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">"reminder"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
@@ -178,15 +173,14 @@
     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular.js"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;&lt;/script&gt;</span>
     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"index.js"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;&lt;/script&gt;</span>
   <span class="nt">&lt;/head&gt;</span>
-  <span class="nt">&lt;body</span> <span class="na">ng-controller =</span><span class="err"> </span><span class="s">"mainControler"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;body</span> <span class="na">ng-controller = </span><span class="s">"mainControler"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;login&gt;&lt;/login&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>index.js</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">reminder</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'reminder'</span><span class="p">,[]);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">reminder</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'reminder'</span><span class="p">,[]);</span>
 <span class="c1">// 在整个模块的各个控制器作用域内  login指令都可用</span>
 <span class="nx">reminder</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">'login'</span><span class="p">,[</span><span class="kd">function</span><span class="p">(){</span>
   <span class="c1">// Runs during compile</span>
@@ -207,8 +201,7 @@
     <span class="c1">// }</span>
   <span class="p">};</span>
 <span class="p">}]);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="6在组件型指令中的link函数中使用jquery或jqlite">6.在组件型指令中的link函数中使用jQuery或jqLite</h2>
 
@@ -228,7 +221,7 @@
 
 <p>jqLite对象中的方法:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
  </span><span class="s2">"ready()"</span><span class="p">,</span><span class="w">
  </span><span class="s2">"toString()"</span><span class="p">,</span><span class="w">
  </span><span class="s2">"eq()"</span><span class="p">,</span><span class="w">
@@ -275,22 +268,19 @@
  </span><span class="s2">"clone()"</span><span class="p">,</span><span class="w">
  </span><span class="s2">"triggerHandler()"</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 <p>如果项目中不使用jQuery插件，jqLite是很好的操作DOM，绑定事件的选择。</p>
 
 <p>在普通的controller中 也可以这样使用：</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">name=</span><span class="s">"button"</span> <span class="na">ng-click=</span><span class="s">"submit($event)"</span><span class="nt">&gt;&lt;/button&gt;</span>
-</code></pre>
-</div>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$scope</span><span class="p">.</span><span class="nx">toggletododetail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$event</span><span class="p">){</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">name=</span><span class="s">"button"</span> <span class="na">ng-click=</span><span class="s">"submit($event)"</span><span class="nt">&gt;&lt;/button&gt;</span>
+</code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$scope</span><span class="p">.</span><span class="nx">toggletododetail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$event</span><span class="p">){</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$event</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">elements</span><span class="p">()</span> <span class="c1">// 得到一个JqLite对象</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>  <span class="c1">//查看其中的方法，比jquery少很多</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如果想使用jquery,先引入jquery 后引入angular.js,jQuery 会自动覆盖jqLite,随后不用任何配置就可以在代码中使用 $.</p>
 
@@ -300,7 +290,7 @@
 
 <p>使用ng-view指令搭配 $routeProvider配置整个应用的 <code class="highlighter-rouge">状态</code></p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular-route.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular-route.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">""</span><span class="nt">&gt;</span>
    <span class="nt">&lt;title-bar&gt;&lt;/title-bar&gt;</span>  
 
@@ -315,10 +305,9 @@
      <span class="nt">&lt;/ul&gt;</span>
    <span class="nt">&lt;/tab-bar&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,[]);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,[]);</span>
 
 <span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'mainctrl'</span><span class="p">,[</span><span class="s1">'$scope'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
   <span class="c1">//main.html 的控制器</span>
@@ -340,8 +329,7 @@
     <span class="na">redirectTo</span><span class="p">:</span><span class="s1">'/'</span>
   <span class="p">});</span>
 <span class="p">}])</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>通过内置的router了解了其工作原理之后，请在工程中使用 <code class="highlighter-rouge">angular-ui-router</code>;</p>
 
@@ -349,7 +337,7 @@
 
 <p>使用内置的$location 服务</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'listCtrl'</span><span class="p">,[</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'listCtrl'</span><span class="p">,[</span>
   <span class="s1">'$scope'</span><span class="p">,</span>
   <span class="s1">'$location'</span><span class="p">,</span>
   <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="nx">$location</span><span class="p">){</span>
@@ -358,8 +346,7 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">])</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="8-服务">8. 服务</h2>
 
@@ -375,7 +362,7 @@
 
 <p>常用一个service代表后台中一张表，及对表的操作</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,[]);</span>
 
 <span class="c1">// 可以在中括号中定义其他需要的服务</span>
@@ -413,8 +400,7 @@
 
 <span class="nx">myapp</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="s1">'$PI'</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="9在服务中或其他地方使用http服务">9.在服务中或其他地方使用$http服务</h2>
 
@@ -422,7 +408,7 @@
 
 <p>所有在服务中同数据库的交互都采用这种方式</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,[</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,[</span>
   <span class="s1">'$http'</span><span class="p">,</span>
   <span class="s1">'$location'</span><span class="p">,</span>
   <span class="s1">'$q'</span><span class="p">,</span>
@@ -431,7 +417,7 @@
       <span class="na">getAllUser</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
         <span class="c1">//这里涉及到异步  所以使用$q延后执行</span>
         <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">();</span>
-        <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/allUser'</span><span class="p">)</span>
+        <span class="nx">$http</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/allUser'</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">){</span>
           <span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
         <span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">){</span>
@@ -455,8 +441,7 @@
     <span class="p">});</span>
   <span class="p">}</span>
 <span class="p">])</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="10过滤器">10.过滤器</h2>
 
@@ -466,14 +451,13 @@
 
 <p>过滤器的本质是一个函数</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!--prefix 是一个函数  第一个参数为 name 变量  第二个参数为:后面提供的值--&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--prefix 是一个函数  第一个参数为 name 变量  第二个参数为:后面提供的值--&gt;</span>
 <span class="nt">&lt;span&gt;&lt;/span&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>所以自定义过滤器就相当于写一个公用的在整个模块中可用的函数</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="s1">'young'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="s1">'young'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
   <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">type</span><span class="p">){</span>
     <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span>  <span class="p">[];</span>
     <span class="kd">var</span> <span class="nx">_sex</span> <span class="o">=</span> <span class="nx">type</span><span class="p">?</span><span class="s1">'nan'</span><span class="p">:</span><span class="s1">'nv'</span><span class="p">;</span>
@@ -485,15 +469,13 @@
     <span class="k">return</span> <span class="nx">r</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">})</span>
-</code></pre>
-</div>
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>  <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">"stu in students| young:1"</span> <span class="nt">&gt;&lt;/li&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">"stu in students| young:1"</span> <span class="nt">&gt;&lt;/li&gt;</span>
+</code></pre></div></div>
 
 <p>过滤器可以以类似服务的方式注入到各个 控制器，服务，指令，过滤器。</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'indexCtrl'</span><span class="p">,[</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">myapp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'indexCtrl'</span><span class="p">,[</span>
   <span class="s1">'$scope'</span><span class="p">,</span>
   <span class="s1">'$routeParams'</span><span class="p">,</span>
   <span class="s1">'User'</span><span class="p">,</span>   <span class="c1">// User为自定义的一个服务</span>
@@ -502,40 +484,36 @@
     <span class="nx">$filter</span><span class="p">(</span><span class="s1">'prefix'</span><span class="p">)();</span><span class="c1">//这样像使用正常函数一样使用它</span>
   <span class="p">}</span>
 <span class="p">])</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="11使用动画">11.使用动画</h2>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular-animate.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-</div>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,[</span><span class="s1">'ngRoute'</span><span class="p">,</span><span class="s1">'ngAnimate'</span><span class="p">]);</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular-animate.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,[</span><span class="s1">'ngRoute'</span><span class="p">,</span><span class="s1">'ngAnimate'</span><span class="p">]);</span>
+</code></pre></div></div>
 
 <p>查阅文档 观察class的变化 写css样式来操控动画</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span><span class="err">
-span.ng-enter{
-  /**/
-}
-span.ng-enter-active{
-  /**/
-}
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span>
+<span class="nt">span</span><span class="nc">.ng-enter</span><span class="p">{</span>
+  <span class="c">/**/</span>
+<span class="p">}</span>
+<span class="nt">span</span><span class="nc">.ng-enter-active</span><span class="p">{</span>
+  <span class="c">/**/</span>
+<span class="p">}</span>
 
-#view.ng-enter{
+<span class="nf">#view</span><span class="nc">.ng-enter</span><span class="p">{</span>
 
-}
-#view.ng-enter-active{
+<span class="p">}</span>
+<span class="nf">#view</span><span class="nc">.ng-enter-active</span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 
-&lt;style&gt;
-&lt;span ng-if="show"&gt; &lt;/span&gt;   
-&lt;ng-view id="view"&gt;&lt;/ng-view&gt;
-</span></code></pre>
-</div>
+<span class="o">&lt;</span><span class="nt">style</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nt">span</span> <span class="nt">ng-if</span><span class="o">=</span><span class="s1">"show"</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="nt">span</span><span class="o">&gt;</span>   
+<span class="o">&lt;</span><span class="nt">ng-view</span> <span class="nt">id</span><span class="o">=</span><span class="s1">"view"</span><span class="o">&gt;&lt;/</span><span class="nt">ng-view</span><span class="o">&gt;</span>
+</code></pre></div></div>
 
 <h2 id="12自定义指令中的配置项">12.自定义指令中的配置项</h2>
 
@@ -559,7 +537,7 @@ span.ng-enter-active{
   <li>
     <p>指令之template属性</p>
 
-    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!--注意这里 type 为  text/ng-template 的script标签--&gt;</span>
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--注意这里 type 为  text/ng-template 的script标签--&gt;</span>
 <span class="nt">&lt;script  </span><span class="na">type=</span><span class="s">"text/ng-template"</span> <span class="na">id=</span><span class="s">"tab-bar"</span><span class="nt">&gt;</span>
 <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="sr">/li</span><span class="err">&gt;
@@ -576,8 +554,7 @@ myapp.directive('tab-bar',[
     }
   }
 ])
-</code></pre>
-    </div>
+</code></pre></div>    </div>
     <p>指定一个字符串或者一个<script type="template/javascript" id="tem"></script>的id
 或者templateCache中的某个名字来作为指令的模板</p>
   </li>
@@ -593,15 +570,14 @@ myapp.directive('tab-bar',[
 
     <p>例子.一个轮播图指令,拥有自己独立的作用域,但是需要从父作用域中获取需要轮播的图片地址</p>
 
-    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">"mainCtrl"</span><span class="nt">&gt;</span>
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">"mainCtrl"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;lunbo</span> <span class="na">pics=</span><span class="s">"pics"</span> <span class="na">a=</span><span class="s">""</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h1&gt;</span>this is a lunbo<span class="nt">&lt;/h1&gt;</span>
   <span class="nt">&lt;/lunbo&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">di</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'di'</span><span class="p">,[]);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">di</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'di'</span><span class="p">,[]);</span>
 <span class="nx">di</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'mainCtrl'</span><span class="p">,[</span>
 <span class="s1">'$scope'</span><span class="p">,</span>
 <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
@@ -636,8 +612,7 @@ myapp.directive('tab-bar',[
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">]);</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>指令之controller属性</p>
@@ -680,7 +655,7 @@ myapp.directive('tab-bar',[
 
 <h2 id="13利用templatecache来缓存页面">13.利用templateCache来缓存页面</h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//会在app启动的时候运行一次</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//会在app启动的时候运行一次</span>
 <span class="nx">myapp</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$templateCache</span><span class="p">){</span>
   <span class="nx">$templateCache</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">'cache'</span><span class="p">,</span><span class="s1">'&lt;h3&gt;内容来源于缓存!&lt;/h3&gt;'</span><span class="p">);</span>
 <span class="p">})</span>
@@ -692,8 +667,7 @@ myapp.directive('tab-bar',[
     <span class="na">replace</span><span class="p">:</span><span class="kc">true</span>
   <span class="p">};</span>
 <span class="p">}]);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="14其他">14.其他</h2>
 
@@ -763,24 +737,6 @@ myapp.directive('tab-bar',[
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2016/06/04/angular-basic" data-title="Angularjs基础" data-url="http://newlifebegins//2016/06/04/angular-basic.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

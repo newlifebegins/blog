@@ -50,10 +50,9 @@
 
 <p>或者 .编辑 ~/.npmrc 加入下面内容</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>//采用国内镜像
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//采用国内镜像
 registry <span class="o">=</span> http://registry.cnpmjs.org
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="安装-cordova---ionic">安装 cordova   ionic</h3>
 
@@ -65,10 +64,9 @@ registry <span class="o">=</span> http://registry.cnpmjs.org
 
 <p>ionic 内部集成cordova</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>npm install -g cordova
-npm install -g ionic
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> cordova
+npm <span class="nb">install</span> <span class="nt">-g</span> ionic
+</code></pre></div></div>
 
 <h3 id="创建一个-ionic-项目">创建一个 ionic 项目</h3>
 
@@ -76,10 +74,10 @@ npm install -g ionic
 
 <p>创建文件夹，准备启动一个ionic项目</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nb">cd</span> ~/users/l/document/
 
-ionic --help
+ionic <span class="nt">--help</span>
 
 ionic start dribbble tabs
 
@@ -87,14 +85,12 @@ ionic start dribbble tabs
 
 ionic setup sass
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="在浏览器中调试代码">在浏览器中调试代码</h3>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>ionic serve
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ionic serve
+</code></pre></div></div>
 
 <p>也可以采用 <a href="http://lab.ionic.io/">ionic lab</a></p>
 
@@ -106,11 +102,10 @@ ionic setup sass
 
 <p>其他的开发就是正常的cordova + angular</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>ionic platform add android
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ionic platform add android
 ionic build android
 ionic run android
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="真机调试需要的三步麻烦工作">真机调试需要的三步麻烦工作</h2>
 
@@ -130,34 +125,15 @@ ionic run android
 
 <p>android sdk安装过程中注意 把代理服务器换成国内的,速度会快好多.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>『Android SDK Manager - Settings』
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>『Android SDK Manager - Settings』
 「HTTP Proxy Server」  =&gt;   mirrors.neusoft.edu.cn
 「HTTP Proxy Port」    =&gt;   80
 选中「Force https://... sources to be fetched using http://...」
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2016/05/18/ionic" data-title="Ionic 开发hybird app" data-url="http://newlifebegins//2016/05/18/ionic.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

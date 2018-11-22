@@ -43,9 +43,8 @@
 比其他的dom对象多出一些自己独有的属性方法和事件</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">audio</span> <span class="o">=</span>  <span class="nx">$</span><span class="p">(</span><span class="s1">'audio'</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">audio</span> <span class="o">=</span>  <span class="nx">$</span><span class="p">(</span><span class="s1">'audio'</span><span class="p">).</span><span class="kd">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
 
 <h2 id="属性">属性</h2>
 
@@ -134,7 +133,7 @@
 
 <h2 id="事件驱动的编程模式">事件驱动的编程模式</h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="c1">// 这里只设置数据</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// 这里只设置数据</span>
   <span class="nx">$</span><span class="p">(</span><span class="s1">'音量div'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
     <span class="nx">audio</span><span class="p">.</span><span class="nx">volume</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">offsetX</span> <span class="o">/</span> <span class="nx">e</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="p">;</span>
   <span class="p">})</span>
@@ -143,8 +142,7 @@
     <span class="kd">let</span> <span class="nx">width</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentTime</span><span class="o">/</span><span class="k">this</span><span class="p">.</span><span class="nx">duration</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span> <span class="o">+</span> <span class="s1">'%'</span><span class="p">;</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">'音量div'</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.inner'</span><span class="p">).</span><span class="nx">width</span><span class="p">(</span><span class="nx">width</span><span class="p">);</span>
   <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="开始项目">开始项目</h2>
 
@@ -173,17 +171,16 @@
   <li>使用前端自动化工具 <code class="highlighter-rouge">bower</code></li>
 </ol>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>bower init
-bower install jquery --save
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bower init
+bower <span class="nb">install </span>jquery <span class="nt">--save</span>
+</code></pre></div></div>
 
 <p>会生成一个.bower文件
 ，这样任何人拿到项目之后，同样去运行<code class="highlighter-rouge">bower install</code>， 就会下载出来所有的依赖库</p>
 
 <h2 id="nodejs">node.js</h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">minglinghang</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'child_process'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="s1">'./musics/'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
@@ -213,12 +210,11 @@ bower install jquery --save
 <span class="p">})</span>
 
 <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="s1">'./database.json'</span><span class="p">,</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>递归遍历文件夹</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span>   <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span>   <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">childProcess</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'child_process'</span><span class="p">);</span>
 
 <span class="c1">// 递归遍历文件夹 对其中的每一个文件调用 callback</span>
@@ -241,7 +237,7 @@ bower install jquery --save
   <span class="kd">var</span> <span class="nx">extName</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">).</span><span class="nx">pop</span><span class="p">();</span>
   <span class="k">if</span><span class="p">(</span> <span class="nx">fileExtension</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">extName</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">){</span>
     <span class="c1">// 这个在windows下不生效</span>
-    <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">trim</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">/g</span><span class="p">,</span><span class="s1">'\\ '</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">trim</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">/g</span><span class="p">,</span><span class="s1">'</span><span class="err">\\</span><span class="s1"> '</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">childProcess</span><span class="p">.</span><span class="nx">execSync</span><span class="p">(</span><span class="s1">'ffprobe -v quiet -print_format json -show_format  '</span> <span class="o">+</span> <span class="nx">path</span><span class="p">);</span>
     <span class="nx">database</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">).</span><span class="nx">format</span> <span class="p">);</span>
   <span class="p">}</span>
@@ -255,30 +251,11 @@ bower install jquery --save
   <span class="p">}</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'saved!'</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/2016/05/26/audio" data-title="Audio对象身上的属性方法和事件" data-url="http://newlifebegins//2016/05/26/audio.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>

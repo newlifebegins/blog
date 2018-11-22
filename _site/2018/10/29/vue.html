@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>关于vue项目打包后提示图片文件路径错误的解决方法</title>
+  <meta name="description" content="vue项目打包后在production模式下提示图片 ‘404（not found），在dev环境下好好的，打包了就提示这个错误。这是为什么呢，以前第一次使用vue-cli构建项目的的时候只有两个图片文件，当时部署后报错路径问题， 当时的想法就是简单粗暴，直接在build好的文件修改了文件路径，再后来项目中遇到了...">
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico" />
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2018/10/29/vue.html">
+  <link rel="alternate" type="application/rss+xml" title="newlifebegins" href="http://localhost:4000/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog/">newlifebegins</a>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">关于vue项目打包后提示图片文件路径错误的解决方法</h1>
+    <p class="post-meta"><time datetime="2018-10-29T00:00:00+08:00" itemprop="datePublished">Oct 29, 2018</time></p>
+  </header>
+
+  <div class="markdown-body" itemprop="articleBody">
+    <p>vue项目打包后在production模式下提示图片 ‘404（not found），在dev环境下好好的，打包了就提示这个错误。这是为什么呢，以前第一次使用vue-cli构建项目的的时候只有两个图片文件，当时部署后报错路径问题， 当时的想法就是简单粗暴，直接在build好的文件修改了文件路径，再后来项目中遇到了一大堆静态资源，修改路径显然是不行的，看了一下生成文件大概知道是文件目录改变了，所以引用的路径也要随之改变，网上最简单的方法是修改 ‘config/index.js’文件中的 build模块：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// emplate for index.html
+ index: path.resolve(__dirname, '../dist/index.html'),
+ // Paths
+ assetsRoot: path.resolve(__dirname, '../dist'),
+ assetsSubDirectory: 'static',
+ assetsPublicPath: './',
+</code></pre></div></div>
+<p>将默认的改为上文这样子，静态文件目录改为static，静态路径改为‘./’，即相对路径。 ok了？
+试了一下还是有404，当时想到的就是难道只能在组件data中以“require”的方式一个一个的引入了吗？ 这个属于js中以模块引入方式确实可行，但是太繁琐，想一下，使用这张图的时候在html文档结构中以 “:bind”的方式将资源以code的方式加在html文档中，不是说这样不行，这样也是可以实现想要的效果的，但是这样做会导致不仅文档结构不清晰，冗余度高，维护起来麻烦，而且资源很多的时候这是一项庞大且繁琐的工作，徒增加无用功。</p>
+
+<pre><code class="language-这样第三种方法应用而生，就是修改‘build’目录下的utils.js文件，将文件中的“generateLoaders”函数改为：">pluginfunction generateLoaders (loader, loaderOptions) {
+    const loaders = options.usePostCSS ?
+     [cssLoader,     postcssLoader] : [cssLoader]
+
+    if (loader) {
+      loaders.push({
+        loader: loader + '-loader',
+        options: Object.assign({}, loaderOptions, {
+          sourceMap: options.sourceMap
+        })
+      })
+    }
+
+    // Extract CSS when that option is specified
+    // (which is the case during production build)
+    if (options.extract) {
+      return ExtractTextPlugin.extract({
+        use: loaders,
+        fallback: 'vue-style-loader',
+        publicPath:'../../'                  //add
+      })
+    } else {
+      return ['vue-style-loader'].concat(loaders)
+    }
+  }
+
+</code></pre>
+<p>重点是if…else判断中的那个”publicPath:’../../’ ”
+build一下，部署在服务端，ok可行，这样就可以愉快的在style中使用图片资源了。</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/newlifebegins"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">newlifebegins</span></a>
+
+            <span>fullstack web developer
+</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -40,60 +40,39 @@
   <div class="markdown-body" itemprop="articleBody">
     <h2 id="全局配置">全局配置</h2>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>
-git config --global user.name <span class="s2">"nate-river"</span>
-git config --global user.email <span class="s2">"mayanlong7@icloud.com"</span>
-git config --global push.default simple
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+git config <span class="nt">--global</span> user.name <span class="s2">"nate-river"</span>
+git config <span class="nt">--global</span> user.email <span class="s2">"mayanlong7@icloud.com"</span>
+git config <span class="nt">--global</span> push.default simple
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="clone一个已有的仓库做开发">clone一个已有的仓库做开发</h2>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/nate-river/bird.git
-git --help
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/nate-river/bird.git
+git <span class="nt">--help</span>
 git status
 git add <span class="k">*</span>
 git status
-git commit -m <span class="s1">'test cli'</span>
+git commit <span class="nt">-m</span> <span class="s1">'test cli'</span>
 git push  
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">git push</code> 会要求用户名和密码</p>
 
 <p>管理分支</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>git branch gh-pages
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch gh-pages
 git checkout gh-pages
 git merge master
-git push --set-upstream origin gh-pages
-</code></pre>
-</div>
+git push <span class="nt">--set-upstream</span> origin gh-pages
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">注意 多使用git status 查看自己目前所在的分支</code></p>
 
   </div>
 
 </article>
-<!-- 多说评论框 start -->
-    <div class="wrapper" style="padding: 30px;border: 1px solid #ccc;margin-top: 50px;">
-    	<div class="ds-thread" data-thread-key="/git/2016/07/29/cli" data-title="使用命令行和github交互" data-url="http://newlifebegins//git/2016/07/29/cli.html"></div>
-    </div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"newlifebegins"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- 多说公共JS代码 end -->
 
       </div>
     </div>
